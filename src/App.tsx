@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { FunctionComponent } from 'react'
+import styled from 'styled-components'
+import { appStyles } from './AppStyles'
+// import { Pure } from './components/pure/Pure'
+// import { PureUnit } from './components/pure-unit/PureUnit'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { Home } from './routes/Home'
+import { Test } from './routes/Test'
+import { Container } from './components/container/Container'
 
-function App() {
+const AppStyled = styled.div`${appStyles}`
+
+export const App: FunctionComponent = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <AppStyled>
+      <BrowserRouter>
+        <Container>
+          <Switch>
+            <Route
+              component={Home}
+              exact
+              path='/'
+            />
+            <Route
+              component={Test}
+              exact
+              path='/test'
+            />
+          </Switch>
+        </Container>
+      </BrowserRouter>
+      {/* <Pure>
+        <PureUnit pureClass='u-1 u-lg-1-2'>PURE1</PureUnit>
+        <PureUnit pureClass='u-1 u-lg-1-2'>PURE1</PureUnit>
+      </Pure> */}
+    </AppStyled>
+  )
 }
-
-export default App;
