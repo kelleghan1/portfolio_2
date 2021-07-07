@@ -1,4 +1,4 @@
-import React, { useState, useEffect, FunctionComponent } from 'react' 
+import React, { useState, useEffect, FunctionComponent } from 'react'
 
 type TesterProps = {
   testerString1?: string

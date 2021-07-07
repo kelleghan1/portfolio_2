@@ -5,17 +5,17 @@ import {
 } from '../../constants/Spacings'
 
 export type SpacerStrings = {
+  b?: string,
   l?: string,
   r?: string,
-  t?: string,
-  b?: string
+  t?: string
 }
 
 export const SpacerStyles = css<SpacerStrings>`
   ${({ t, r, b, l }) => (`
-    padding-top: ${t || SPACING_Y};
     padding-bottom: ${b || SPACING_Y};
     padding-left: ${l || SPACING_X};
     padding-right: ${r || SPACING_X};
+    padding-top: ${t || SPACING_Y};
   `)}
 `
