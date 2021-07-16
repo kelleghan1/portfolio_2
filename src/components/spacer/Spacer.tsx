@@ -1,9 +1,9 @@
-import React, { FunctionComponent, useCallback } from 'react'
+import React, { FunctionComponent, useMemo } from 'react'
 import styled from 'styled-components'
 import { SpacerStyles, SpacerStrings } from './SpacerStyles'
 import {
   SPACING_X_NUM,
-  SPACING_Y_NUM,
+  SPACING_Y_NUM
 } from '../../constants/Spacings'
 import { validateNumber } from '../../utils/helpers'
 
@@ -18,12 +18,12 @@ const SpacerStyled = styled.div`${SpacerStyles}`
 
 export const Spacer: FunctionComponent<SpacerProps> = ({
   children,
+  b,
   l,
   r,
-  t,
-  b
+  t
 }) => {
-  const getSpacings = useCallback(
+  const getSpacings = useMemo(
     () => {
       const spacings: SpacerStrings = {}
 
@@ -35,15 +35,15 @@ export const Spacer: FunctionComponent<SpacerProps> = ({
       return spacings
     },
     [
-      t,
       b,
-      b,
-      r
+      l,
+      r,
+      t
     ]
   )
 
   return (
-    <SpacerStyled {...getSpacings() }>
+    <SpacerStyled {...getSpacings }>
       {children}
     </SpacerStyled>
   )

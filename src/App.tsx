@@ -7,6 +7,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { Home } from './routes/Home'
 import { Test } from './routes/Test'
 import { Container } from './components/container/Container'
+// import { Pure } from './components/pure/Pure'
+// import { PureUnit } from './components/pure-unit/PureUnit'
 
 const AppStyled = styled.div`${appStyles}`
 

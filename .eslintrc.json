@@ -34,6 +34,7 @@
       1,
       "always"
     ],
+    "comma-dangle": ["error", "never"],
     "indent": "off",
     "linebreak-style": [
       "error",
