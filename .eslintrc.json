@@ -28,6 +28,10 @@
   ],
   "rules": {
     "react/prop-types": "off",
+    "react/self-closing-comp": ["error", {
+      "component": true,
+      "html": true
+    }],
     "no-multiple-empty-lines": ["error", { "max": 1}],
     "no-trailing-spaces": "error",
     "object-curly-spacing": [

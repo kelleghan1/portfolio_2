@@ -4,8 +4,8 @@ import { SpacerStyles, SpacerStrings } from './SpacerStyles'
 import {
   SPACING_X_NUM,
   SPACING_Y_NUM
-} from '../../constants/Spacings'
-import { validateNumber } from '../../utils/helpers'
+} from '../../../constants/Spacings'
+import { validateNumber } from '../../../utils/helpers'
 
 type SpacerProps = {
   l?: number,

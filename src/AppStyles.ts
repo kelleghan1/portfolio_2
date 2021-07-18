@@ -7,6 +7,8 @@ import {
 } from './constants/Breakpoints'
 
 export const appStyles = css`
+  background-color: #f2f2f2;
+
   .pure-g {
     letter-spacing: -0.31em; /* Webkit: collapse white-space between units */
     *letter-spacing: normal; /* reset IE < 8 */
