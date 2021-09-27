@@ -1,0 +1,1 @@
+export const GREY1 = '#f2f2f2'

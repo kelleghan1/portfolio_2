@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { NavBarStyles } from './NavBarStyles'
-import { Link } from 'react-router-dom'
 
 const NavBarStyled = styled.div`${NavBarStyles}`
 

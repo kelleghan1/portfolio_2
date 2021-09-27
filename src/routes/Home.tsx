@@ -1,18 +1,22 @@
 import React, { FunctionComponent } from 'react'
-import { Spacer } from '../components/layout/spacer/Spacer'
-import { PageRow } from '../components/layout/page-row/PageRow'
-import { Container } from '../components/layout/container/Container'
+import { Redirect, useParams } from 'react-router'
+
+import { PortfolioGrid } from '../components/common/portfolio-grid/PortfolioGrid'
+
+type Params = {
+  filter?: string
+}
 
 export const Home: FunctionComponent = () => {
-  return (
-    <PageRow>
-      <Container>
-        <Spacer>
-          <div>
-            home
-          </div>
-        </Spacer>
-      </Container>
-    </PageRow>
-  )
+  const { filter } = useParams<Params>()
+  const filterToLowerCase = filter?.toLowerCase()
+
+  if (
+    filterToLowerCase &&
+    filterToLowerCase !== 'design' &&
+    filter !== 'development'
+  ) return <Redirect to='/' />
+
+  return <PortfolioGrid filter={filterToLowerCase} />
 }
+

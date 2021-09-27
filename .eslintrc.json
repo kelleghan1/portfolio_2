@@ -32,11 +32,36 @@
       "component": true,
       "html": true
     }],
+    "react/jsx-first-prop-new-line": [
+      1,
+      "multiline"
+    ],
+    "react/jsx-max-props-per-line": [1],
+    "react/jsx-closing-tag-location": [1],
+    "react/jsx-closing-bracket-location": [1],
+    "react/jsx-sort-props": [1],
     "no-multiple-empty-lines": ["error", { "max": 1}],
     "no-trailing-spaces": "error",
+    "no-multi-spaces": [1],
     "object-curly-spacing": [
       1,
       "always"
+    ],
+    "react/jsx-wrap-multilines": [
+      1,
+      {
+        "arrow": "ignore",
+        "assignment": "ignore",
+        "condition": "ignore",
+        "declaration": "ignore",
+        "logical": "ignore",
+        "prop": "ignore",
+        "return": "parens-new-line"
+      }
+    ],
+    "arrow-parens": [
+      1,
+      "as-needed"
     ],
     "comma-dangle": ["error", "never"],
     "indent": "off",
