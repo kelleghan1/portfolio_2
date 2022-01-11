@@ -1,10 +1,8 @@
 import React, { FunctionComponent, useMemo } from 'react'
 import styled from 'styled-components'
 import { SpacerStyles, SpacerStrings } from './SpacerStyles'
-import {
-  SPACING_X_NUM,
-  SPACING_Y_NUM
-} from '../../../constants/Spacings'
+import { SPACING_X_NUM,
+  SPACING_Y_NUM } from '../../../constants/Spacings'
 import { validateNumber } from '../../../utils/helpers'
 
 type SpacerProps = {

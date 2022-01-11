@@ -36,11 +36,14 @@
       1,
       "multiline"
     ],
+    "object-property-newline": [1],
+    "function-call-argument-newline": ["error", "always"],
+    "function-paren-newline": ["error", { "minItems": 2 }],
     "react/jsx-max-props-per-line": [1],
     "react/jsx-closing-tag-location": [1],
     "react/jsx-closing-bracket-location": [1],
     "react/jsx-sort-props": [1],
-    "no-multiple-empty-lines": ["error", { "max": 1}],
+    "no-multiple-empty-lines": ["error", { "max": 1 }],
     "no-trailing-spaces": "error",
     "no-multi-spaces": [1],
     "object-curly-spacing": [

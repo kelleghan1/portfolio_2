@@ -26,6 +26,11 @@ export const App: FunctionComponent = () => {
               path='/contact'
             />
             <Route
+              component={Contact}
+              exact
+              path='/project/:projectId'
+            />
+            <Route
               component={Home}
               exact
               path={[
@@ -37,10 +42,6 @@ export const App: FunctionComponent = () => {
           </Switch>
         </PortfolioContextProvider>
       </BrowserRouter>
-      {/* <Pure>
-        <PureUnit pureClass='u-1 u-lg-1-2'>PURE1</PureUnit>
-        <PureUnit pureClass='u-1 u-lg-1-2'>PURE1</PureUnit>
-      </Pure> */}
     </AppStyled>
   )
 }

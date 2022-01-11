@@ -12,7 +12,12 @@ export type SpacerStrings = {
 }
 
 export const SpacerStyles = css<SpacerStrings>`
-  ${({ t, r, b, l }) => (`
+  ${({
+    t,
+    r,
+    b,
+    l
+  }) => (`
     padding-bottom: ${b || SPACING_Y_L};
     padding-left: ${l || SPACING_X_L};
     padding-right: ${r || SPACING_X_L};

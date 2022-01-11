@@ -11,7 +11,11 @@ type ImageProps = {
   height?: string
 }
 
-export const Image: FunctionComponent<ImageProps> = ({ src, width, height }) => (
+export const Image: FunctionComponent<ImageProps> = ({
+  src,
+  width = '100%',
+  height
+}) => (
   <ImageStyled
     height={height}
     src={src}

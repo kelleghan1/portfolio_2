@@ -8,19 +8,27 @@ import { PageRow } from '../page-row/PageRow'
 import { Spacer } from '../spacer/Spacer'
 import { HeaderStyles } from './HeaderStyles'
 
-const HeaderStyled = styled(PageRow)`${HeaderStyles}`
+const HeaderStyled = styled.div`${HeaderStyles}`
 
 export const Header: FunctionComponent = () =>
-  <HeaderStyled>
+  <PageRow>
     <Container>
-      <Spacer>
-        <div className='logo-wrapper'>
-          <Image src={LogoImg} />
-        </div>
-      </Spacer>
-      <Spacer>
-        <NavBar />
-      </Spacer>
+      <HeaderStyled>
+        <Spacer
+          l={3}
+          r={3}
+        >
+          <div className='logo-wrapper'>
+            <Image src={LogoImg} />
+          </div>
+        </Spacer>
+        <Spacer
+          l={3}
+          r={3}
+        >
+          <NavBar />
+        </Spacer>
+      </HeaderStyled>
     </Container>
-  </HeaderStyled>
+  </PageRow>
 

@@ -4,13 +4,13 @@ import React,
   useContext
 } from 'react'
 import styled from 'styled-components'
-import {
-  PortfolioContext,
-  PortfolioContextValueType,
-  PortfolioItemType
-} from '../../context/PortfolioContextProvider'
-import { PageRow } from '../../layout/page-row/PageRow'
+import { PortfolioContextValueType } from '../../../types/contextTypes'
+import { PortfolioContext } from '../../context/PortfolioContextProvider'
 import { PortfolioGridStyles } from './PortfolioGridStyles'
+import { PortfolioGridItem } from '../portfolio-grid-item/PortfolioGridItem'
+import { PageRow } from '../../layout/page-row/PageRow'
+import { Container } from '../../layout/container/Container'
+import { Spacer } from '../../layout/spacer/Spacer'
 
 const PortfolioGridStyled = styled.div`${PortfolioGridStyles}`
 
@@ -19,28 +19,49 @@ type PortfolioGridProps = {
 }
 
 export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter }) => {
-  const { portfolioItems } = useContext(PortfolioContext) as PortfolioContextValueType
+  const {
+    portfolioMap,
+    projectIds
+  } = useContext(PortfolioContext) as PortfolioContextValueType
 
-  const renderPageRow = (item: PortfolioItemType) => {
+  console.log(
+    '###',
+    filter
+  )
+
+  const renderGridItem = (projectId: string) => {
+
+    const portfolioItem = portfolioMap[projectId]
+
+    if (!portfolioItem) return null
+
+    const {
+      homeImage,
+      id
+    } = portfolioItem
+
     return (
-      <PageRow
-        color={item.rowColor}
-        key={item.id}
-      >
-        <div>
-          {filter}
-        </div>
-        <div>
-          {item.name}
-        </div>
-      </PageRow>
+      <PortfolioGridItem
+        homeImage={homeImage}
+        id={id}
+        key={id}
+      />
     )
   }
 
   return (
-    <PortfolioGridStyled>
-      { portfolioItems.map(renderPageRow)}
-    </PortfolioGridStyled>
+    <PageRow>
+      <Container>
+        <Spacer
+          l={3}
+          r={3}
+        >
+          <PortfolioGridStyled>
+            { projectIds.map(renderGridItem) }
+          </PortfolioGridStyled>
+        </Spacer>
+      </ Container>
+    </ PageRow>
   )
 }
 

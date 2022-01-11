@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import { Redirect, useParams } from 'react-router'
 
+// import { PortfolioList } from '../components/common/portfolio-list/PortfolioList'
 import { PortfolioGrid } from '../components/common/portfolio-grid/PortfolioGrid'
 
 type Params = {
@@ -17,6 +18,7 @@ export const Home: FunctionComponent = () => {
     filter !== 'development'
   ) return <Redirect to='/' />
 
+  // return <PortfolioList filter={filterToLowerCase} />
   return <PortfolioGrid filter={filterToLowerCase} />
 }
 
