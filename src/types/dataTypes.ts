@@ -13,7 +13,7 @@ export type PortfolioItemType = {
   products: string[],
   rowColor: string,
   textColor?: string,
-  types: string[]
+  categories: string[]
 }
 
 export interface PortfolioItemsResponseType {

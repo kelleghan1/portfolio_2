@@ -1,25 +1,35 @@
-import React, { FunctionComponent } from 'react'
-import { Spacer } from '../components/layout/spacer/Spacer'
-import { PageRow } from '../components/layout/page-row/PageRow'
-import { Container } from '../components/layout/container/Container'
-import { useParams } from 'react-router'
+import React,
+{
+  FunctionComponent,
+  useContext
+} from 'react'
+import {
+  useParams,
+  Redirect
+} from 'react-router'
+import { ProjectContent } from '../components/common/project-content/ProjectContent'
+import { PortfolioContext } from '../components/context/PortfolioContextProvider'
 
-type Params = {
+type ParamsType = {
   projectId?: string
 }
 
 export const Project: FunctionComponent = () => {
-  const { projectId } = useParams<Params>()
+  const { projectId } = useParams<ParamsType>()
 
-  return (
-    <PageRow>
-      <Container>
-        <Spacer>
-          <div>
-            Design
-          </div>
-        </Spacer>
-      </Container>
-    </PageRow>
-  )
+  const {
+    portfolioMap,
+    projectIds,
+    isLoading
+  } = useContext(PortfolioContext)
+
+  if (isLoading) return null
+
+  if (
+    !projectId ||
+    !portfolioMap[projectId] ||
+    !projectIds.includes(projectId)
+  ) return <Redirect to='/' />
+
+  return <ProjectContent projectId={projectId} />
 }

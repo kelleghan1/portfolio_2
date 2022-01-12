@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react'
-import styled from 'styled-components'
-import { PortfolioGridItemStyles } from './PortfolioGridItemStyles'
-import { Image } from '../image/Image'
 import { Link } from 'react-router-dom'
+import styled from 'styled-components'
+import { Image } from '../image/Image'
+import { PortfolioGridItemStyles } from './PortfolioGridItemStyles'
 
 const PortfolioGridItemStyled = styled.div`${PortfolioGridItemStyles}`
 

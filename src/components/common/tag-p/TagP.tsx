@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react'
-import { TagPStyles } from './TagPStyles'
 import styled from 'styled-components'
+import { TagPStyles } from './TagPStyles'
 
 const PTagStyled = styled.p`${TagPStyles}`
 

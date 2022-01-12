@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from 'react'
 import styled from 'styled-components'
-
 import { ImageStyles } from './ImageStyles'
 
 const ImageStyled = styled.img`${ImageStyles}`

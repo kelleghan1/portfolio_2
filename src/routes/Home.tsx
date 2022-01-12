@@ -1,15 +1,14 @@
 import React, { FunctionComponent } from 'react'
 import { Redirect, useParams } from 'react-router'
-
-// import { PortfolioList } from '../components/common/portfolio-list/PortfolioList'
 import { PortfolioGrid } from '../components/common/portfolio-grid/PortfolioGrid'
+// import { PortfolioList } from '../components/common/portfolio-list/PortfolioList'
 
-type Params = {
+type ParamsType = {
   filter?: string
 }
 
 export const Home: FunctionComponent = () => {
-  const { filter } = useParams<Params>()
+  const { filter } = useParams<ParamsType>()
   const filterToLowerCase = filter?.toLowerCase()
 
   if (

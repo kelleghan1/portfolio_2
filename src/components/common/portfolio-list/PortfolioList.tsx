@@ -6,8 +6,8 @@ import React,
 import styled from 'styled-components'
 import { PortfolioContextValueType } from '../../../types/contextTypes'
 import { PortfolioContext } from '../../context/PortfolioContextProvider'
-import { PortfolioListStyles } from './PortfolioListStyles'
 import { PortfolioListItem } from '../portfolio-list-item/PortfolioListItem'
+import { PortfolioListStyles } from './PortfolioListStyles'
 
 const PortfolioListStyled = styled.div`${PortfolioListStyles}`
 
@@ -21,10 +21,10 @@ export const PortfolioList: FunctionComponent<PortfolioListProps> = ({ filter })
     projectIds
   } = useContext(PortfolioContext) as PortfolioContextValueType
 
-  console.log(
-    '###',
-    filter
-  )
+  // console.log(
+  //   '###',
+  //   filter
+  // )
 
   const renderPageRow = (projectId: string) => {
     const portfolioItem = portfolioMap[projectId]

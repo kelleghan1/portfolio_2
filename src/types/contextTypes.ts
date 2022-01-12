@@ -6,7 +6,8 @@ export type PortfolioMapType = {
 
 export type PortfolioContextStateType = {
   portfolioMap: PortfolioMapType,
-  projectIds: string[]
+  projectIds: string[],
+  isLoading: boolean
 }
 
 export type PortfolioContextValueType = PortfolioContextStateType & {

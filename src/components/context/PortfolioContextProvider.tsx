@@ -1,15 +1,17 @@
 import React, { FunctionComponent, useEffect, useState } from 'react'
 import { getPortfolioData } from '../../services/getRequests'
-import { PortfolioItemType } from '../../types/dataTypes'
 import {
   PortfolioContextStateType,
   PortfolioContextValueType,
   PortfolioMapType
 } from '../../types/contextTypes'
+import { PortfolioItemType } from '../../types/dataTypes'
+import { LoadingOverlay } from '../common/loading-overlay/LoadingOverlay'
 
 const intialPortfolioContextState: PortfolioContextStateType = {
   portfolioMap: {},
-  projectIds: []
+  projectIds: [],
+  isLoading: true
 }
 
 const PortfolioContext = React.createContext<PortfolioContextStateType>(intialPortfolioContextState)
@@ -17,6 +19,7 @@ const PortfolioContext = React.createContext<PortfolioContextStateType>(intialPo
 const PortfolioContextProvider: FunctionComponent = ({ children }) => {
   const [portfolioMap, setPortfolioMap] = useState(intialPortfolioContextState.portfolioMap)
   const [projectIds, setProjectIds] = useState(intialPortfolioContextState.projectIds)
+  const [isLoading, setIsLoading] = useState(intialPortfolioContextState.isLoading)
 
   const getData = async () => {
     const portfolioDataResponse = await getPortfolioData()
@@ -30,9 +33,9 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
         portfolioMap[item.id] = item
       }
     }
-
     setPortfolioMap(portfolioMap)
     setProjectIds(projectIds)
+    setIsLoading(false)
   }
 
   useEffect(
@@ -43,12 +46,14 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
   const contextValue: PortfolioContextValueType = {
     portfolioMap,
     projectIds,
+    isLoading,
     setPortfolioMap
   }
 
   return (
     <PortfolioContext.Provider value={contextValue}>
-      {children}
+      { isLoading && <LoadingOverlay /> }
+      { children }
     </PortfolioContext.Provider>
   )
 }

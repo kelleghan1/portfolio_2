@@ -1,15 +1,15 @@
 import React, { FunctionComponent } from 'react'
 import styled from 'styled-components'
-import { PageRow } from '../../layout/page-row/PageRow'
-import { PortfolioListItemStyles } from './PortfolioListItemStyles'
+import { SPACING_Y, SPACING_Y_NUM } from '../../../constants/Spacings'
 import { Container } from '../../layout/container/Container'
+import { PageRow } from '../../layout/page-row/PageRow'
+import { PureUnit } from '../../layout/pure-unit/PureUnit'
+import { Pure } from '../../layout/pure/Pure'
 import { Spacer } from '../../layout/spacer/Spacer'
 import { Image } from '../image/Image'
-import { Pure } from '../../layout/pure/Pure'
-import { PureUnit } from '../../layout/pure-unit/PureUnit'
 import { TagH } from '../tag-h/TagH'
-import { SPACING_Y, SPACING_Y_NUM } from '../../../constants/Spacings'
 import { TagP } from '../tag-p/TagP'
+import { PortfolioListItemStyles } from './PortfolioListItemStyles'
 
 const PortfolioListItemStyled = styled.div`${PortfolioListItemStyles}`
 

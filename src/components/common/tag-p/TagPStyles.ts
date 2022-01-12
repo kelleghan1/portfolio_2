@@ -10,4 +10,7 @@ const renderColor = ({ color }: ColorType) => {
   return ''
 }
 
-export const TagPStyles = css`${renderColor}`
+export const TagPStyles = css`
+  font-size: 16px;
+  ${renderColor}
+`

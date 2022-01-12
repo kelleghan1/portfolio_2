@@ -4,13 +4,12 @@ import React,
   useContext
 } from 'react'
 import styled from 'styled-components'
-import { PortfolioContextValueType } from '../../../types/contextTypes'
 import { PortfolioContext } from '../../context/PortfolioContextProvider'
-import { PortfolioGridStyles } from './PortfolioGridStyles'
-import { PortfolioGridItem } from '../portfolio-grid-item/PortfolioGridItem'
-import { PageRow } from '../../layout/page-row/PageRow'
 import { Container } from '../../layout/container/Container'
+import { PageRow } from '../../layout/page-row/PageRow'
 import { Spacer } from '../../layout/spacer/Spacer'
+import { PortfolioGridItem } from '../portfolio-grid-item/PortfolioGridItem'
+import { PortfolioGridStyles } from './PortfolioGridStyles'
 
 const PortfolioGridStyled = styled.div`${PortfolioGridStyles}`
 
@@ -22,12 +21,12 @@ export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter })
   const {
     portfolioMap,
     projectIds
-  } = useContext(PortfolioContext) as PortfolioContextValueType
+  } = useContext(PortfolioContext)
 
-  console.log(
-    '###',
-    filter
-  )
+  // console.log(
+  //   '###',
+  //   filter
+  // )
 
   const renderGridItem = (projectId: string) => {
 

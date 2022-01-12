@@ -1,14 +1,15 @@
 import React, { FunctionComponent } from 'react'
-import { TagHStyles } from './TagHStyles'
 import styled from 'styled-components'
+import { TagHStyles } from './TagHStyles'
 
 const H1TagStyled = styled.h1`${TagHStyles}`
 const H2TagStyled = styled.h2`${TagHStyles}`
 const H3TagStyled = styled.h3`${TagHStyles}`
+const H4TagStyled = styled.h4`${TagHStyles}`
 
 type TagHProps = {
   size: number,
-  margin: string,
+  margin?: string,
   color?: string
 }
 
@@ -18,8 +19,17 @@ export const TagH: FunctionComponent<TagHProps> = ({
   children,
   color
 }) => {
-  console.log(color)
+
   switch (size) {
+    case 4:
+      return (
+        <H4TagStyled
+          color={color}
+          margin={margin}
+        >
+          { children }
+        </H4TagStyled>
+      )
     case 3:
       return (
         <H3TagStyled
@@ -29,7 +39,6 @@ export const TagH: FunctionComponent<TagHProps> = ({
           { children }
         </H3TagStyled>
       )
-      break
     case 2:
       return (
         <H2TagStyled
@@ -39,7 +48,6 @@ export const TagH: FunctionComponent<TagHProps> = ({
           { children }
         </H2TagStyled>
       )
-      break
     case 1:
       return (
         <H1TagStyled
@@ -49,7 +57,6 @@ export const TagH: FunctionComponent<TagHProps> = ({
           { children }
         </H1TagStyled>
       )
-      break
     default:
       return <p>{ children }</p>
   }
