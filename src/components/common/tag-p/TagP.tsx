@@ -4,7 +4,7 @@ import { TagPStyles } from './TagPStyles'
 
 const PTagStyled = styled.p`${TagPStyles}`
 
-type PTagPropsType = {
+interface PTagPropsType {
   color?: string
 }
 

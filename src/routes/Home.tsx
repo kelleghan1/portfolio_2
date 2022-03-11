@@ -3,7 +3,7 @@ import { useParams } from 'react-router'
 import { PortfolioGrid } from '../components/common/portfolio-grid/PortfolioGrid'
 // import { PortfolioList } from '../components/common/portfolio-list/PortfolioList'
 
-type ParamsType = {
+interface ParamsType {
   filter?: string
 }
 

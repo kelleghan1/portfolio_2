@@ -26,7 +26,7 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
   const [projectIds, setProjectIds] = useState(intialPortfolioContextState.projectIds)
   const [isLoading, setIsLoading] = useState(intialPortfolioContextState.isLoading)
 
-  const getData = async () => {
+  const getData = async (): Promise<void> => {
     const portfolioDataResponse = await getPortfolioData()
     const portfolioItems: PortfolioItemType[] = portfolioDataResponse?.data?.items
     const projectIds: string[] = []
@@ -45,7 +45,7 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
   }
 
   useEffect(
-    () => { getData() },
+    () => { void getData() },
     []
   )
 

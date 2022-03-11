@@ -1,17 +1,17 @@
 import { css } from 'styled-components'
 
-export type TagHStyleType = {
-  margin?: string,
+export interface TagHStyleType {
+  margin?: string
   color?: string
 }
 
-const renderMargin = ({ margin }: TagHStyleType) => {
+const renderMargin = ({ margin }: TagHStyleType): string => {
   if (margin) return `margin: ${margin};`
 
   return ''
 }
 
-const renderColor = ({ color }: TagHStyleType) => {
+const renderColor = ({ color }: TagHStyleType): string => {
   if (color) return `color: ${color};`
 
   return ''

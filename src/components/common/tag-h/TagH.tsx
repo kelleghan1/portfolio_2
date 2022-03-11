@@ -7,9 +7,9 @@ const H2TagStyled = styled.h2`${TagHStyles}`
 const H3TagStyled = styled.h3`${TagHStyles}`
 const H4TagStyled = styled.h4`${TagHStyles}`
 
-type TagHProps = {
-  size: number,
-  margin?: string,
+interface TagHProps {
+  size: number
+  margin?: string
   color?: string
 }
 
@@ -19,7 +19,6 @@ export const TagH: FunctionComponent<TagHProps> = ({
   children,
   color
 }) => {
-
   switch (size) {
     case 4:
       return (

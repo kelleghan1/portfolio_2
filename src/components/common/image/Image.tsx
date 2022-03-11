@@ -4,9 +4,9 @@ import { ImageStyles } from './ImageStyles'
 
 const ImageStyled = styled.img`${ImageStyles}`
 
-type ImageProps = {
-  src: string,
-  width?: string,
+interface ImageProps {
+  src: string
+  width?: string
   height?: string
 }
 

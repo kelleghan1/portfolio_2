@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react'
+import React, { FunctionComponent, ReactElement } from 'react'
 import styled from 'styled-components'
 import { NavBarItem } from '../nav-bar-item/NavBarItem'
 import { NavBarStyles } from './NavBarStyles'
@@ -6,9 +6,9 @@ import { NavBarStyles } from './NavBarStyles'
 const NavBarStyled = styled.div`${NavBarStyles}`
 
 export const NavBar: FunctionComponent = () => {
-  const [isNavOpen, setIsNavOpen] = useState(false)
+  // const [isNavOpen, setIsNavOpen] = useState(false)
 
-  const renderNav = () =>
+  const renderNav = (): ReactElement =>
     <nav className='large'>
       <NavBarItem
         text={'Development'}
@@ -28,7 +28,7 @@ export const NavBar: FunctionComponent = () => {
       />
     </nav>
 
-  const renderNavMobile = () =>
+  const renderNavMobile = (): ReactElement =>
     <div className='hamburger-wrapper'>
       <button>
         <div className='line-wrapper'>

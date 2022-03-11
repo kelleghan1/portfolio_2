@@ -1,10 +1,10 @@
 import { css } from 'styled-components'
 
-export type ColorType = {
+export interface ColorType {
   color?: string
 }
 
-const renderColor = ({ color }: ColorType) => {
+const renderColor = ({ color }: ColorType): string => {
   if (color) return `color: ${color};`
 
   return ''

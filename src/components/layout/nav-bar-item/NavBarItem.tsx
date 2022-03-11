@@ -6,8 +6,8 @@ import { NavBarItemStyles } from './NavBarItemStyles'
 
 const NavBarItemStyled = styled.div`${NavBarItemStyles}`
 
-type NavBarItemPropsType = {
-  toUrl: string,
+interface NavBarItemPropsType {
+  toUrl: string
   text: string
 }
 

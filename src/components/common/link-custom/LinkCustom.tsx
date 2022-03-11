@@ -5,7 +5,7 @@ import { LinkCustomStyles } from './LinkCustomStyles'
 
 const LinkCustomStyled = styled.span`${LinkCustomStyles}`
 
-type LinkCustomPropsType = {
+interface LinkCustomPropsType {
   to: string
 }
 

@@ -6,8 +6,8 @@ import { PortfolioGridItemStyles } from './PortfolioGridItemStyles'
 
 const PortfolioGridItemStyled = styled.div`${PortfolioGridItemStyles}`
 
-type PortfolioGridItemPropsType = {
-  homeImage: string,
+interface PortfolioGridItemPropsType {
+  homeImage: string
   projectId: string
 }
 

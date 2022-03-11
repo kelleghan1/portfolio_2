@@ -10,8 +10,8 @@ import {
 import { ProjectContent } from '../components/common/project-content/ProjectContent'
 import { PortfolioContext } from '../components/context/PortfolioContextProvider'
 
-type ParamsType = {
-  projectId?: string
+interface ParamsType {
+  projectId: string
 }
 
 export const Project: FunctionComponent = () => {
@@ -26,7 +26,6 @@ export const Project: FunctionComponent = () => {
   if (isLoading) return null
 
   if (
-    !projectId ||
     !portfolioMap[projectId] ||
     !projectIds.includes(projectId)
   ) return <Redirect to='/' />

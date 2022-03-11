@@ -62,8 +62,10 @@ import yodelMock1 from '../assets/images/yodel/yodelmock1.jpg'
 import yodelMock3 from '../assets/images/yodel/yodelmock3.jpg'
 import yodelMock4 from '../assets/images/yodel/yodelmock4.jpg'
 import yodelMockSquare from '../assets/images/yodel/yodelmocksquare.jpg'
-import { PortfolioItemType } from '../types/dataTypes'
-import { PortfolioItemsResponseType } from '../types/dataTypes'
+import {
+  PortfolioItemsResponseType,
+  PortfolioItemType
+} from '../types/dataTypes'
 
 const portfolioItemArray: PortfolioItemType[] = [
   {
@@ -358,7 +360,7 @@ const portfolioItemArray: PortfolioItemType[] = [
 ]
 
 export const getPortfolioData = async (): Promise<PortfolioItemsResponseType> =>
-  new Promise(resolve => {
+  await new Promise(resolve => {
     setTimeout(
       () => {
         resolve({ data: { items: portfolioItemArray } })
@@ -367,4 +369,3 @@ export const getPortfolioData = async (): Promise<PortfolioItemsResponseType> =>
     )
   })
 
-Promise.resolve()

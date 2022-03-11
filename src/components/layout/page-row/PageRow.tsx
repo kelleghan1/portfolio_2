@@ -4,7 +4,7 @@ import { PageRowStyles } from './PageRowStyles'
 
 const PageRowStyled = styled.div`${PageRowStyles}`
 
-type PageRowProps = {
+interface PageRowProps {
   color?: string
 }
 

@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react'
 
-type PureUnitProps = {
+interface PureUnitProps {
   pureClass: string
 }
 

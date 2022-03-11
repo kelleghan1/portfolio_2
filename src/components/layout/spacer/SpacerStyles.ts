@@ -4,10 +4,10 @@ import {
   SPACING_Y_L
 } from '../../../constants/Spacings'
 
-export type SpacerStrings = {
-  b?: string,
-  l?: string,
-  r?: string,
+export interface SpacerStrings {
+  b?: string
+  l?: string
+  r?: string
   t?: string
 }
 
@@ -18,9 +18,9 @@ export const SpacerStyles = css<SpacerStrings>`
     b,
     l
   }) => (`
-    padding-bottom: ${b || SPACING_Y_L};
-    padding-left: ${l || SPACING_X_L};
-    padding-right: ${r || SPACING_X_L};
-    padding-top: ${t || SPACING_Y_L};
+    padding-bottom: ${b ?? SPACING_Y_L};
+    padding-left: ${l ?? SPACING_X_L};
+    padding-right: ${r ?? SPACING_X_L};
+    padding-top: ${t ?? SPACING_Y_L};
   `)}
 `

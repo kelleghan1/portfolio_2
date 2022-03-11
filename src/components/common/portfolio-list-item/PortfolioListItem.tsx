@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, ReactElement } from 'react'
 import styled from 'styled-components'
 import { SPACING_Y, SPACING_Y_NUM } from '../../../constants/Spacings'
 import { Container } from '../../layout/container/Container'
@@ -13,17 +13,17 @@ import { PortfolioListItemStyles } from './PortfolioListItemStyles'
 
 const PortfolioListItemStyled = styled.div`${PortfolioListItemStyles}`
 
-type PortfolioListItemPropsType = {
-  description: string,
-  homeImage: string,
-  id: string,
-  name: string,
-  rowColor: string,
-  textColor?: string,
+interface PortfolioListItemPropsType {
+  description: string
+  homeImage: string
+  id: string
+  name: string
+  rowColor: string
+  textColor?: string
   products: string[]
 }
 
-const renderItemImage = (homeImage: PortfolioListItemPropsType['homeImage']) => {
+const renderItemImage = (homeImage: PortfolioListItemPropsType['homeImage']): ReactElement => {
   return (
     <div className='half-wrapper'>
       <div className='image-wrapper'>
@@ -38,7 +38,7 @@ const renderItemInfo = (
   description: PortfolioListItemPropsType['description'],
   textColor: PortfolioListItemPropsType['textColor'],
   products: PortfolioListItemPropsType['products']
-) => {
+): ReactElement => {
   return (
     <div className='half-wrapper'>
       <Spacer

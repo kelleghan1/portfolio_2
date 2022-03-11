@@ -1,12 +1,12 @@
 import { PortfolioItemType } from './dataTypes'
 
-export type PortfolioMapType = {
+export interface PortfolioMapType {
   [key: string]: PortfolioItemType
 }
 
-export type PortfolioContextStateType = {
-  portfolioMap: PortfolioMapType,
-  projectIds: string[],
+export interface PortfolioContextStateType {
+  portfolioMap: PortfolioMapType
+  projectIds: string[]
   isLoading: boolean
 }
 

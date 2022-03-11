@@ -1,6 +1,7 @@
 import React,
 {
   FunctionComponent,
+  ReactElement,
   useContext
 } from 'react'
 import styled from 'styled-components'
@@ -11,7 +12,7 @@ import { PortfolioListStyles } from './PortfolioListStyles'
 
 const PortfolioListStyled = styled.div`${PortfolioListStyles}`
 
-type PortfolioListProps = {
+interface PortfolioListProps {
   filter?: string
 }
 
@@ -26,7 +27,7 @@ export const PortfolioList: FunctionComponent<PortfolioListProps> = ({ filter })
   //   filter
   // )
 
-  const renderPageRow = (projectId: string) => {
+  const renderPageRow = (projectId: string): ReactElement | null => {
     const portfolioItem = portfolioMap[projectId]
 
     if (!portfolioItem) return null

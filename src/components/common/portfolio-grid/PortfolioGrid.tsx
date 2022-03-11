@@ -1,6 +1,7 @@
 import React,
 {
   FunctionComponent,
+  ReactElement,
   useContext
 } from 'react'
 import styled from 'styled-components'
@@ -13,7 +14,7 @@ import { PortfolioGridStyles } from './PortfolioGridStyles'
 
 const PortfolioGridStyled = styled.div`${PortfolioGridStyles}`
 
-type PortfolioGridProps = {
+interface PortfolioGridProps {
   filter?: string
 }
 
@@ -23,7 +24,7 @@ export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter })
     projectIds
   } = useContext(PortfolioContext)
 
-  const renderPortfolioGrid = () => {
+  const renderPortfolioGrid = (): ReactElement[] => {
     const portfolioGridItems = []
 
     for (let i = 0; i < projectIds.length; i++) {

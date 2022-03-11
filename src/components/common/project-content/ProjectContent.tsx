@@ -1,6 +1,7 @@
 import React,
 {
   FunctionComponent,
+  ReactElement,
   useContext
 } from 'react'
 import styled from 'styled-components'
@@ -17,7 +18,7 @@ import { ProjectContentStyles } from './ProjectContentStyles'
 
 const ProjectContentStyled = styled.div`${ProjectContentStyles}`
 
-type ProjectContentProps = {
+interface ProjectContentProps {
   projectId: string
 }
 
@@ -25,7 +26,7 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
   const { portfolioMap } = useContext(PortfolioContext)
   const portfolioItem = portfolioMap[projectId]
 
-  const{
+  const {
     description,
     images,
     name,
@@ -33,7 +34,7 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
     products
   } = portfolioItem
 
-  const renderProjectImage = (src: string) =>
+  const renderProjectImage = (src: string): ReactElement =>
     <Spacer
       b={3}
       key={src}
@@ -48,7 +49,7 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
     description: string,
     name: string,
     products: string[]
-  ) => (
+  ): ReactElement => (
     <Spacer
       b={3}
       key={name}
@@ -80,8 +81,8 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
     </Spacer>
   )
 
-  const renderColumns = () => {
-    const column1 = [ renderProjectImage(primaryImage) ]
+  const renderColumns = (): ReactElement => {
+    const column1 = [renderProjectImage(primaryImage)]
 
     const column2 = [
       renderDescription(
@@ -126,7 +127,7 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
     )
   }
 
-  const renderList = () => {
+  const renderList = (): ReactElement => {
     const column = [
       renderDescription(
         description,

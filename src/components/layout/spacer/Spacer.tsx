@@ -7,10 +7,10 @@ import {
 import { validateNumber } from '../../../utils/helpers'
 import { SpacerStyles, SpacerStrings } from './SpacerStyles'
 
-type SpacerProps = {
-  l?: number,
-  r?: number,
-  t?: number,
+interface SpacerProps {
+  l?: number
+  r?: number
+  t?: number
   b?: number
 }
 

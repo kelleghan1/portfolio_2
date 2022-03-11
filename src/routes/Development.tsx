@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
-import { Spacer } from '../components/layout/spacer/Spacer'
-import { PageRow } from '../components/layout/page-row/PageRow'
 import { Container } from '../components/layout/container/Container'
+import { PageRow } from '../components/layout/page-row/PageRow'
+import { Spacer } from '../components/layout/spacer/Spacer'
 
 export const Development: FunctionComponent = () => {
   return (

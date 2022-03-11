@@ -1,6 +1,6 @@
 import { css } from 'styled-components'
 
-type PortfolioListItemsStylesProps = {
+interface PortfolioListItemsStylesProps {
   rowColor?: string
 }
 
@@ -13,6 +13,6 @@ export const PortfolioListItemStyles = css<PortfolioListItemsStylesProps>`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: ${({ rowColor }) => rowColor || '#fff'};
+    background-color: ${({ rowColor }) => rowColor ?? '#fff'};
   }
 `
