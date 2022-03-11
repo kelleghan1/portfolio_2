@@ -1,4 +1,9 @@
-import React, { FunctionComponent, useEffect, useState } from 'react'
+import React,
+{
+  FunctionComponent,
+  useEffect,
+  useState
+} from 'react'
 import { getPortfolioData } from '../../services/getRequests'
 import {
   PortfolioContextStateType,
@@ -33,6 +38,7 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
         portfolioMap[item.id] = item
       }
     }
+
     setPortfolioMap(portfolioMap)
     setProjectIds(projectIds)
     setIsLoading(false)

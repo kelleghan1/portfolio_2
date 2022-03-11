@@ -23,29 +23,33 @@ export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter })
     projectIds
   } = useContext(PortfolioContext)
 
-  // console.log(
-  //   '###',
-  //   filter
-  // )
+  const renderPortfolioGrid = () => {
+    const portfolioGridItems = []
 
-  const renderGridItem = (projectId: string) => {
+    for (let i = 0; i < projectIds.length; i++) {
+      const projectId = projectIds[i]
+      const portfolioItem = portfolioMap[projectId]
 
-    const portfolioItem = portfolioMap[projectId]
+      if (
+        !portfolioItem ||
+        (
+          filter &&
+          !portfolioItem?.categories?.includes(filter)
+        )
+      ) continue
 
-    if (!portfolioItem) return null
+      const { homeImage } = portfolioItem
 
-    const {
-      homeImage,
-      id
-    } = portfolioItem
+      portfolioGridItems[portfolioGridItems.length] = (
+        <PortfolioGridItem
+          homeImage={homeImage}
+          key={projectId}
+          projectId={projectId}
+        />
+      )
+    }
 
-    return (
-      <PortfolioGridItem
-        homeImage={homeImage}
-        id={id}
-        key={id}
-      />
-    )
+    return portfolioGridItems
   }
 
   return (
@@ -56,7 +60,7 @@ export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter })
           r={3}
         >
           <PortfolioGridStyled>
-            { projectIds.map(renderGridItem) }
+            { renderPortfolioGrid() }
           </PortfolioGridStyled>
         </Spacer>
       </ Container>

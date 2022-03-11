@@ -1,33 +1,49 @@
-import React, { FunctionComponent } from 'react'
-import { Link } from 'react-router-dom'
+import React, { FunctionComponent, useState } from 'react'
 import styled from 'styled-components'
+import { NavBarItem } from '../nav-bar-item/NavBarItem'
 import { NavBarStyles } from './NavBarStyles'
 
 const NavBarStyled = styled.div`${NavBarStyles}`
 
-export const NavBar: FunctionComponent = () =>
-  <NavBarStyled>
-    <nav>
-      <div className='nav-link-wrapper'>
-        <Link to='/development'>
-          Development
-        </Link>
-      </div>
-      <div className='nav-link-wrapper'>
-        <Link to='/design'>
-          Design
-        </Link>
-      </div>
-      <div className='nav-link-wrapper'>
-        <Link to='/'>
-          All
-        </Link>
-      </div>
-      <div className='nav-link-wrapper'>
-        <Link to='/contact'>
-          Contact
-        </Link>
-      </div>
+export const NavBar: FunctionComponent = () => {
+  const [isNavOpen, setIsNavOpen] = useState(false)
+
+  const renderNav = () =>
+    <nav className='large'>
+      <NavBarItem
+        text={'Development'}
+        toUrl={'/development'}
+      />
+      <NavBarItem
+        text={'Design'}
+        toUrl={'/design'}
+      />
+      <NavBarItem
+        text={'All'}
+        toUrl={'/'}
+      />
+      <NavBarItem
+        text={'Contact'}
+        toUrl={'/contact'}
+      />
     </nav>
-  </NavBarStyled>
+
+  const renderNavMobile = () =>
+    <div className='hamburger-wrapper'>
+      <button>
+        <div className='line-wrapper'>
+          <div className='hamburger-line' />
+          <div className='hamburger-line' />
+          <div className='hamburger-line' />
+        </div>
+      </button>
+    </div>
+
+  return (
+    <NavBarStyled>
+      { renderNav() }
+      { renderNavMobile() }
+    </NavBarStyled>
+  )
+}
 

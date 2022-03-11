@@ -1,28 +1,66 @@
 import absintheHouseBlack from '../assets/images/absinthe-house/absinthehouseblack.jpg'
+import absintheHouseSiteSquare from '../assets/images/absinthe-house/absinthehousesite-square.jpg'
+import absintheHouseWhite from '../assets/images/absinthe-house/absinthehousewhite.jpg'
+import absintheHouseMenuMock from '../assets/images/absinthe-house/absinthemenumockup.png'
+import alchemistLabsBlue from '../assets/images/alchemist-labs/alchemistlabsblue.jpg'
 import alchemistLabsWater from '../assets/images/alchemist-labs/alchemistlabswater.jpg'
 import carvellImg from '../assets/images/carvell/carvell.png'
 import carvellSiteMockSquare from '../assets/images/carvell/carvellsitemock-square.jpg'
+import carvellWhite from '../assets/images/carvell/carvellwhite.png'
 import dropzioImg from '../assets/images/dropzio/dropzio.jpg'
 import dropzioMock1 from '../assets/images/dropzio/dropziomock1.jpg'
 import dropzioMock2 from '../assets/images/dropzio/dropziomock2.jpg'
 import dropzioMock3 from '../assets/images/dropzio/dropziomock3.jpg'
 import dropzioMock4 from '../assets/images/dropzio/dropziomock4.jpg'
 import dropzioMockSquare from '../assets/images/dropzio/dropziomocksquare.jpg'
+import fhhSiteBrochureInside from '../assets/images/family-home-health/fhhbrochuresquare-inside.jpg'
+import fhhSiteBrochureOutside from '../assets/images/family-home-health/fhhbrochuresquare-outside.jpg'
 import fhhSiteSquare from '../assets/images/family-home-health/fhhsite-square.jpg'
+import familyhospiceBrochureInside from '../assets/images/family-hospice/familyhospicebrochuresquare-inside.jpg'
+import familyhospiceBrochureOutside from '../assets/images/family-hospice/familyhospicebrochuresquare-outside.jpg'
 import familyhospiceSiteSquare from '../assets/images/family-hospice/familyhospicesite-square.jpg'
 import flightSwitchBlack from '../assets/images/flightswitch/flightswitchblack.jpg'
+import flightSwitchSiteMock from '../assets/images/flightswitch/flightswitchsitemock.jpg'
+import flightSwitchWhite from '../assets/images/flightswitch/flightswitchwhite.jpg'
+import flightSwitchShirtAstro from '../assets/images/flightswitch/shirtastro.png'
+import flightSwitchShirtCity from '../assets/images/flightswitch/shirtcity.png'
+import flightSwitchShirtFlag from '../assets/images/flightswitch/shirtflag.png'
+import flightSwitchShirtSoldier from '../assets/images/flightswitch/shirtsoldier.png'
 import geoball from '../assets/images/geoball/geoball.jpg'
 import grillerzFlames from '../assets/images/grillerz/grillerzflames.jpg'
+import grillerzSign from '../assets/images/grillerz/grillerzsign.jpg'
+import grillerzWhite from '../assets/images/grillerz/grillerzwhite.jpg'
+import jamFactoryBlack from '../assets/images/jam-factory/jamfactoryblack.jpg'
+import jamFactoryBlackAndWhite from '../assets/images/jam-factory/jamfactoryblackandwhite.jpg'
 import jamFactoryWhite from '../assets/images/jam-factory/jamfactorywhite.jpg'
+import knightMoves from '../assets/images/knight-moves/knightmoves.png'
 import knightMovesMock from '../assets/images/knight-moves/knightmovesmock.png'
+import moonwalkersBlack from '../assets/images/moonwalkers/moonwalkersblack.jpg'
+import moonwalkersPink from '../assets/images/moonwalkers/moonwalkerspink.jpg'
 import moonwalkersWhite from '../assets/images/moonwalkers/moonwalkerswhite.jpg'
 import properMotionCover from '../assets/images/proper-motion/propermotioncover.jpg'
 import purpleStateBlack from '../assets/images/purple-state/purplestateblack.jpg'
+import purpleStatePosterMock from '../assets/images/purple-state/purplestatepostermock.png'
+import purpleStateWhite from '../assets/images/purple-state/purplestatewhite.jpg'
+import revmatekBlack from '../assets/images/revmatek/revmatekblack.jpg'
 import revmatekOrange from '../assets/images/revmatek/revmatekorange.jpg'
+import revmatekWhite from '../assets/images/revmatek/revmatekwhite.jpg'
+import risingSunBook from '../assets/images/rising-sun/risingsunbook.jpg'
 import risingSunCover from '../assets/images/rising-sun/risingsuncover.jpg'
+import risingSunDisc from '../assets/images/rising-sun/risingsundisc.jpg'
+import risingSunLogo from '../assets/images/rising-sun/risingsunlogo.jpg'
+import silverlineMediaBlack from '../assets/images/silverline-media/silverlinemediablack.jpg'
 import silverlineMediaGrey from '../assets/images/silverline-media/silverlinemediagrey.jpg'
+import silverlineMediaWhite from '../assets/images/silverline-media/silverlinemediawhite.jpg'
+import sunshineTreeFarmBlack from '../assets/images/sunshine-tree-farm/sunshinetreefarmblack.jpg'
+import sunshineTreeFarmGreen from '../assets/images/sunshine-tree-farm/sunshinetreefarmgreen.jpg'
 import sunshineTreeFarmWhite from '../assets/images/sunshine-tree-farm/sunshinetreefarmwhite.jpg'
+import teneoTalentBlack from '../assets/images/teneo-talent/teneotalentblack.jpg'
 import teneoTalentWhite from '../assets/images/teneo-talent/teneotalentwhite.jpg'
+import yodelMock from '../assets/images/yodel/yodelmock.jpg'
+import yodelMock1 from '../assets/images/yodel/yodelmock1.jpg'
+import yodelMock3 from '../assets/images/yodel/yodelmock3.jpg'
+import yodelMock4 from '../assets/images/yodel/yodelmock4.jpg'
 import yodelMockSquare from '../assets/images/yodel/yodelmocksquare.jpg'
 import { PortfolioItemType } from '../types/dataTypes'
 import { PortfolioItemsResponseType } from '../types/dataTypes'
@@ -52,10 +90,10 @@ const portfolioItemArray: PortfolioItemType[] = [
     textColor: '#fff',
     products: ['Logo'],
     homeImage: silverlineMediaGrey,
-    primaryImage: '../images/silverline-media/silverlinemediagrey.jpg',
+    primaryImage: silverlineMediaGrey,
     images: [
-      '../images/primary/silverlinemediablack.jpg',
-      '../images/primary/silverlinemediawhite.jpg'
+      silverlineMediaBlack,
+      silverlineMediaWhite
     ],
     description: 'Silverline Media offers photo and video production services. The logo was created using Adobe Illustrator.'
   },
@@ -67,14 +105,14 @@ const portfolioItemArray: PortfolioItemType[] = [
     textColor: '#fff',
     homeImage: flightSwitchBlack,
     products: ['Logo', 'Shirt Designs', 'Online Store'],
-    primaryImage: '../images/flightswitch/flightswitchblack.jpg',
+    primaryImage: flightSwitchBlack,
     images: [
-      '../images/mockups/flightswitchsitemock.jpg',
-      '../images/primary/flightswitchwhite.jpg',
-      '../images/mockups/shirtastro.png',
-      '../images/mockups/shirtflag.png',
-      '../images/mockups/shirtsoldier.png',
-      '../images/mockups/shirtcity.png'
+      flightSwitchSiteMock,
+      flightSwitchWhite,
+      flightSwitchShirtAstro,
+      flightSwitchShirtCity,
+      flightSwitchShirtFlag,
+      flightSwitchShirtSoldier
     ],
     description: 'Flight Switch is a Colorado based clothing company. The brand and products were created using Adobe Illustrator, Adobe Photoshop, and Adobe InDesign. The online store was created with JavaScript and Handlebars on the front end. The back end was created with Express, Bookshelf, and Knex to manage a robust inventory management system for administrators. You can demo the online store <a target="_blank" href="http://flight-switch-store.herokuapp.com/shirts"><strong>here</strong></a>. To see the GitHub page click <a href="https://github.com/kelleghan1/flight-switch-store" target="_blank"><strong>here</strong></a>.'
   },
@@ -87,8 +125,8 @@ const portfolioItemArray: PortfolioItemType[] = [
     homeImage: carvellSiteMockSquare,
     primaryImage: carvellImg,
     images: [
-      '../images/mockups/carvellsitemock-square.jpg',
-      '../images/primary/carvellwhite.png'
+      carvellSiteMockSquare,
+      carvellWhite
     ],
     description: 'Carvell Design + Build is a full service design and build firm that specializes in customized remodels and restoration, additions, and new construction work. The logo was created with Adobe Illustrator and the <a target="_blank" href="http://carvelldesignbuild.com/">Carvell website</a> was created using Wordpress.'
   },
@@ -102,8 +140,8 @@ const portfolioItemArray: PortfolioItemType[] = [
     homeImage: grillerzFlames,
     primaryImage: grillerzFlames,
     images: [
-      '../images/primary/grillerzsign.jpg',
-      '../images/primary/grillerzwhite.jpg'
+      grillerzSign,
+      grillerzWhite
     ],
     description: 'Grillerz Pub is a bar and restaurant in Englewood, Colorado. The logo was created using Adobe Illustrator.'
   },
@@ -116,8 +154,8 @@ const portfolioItemArray: PortfolioItemType[] = [
     homeImage: sunshineTreeFarmWhite,
     primaryImage: sunshineTreeFarmWhite,
     images: [
-      '../images/primary/sunshinetreefarmgreen.jpg',
-      '../images/primary/sunshinetreefarmblack.jpg'
+      sunshineTreeFarmGreen,
+      sunshineTreeFarmBlack
     ],
     description: 'Sunshine Tree Farm grows and sell a variety of trees in Colorado. The logo was created with Adobe Illustrator.'
   },
@@ -139,13 +177,12 @@ const portfolioItemArray: PortfolioItemType[] = [
     rowColor: '#FFD67F',
     id: 'yodel',
     homeImage: yodelMockSquare,
-    primaryImage: yodelMockSquare,
+    primaryImage: yodelMock,
     products: ['Logo, Mobile App'],
     images: [
-      '../images/mockups/yodelmock3.jpg',
-      '../images/mockups/yodelmock.jpg',
-      '../images/mockups/yodelmock4.jpg',
-      '../images/mockups/yodelmock1.jpg'
+      yodelMock1,
+      yodelMock3,
+      yodelMock4
     ],
     description: 'Yodel is a social geolocation hybrid app designed to promote meeting new people and face to face interaction. The app allows users to see others within a custom range and send those users messages. It was created in Ionic and Cordova and written in AngularJS. It has a CRUD back end in Express and Knex to manage users and their location data. The logo was created using Adobe Illustrator. To see the front end on GitHub click <a href="https://github.com/MSturges/YodelApp" target="_blank"><strong>here</strong></a> and to see the back end click <a href="https://github.com/MatieuB/yodel" target="_blank"><strong>here</strong></a>'
   },
@@ -159,7 +196,7 @@ const portfolioItemArray: PortfolioItemType[] = [
     primaryImage: alchemistLabsWater,
     textColor: '#fff',
     images: [
-      '../images/primary/alchemistlabsblue.jpg'
+      alchemistLabsBlue
     ],
     description: 'Alchemist Labs produces vapor concentrate for vaporizer products. The logo was created using Adobe Illustrator.'
   },
@@ -172,8 +209,8 @@ const portfolioItemArray: PortfolioItemType[] = [
     homeImage: jamFactoryWhite,
     primaryImage: jamFactoryWhite,
     images: [
-      '../images/primary/jamfactoryblack.jpg',
-      '../images/primary/jamfactoryblackandwhite.jpg'
+      jamFactoryBlack,
+      jamFactoryBlackAndWhite
     ],
     description: 'Jam Factory is a music and entertainment event coordination and promotion company. The logo was created using Adobe Illustrator.'
   },
@@ -187,8 +224,8 @@ const portfolioItemArray: PortfolioItemType[] = [
     primaryImage: revmatekOrange,
     textColor: '#fff',
     images: [
-      '../images/primary/revmatekblack.jpg',
-      '../images/primary/revmatekwhite.jpg'
+      revmatekBlack,
+      revmatekWhite
     ],
     description: 'Revmatek offers peer to peer streaming service and solutions. The logo was created using Adobe Illustrator.'
   },
@@ -201,8 +238,8 @@ const portfolioItemArray: PortfolioItemType[] = [
     homeImage: fhhSiteSquare,
     primaryImage: fhhSiteSquare,
     images: [
-      '../images/primary/fhhbrochuresquare-inside.jpg',
-      '../images/primary/fhhbrochuresquare-outside.jpg'
+      fhhSiteBrochureInside,
+      fhhSiteBrochureOutside
     ],
     description: 'Family Home Health is a Colorado based company that offers health care at the homes of their patients. Their trifold brochure was created using Adobe Indesign, Adobe Illustrator, and Adobe Photoshop. The Family Home Health website was created in Wordpress.'
   },
@@ -216,8 +253,8 @@ const portfolioItemArray: PortfolioItemType[] = [
     homeImage: purpleStateBlack,
     primaryImage: purpleStateBlack,
     images: [
-      '../images/mockups/purplestatepostermock.png',
-      '../images/primary/purplestatewhite.jpg'
+      purpleStatePosterMock,
+      purpleStateWhite
     ],
     description: 'Purple State organizes shows and music related events. The logo was created using Adobe Illustrator. The event poster was created using Adobe Illustrator, Adobe Photoshop, and Adobe InDesign.'
   },
@@ -230,9 +267,9 @@ const portfolioItemArray: PortfolioItemType[] = [
     homeImage: risingSunCover,
     primaryImage: risingSunCover,
     images: [
-      '../images/primary/risingsunbook.jpg',
-      '../images/primary/risingsundisc.jpg',
-      '../images/primary/risingsunlogo.jpg'
+      risingSunBook,
+      risingSunDisc,
+      risingSunLogo
     ],
     description: 'Rising sun is an English DJ and producer. The album cover and logo were created using Adobe Illustrator, Adobe Photoshop, and Adobe InDesign.'
   },
@@ -245,7 +282,7 @@ const portfolioItemArray: PortfolioItemType[] = [
     homeImage: teneoTalentWhite,
     primaryImage: teneoTalentWhite,
     images: [
-      '../images/primary/teneotalentblack.jpg'
+      teneoTalentBlack
     ],
     description: 'Teneo Talent is a job placement service based in Colorado. The logo and the Teneo Talent website were redesigned using Adobe Illustrator.'
   },
@@ -267,10 +304,10 @@ const portfolioItemArray: PortfolioItemType[] = [
     id: 'knightmoves',
     rowColor: '#fff',
     homeImage: knightMovesMock,
-    primaryImage: knightMovesMock,
+    primaryImage: knightMoves,
     products: ['Side Project'],
     images: [
-      '../images/primary/knightmovesmock.png'
+      knightMovesMock
     ],
     description: 'Knight Moves is a web application that calculates the minimum number of moves a chess knight can take to reach a given position. The app was written in Javascript with an AngularJS front end. Try the app <a href="/knightmovesdemo"><strong>here</strong></a>. To see the GitHub page click <a href="https://github.com/kelleghan1/knight" target="_blank"><strong>here</strong></a>.'
   },
@@ -283,8 +320,8 @@ const portfolioItemArray: PortfolioItemType[] = [
     homeImage: familyhospiceSiteSquare,
     primaryImage: familyhospiceSiteSquare,
     images: [
-      '../images/primary/familyhospicebrochuresquare-inside.jpg',
-      '../images/primary/familyhospicebrochuresquare-outside.jpg'
+      familyhospiceBrochureInside,
+      familyhospiceBrochureOutside
     ],
     description: 'Family Hospice is an end of life care service. They serve patients at their homes in order to maximize quality of life. Their brochure was creaed using Adobe Illustrator, Adobe InDesign, and Adobe Photoshop. The Family Hospice website was created using the Adobe Creative Suite and Wordpress.'
   },
@@ -297,8 +334,8 @@ const portfolioItemArray: PortfolioItemType[] = [
     homeImage: moonwalkersWhite,
     primaryImage: moonwalkersWhite,
     images: [
-      '../images/primary/moonwalkersblack.jpg',
-      '../images/primary/moonwalkerspink.jpg'
+      moonwalkersBlack,
+      moonwalkersPink
     ],
     description: 'Moonwalkers is an all cancer benefit and fundraising team. Their logo was created using Adobe Illustrator.'
   },
@@ -312,9 +349,9 @@ const portfolioItemArray: PortfolioItemType[] = [
     homeImage: absintheHouseBlack,
     primaryImage: absintheHouseBlack,
     images: [
-      '../images/mockups/absinthemenumockup.png',
-      '../images/primary/absinthehousewhite.jpg',
-      '../images/mockups/absinthehousesite-square.jpg'
+      absintheHouseSiteSquare,
+      absintheHouseWhite,
+      absintheHouseMenuMock
     ],
     description: 'Absinthe House is a bar and nightclub in Boulder, Colorado. Adobe Illustrator and Adobe InDesign were used to create the vector banner and menu. The Absinthe House website was designed using Adobe Illustrator and built in Wix.'
   }

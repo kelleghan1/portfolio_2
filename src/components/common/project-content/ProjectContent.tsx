@@ -96,9 +96,9 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
       index
     ) => {
       if (index % 2 === 0) {
-        column1.push(renderProjectImage(imageUrl))
-      } else {
         column2.push(renderProjectImage(imageUrl))
+      } else {
+        column1.push(renderProjectImage(imageUrl))
       }
     })
 

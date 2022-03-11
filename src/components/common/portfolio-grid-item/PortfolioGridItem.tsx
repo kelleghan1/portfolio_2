@@ -1,26 +1,26 @@
 import React, { FunctionComponent } from 'react'
-import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { Image } from '../image/Image'
+import { LinkCustom } from '../link-custom/LinkCustom'
 import { PortfolioGridItemStyles } from './PortfolioGridItemStyles'
 
 const PortfolioGridItemStyled = styled.div`${PortfolioGridItemStyles}`
 
 type PortfolioGridItemPropsType = {
   homeImage: string,
-  id: string
+  projectId: string
 }
 
 export const PortfolioGridItem: FunctionComponent<PortfolioGridItemPropsType> = ({
   homeImage,
-  id
+  projectId
 }) => {
   return (
     <PortfolioGridItemStyled>
       <div className='image-wrapper'>
-        <Link to={`/project/${id}`}>
+        <LinkCustom to={`/project/${projectId}`}>
           <Image src={ homeImage } />
-        </Link>
+        </LinkCustom>
       </div>
     </PortfolioGridItemStyled>
   )

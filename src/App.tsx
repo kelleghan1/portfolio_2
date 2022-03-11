@@ -17,6 +17,14 @@ export const App: FunctionComponent = () => {
           <Header />
           <Switch>
             <Route
+              component={Home}
+              exact
+              path={[
+                '/',
+                '/:filter(design|development)'
+              ]}
+            />
+            <Route
               component={Contact}
               exact
               path='/contact'
@@ -25,14 +33,6 @@ export const App: FunctionComponent = () => {
               component={Project}
               exact
               path='/project/:projectId'
-            />
-            <Route
-              component={Home}
-              exact
-              path={[
-                '/',
-                '/:filter'
-              ]}
             />
             <Redirect to='/' />
           </Switch>
