@@ -1,8 +1,8 @@
 import React,
 {
   FunctionComponent,
-  ReactElement,
-  useState
+  ReactElement
+  // useState
 } from 'react'
 import styled from 'styled-components'
 import { NavBarItem } from '../nav-bar-item/NavBarItem'
@@ -11,7 +11,7 @@ import { NavBarStyles } from './NavBarStyles'
 const NavBarStyled = styled.div`${NavBarStyles}`
 
 export const NavBar: FunctionComponent = () => {
-  const [isNavOpen, setIsNavOpen] = useState(false)
+  // const [isNavOpen, setIsNavOpen] = useState(false)
 
   const renderNav = (): ReactElement =>
     <nav className='large'>

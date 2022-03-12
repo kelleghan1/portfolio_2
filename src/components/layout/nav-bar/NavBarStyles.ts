@@ -21,7 +21,7 @@ export const NavBarStyles = css`
         padding: 0px;
 
         .line-wrapper {
-          width: 25px;
+          width: 50px;
           height: 25px;
           display: flex;
           flex-direction: column;
