@@ -46,6 +46,34 @@ export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter })
         <Flipped
           flipId={projectId}
           key={projectId}
+          onAppear={
+            (
+              appearElement,
+              appearIndex
+            ) => setTimeout(
+              () => {
+                setTimeout(
+                  () => { appearElement.classList.add('fade-in') },
+                  appearIndex * 16
+                )
+              },
+              230
+            )
+          }
+          onExit={
+            (
+              exitElement,
+              exitIndex,
+              removeElement
+            ) => {
+              exitElement.classList.add('fade-out')
+
+              setTimeout(
+                removeElement,
+                200
+              )
+            }
+          }
         >
           <PortfolioGridItem
             homeImage={homeImage}
@@ -65,7 +93,25 @@ export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter })
           l={3}
           r={3}
         >
-          <Flipper flipKey={`${filter ?? 'undefined'}`}>
+          <Flipper
+            flipKey={`${filter ?? 'no-filter'}`}
+            handleEnterUpdateDelete={
+              ({
+                hideEnteringElements,
+                animateEnteringElements,
+                animateExitingElements,
+                animateFlippedElements
+              }) => {
+                hideEnteringElements()
+
+                void animateExitingElements()
+                  .then(animateFlippedElements)
+
+                void animateEnteringElements()
+              }
+            }
+            spring={{ stiffness: 1190, damping: 120 }}
+          >
             <PortfolioGridStyled>
               { renderPortfolioGrid() }
             </PortfolioGridStyled>
