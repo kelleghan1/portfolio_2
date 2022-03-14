@@ -5,6 +5,7 @@ export const LinkCustomStyles = css`
   & > a {
     text-decoration: none;
     display: block;
+    color: ${TEXT1};
 
     &:focus {
       outline: 1px dashed ${GREY2};

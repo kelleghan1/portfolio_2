@@ -1,9 +1,10 @@
 import React,
 {
   FunctionComponent,
-  ReactElement,
+  ReactNode,
   useContext
 } from 'react'
+import { Flipper, Flipped } from 'react-flip-toolkit'
 import styled from 'styled-components'
 import { PortfolioContext } from '../../context/PortfolioContextProvider'
 import { Container } from '../../layout/container/Container'
@@ -24,7 +25,7 @@ export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter })
     projectIds
   } = useContext(PortfolioContext)
 
-  const renderPortfolioGrid = (): ReactElement[] => {
+  const renderPortfolioGrid = (): ReactNode[] => {
     const portfolioGridItems = []
 
     for (let i = 0; i < projectIds.length; i++) {
@@ -42,11 +43,15 @@ export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter })
       const { homeImage } = portfolioItem
 
       portfolioGridItems[portfolioGridItems.length] = (
-        <PortfolioGridItem
-          homeImage={homeImage}
+        <Flipped
+          flipId={projectId}
           key={projectId}
-          projectId={projectId}
-        />
+        >
+          <PortfolioGridItem
+            homeImage={homeImage}
+            projectId={projectId}
+          />
+        </Flipped>
       )
     }
 
@@ -60,10 +65,12 @@ export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter })
           l={3}
           r={3}
         >
-          <PortfolioGridStyled>
-            { renderPortfolioGrid() }
-          </PortfolioGridStyled>
-        </Spacer>
+          <Flipper flipKey={`${filter ?? 'undefined'}`}>
+            <PortfolioGridStyled>
+              { renderPortfolioGrid() }
+            </PortfolioGridStyled>
+          </ Flipper>
+        </ Spacer>
       </ Container>
     </ PageRow>
   )
