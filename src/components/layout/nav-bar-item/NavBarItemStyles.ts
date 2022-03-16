@@ -11,5 +11,5 @@ export const NavBarItemStyles = css<NavBarItemStylesType>`
   display: inline-block;
   padding-bottom: 3px;
   color: ${TEXT1};
-  ${({ selected }) => selected ? `border-bottom: 3px solid ${TEXT1}` : ''};
+  ${({ selected }) => selected ? `border-bottom: 3px solid ${TEXT1}` : 'border-bottom: 3px solid transparent'};
 `

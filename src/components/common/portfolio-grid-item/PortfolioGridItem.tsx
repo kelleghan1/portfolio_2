@@ -18,8 +18,24 @@ export const PortfolioGridItem: FunctionComponent<PortfolioGridItemPropsType> = 
   projectId,
   ...rest
 }) => {
+  // const [isImageLoaded, setIsImageLoaded] = useState(false)
+  // const [isFadeInApplied, setIsFadeInApplied] = useState(false)
+
+  // const handleImageLoad: ReactEventHandler = () => {
+  //   setIsImageLoaded(true)
+  //   setIsFadeInApplied(true)
+  // }
+
+  // let classNames = ''
+
+  // if (isFadeInApplied) classNames += 'fade-in'
+  // if (isImageLoaded) classNames += ' opaque'
+
   return (
-    <PortfolioGridItemStyled {...rest}>
+    <PortfolioGridItemStyled
+      className='fade-in'
+      {...rest}
+    >
       <div className='image-wrapper'>
         <LinkCustom to={`/project/${projectId}`}>
           <Image src={ homeImage } />

@@ -2,7 +2,9 @@ import React,
 {
   FunctionComponent,
   ReactNode,
-  useContext
+  useContext,
+  useEffect,
+  useState
 } from 'react'
 import { Flipper, Flipped } from 'react-flip-toolkit'
 import styled from 'styled-components'
@@ -20,10 +22,34 @@ interface PortfolioGridProps {
 }
 
 export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter }) => {
+  const [areImagesLoaded, setAreImagesLoaded] = useState(false)
+
   const {
     portfolioMap,
     projectIds
   } = useContext(PortfolioContext)
+
+  useEffect(
+    () => {
+      const preloadImages = async (imageUrls: string[]): Promise<null[]> =>
+        await Promise.all(imageUrls.map(async url => {
+          return (
+            await new Promise(resolve => {
+              const imageObject = new Image()
+              imageObject.src = url
+              imageObject.onload = () => { resolve(null) }
+            })
+          )
+        }))
+
+      void preloadImages(projectIds.map(projectId => portfolioMap[projectId].homeImage))
+        .then(() => setAreImagesLoaded(true))
+    },
+    [
+      projectIds,
+      portfolioMap
+    ]
+  )
 
   const renderPortfolioGrid = (): ReactNode[] => {
     const portfolioGridItems = []
@@ -50,15 +76,17 @@ export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter })
             (
               appearElement,
               appearIndex
-            ) => setTimeout(
-              () => {
-                setTimeout(
-                  () => { appearElement.classList.add('fade-in') },
-                  appearIndex * 16
-                )
-              },
-              230
-            )
+            ) => {
+              setTimeout(
+                () => {
+                  setTimeout(
+                    () => { appearElement.classList.add('fade-in') },
+                    appearIndex * 16
+                  )
+                },
+                150
+              )
+            }
           }
           onExit={
             (
@@ -113,7 +141,7 @@ export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter })
             spring={{ stiffness: 1190, damping: 120 }}
           >
             <PortfolioGridStyled>
-              { renderPortfolioGrid() }
+              { areImagesLoaded && renderPortfolioGrid() }
             </PortfolioGridStyled>
           </ Flipper>
         </ Spacer>

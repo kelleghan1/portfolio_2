@@ -4,12 +4,12 @@ import { GREY3 } from '../../../constants/Colors'
 import { SPACING_Y_L } from '../../../constants/Spacings'
 
 const fadeOut = keyframes`
-  0% { opacity: 1}
+  0% { opacity: 1 }
   100% { opacity: 0; }
 `
 
 const fadeIn = keyframes`
-  0% { opacity: 0}
+  0% { opacity: 0 }
   100% { opacity: 1; }
 `
 
