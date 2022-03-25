@@ -1,16 +1,19 @@
 import { PortfolioItemType } from './dataTypes'
+import { HandleNavigationFunctionType } from './sharedTypes'
 
 export interface PortfolioMapType {
   [key: string]: PortfolioItemType
 }
 
 export interface PortfolioContextStateType {
+  isLoading: boolean
+  isNavigating: boolean
   portfolioMap: PortfolioMapType
   projectIds: string[]
-  isLoading: boolean
 }
 
 export type PortfolioContextValueType = PortfolioContextStateType & {
-  setPortfolioMap: (value: PortfolioMapType) => void
+  handleNavigation: HandleNavigationFunctionType
+  handleNavigationComplete: () => void
 }
 

@@ -2,7 +2,6 @@ import React,
 {
   FunctionComponent,
   ReactElement
-  // useState
 } from 'react'
 import styled from 'styled-components'
 import { NavBarItem } from '../nav-bar-item/NavBarItem'
@@ -16,18 +15,22 @@ export const NavBar: FunctionComponent = () => {
   const renderNav = (): ReactElement =>
     <nav className='large'>
       <NavBarItem
+        delay={250}
         text={'Development'}
         toUrl={'/development'}
       />
       <NavBarItem
+        delay={250}
         text={'Design'}
         toUrl={'/design'}
       />
       <NavBarItem
+        delay={250}
         text={'All'}
         toUrl={'/'}
       />
       <NavBarItem
+        delay={250}
         text={'Contact'}
         toUrl={'/contact'}
       />

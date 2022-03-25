@@ -23,7 +23,11 @@ interface ProjectContentProps {
 }
 
 export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ projectId }) => {
-  const { portfolioMap } = useContext(PortfolioContext)
+  const {
+    portfolioMap,
+    isNavigating
+  } = useContext(PortfolioContext)
+
   const portfolioItem = portfolioMap[projectId]
 
   const {
@@ -156,7 +160,7 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
   return (
     <PageRow>
       <Container>
-        <ProjectContentStyled>
+        <ProjectContentStyled className={`fade-in ${isNavigating ? 'fade-out' : ''}`}>
           { renderColumns() }
           { renderList() }
         </ProjectContentStyled>

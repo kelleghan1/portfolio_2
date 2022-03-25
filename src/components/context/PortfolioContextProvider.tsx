@@ -11,12 +11,14 @@ import {
   PortfolioMapType
 } from '../../types/contextTypes'
 import { PortfolioItemType } from '../../types/dataTypes'
+import { HandleNavigationFunctionType } from '../../types/sharedTypes'
 import { LoadingOverlay } from '../common/loading-overlay/LoadingOverlay'
 
 const intialPortfolioContextState: PortfolioContextStateType = {
   portfolioMap: {},
   projectIds: [],
-  isLoading: true
+  isLoading: true,
+  isNavigating: false
 }
 
 const PortfolioContext = React.createContext<PortfolioContextStateType>(intialPortfolioContextState)
@@ -25,6 +27,7 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
   const [portfolioMap, setPortfolioMap] = useState(intialPortfolioContextState.portfolioMap)
   const [projectIds, setProjectIds] = useState(intialPortfolioContextState.projectIds)
   const [isLoading, setIsLoading] = useState(intialPortfolioContextState.isLoading)
+  const [isNavigating, setIsNavigating] = useState(false)
 
   const getData = async (): Promise<void> => {
     const portfolioDataResponse = await getPortfolioData()
@@ -49,11 +52,43 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
     []
   )
 
+  const handleNavigation: HandleNavigationFunctionType = (
+    currentPathName,
+    event,
+    to
+  ) => {
+    const portFolioPaths = [
+      '/',
+      '/design',
+      '/development'
+    ]
+
+    if (
+      !(
+        currentPathName !== undefined &&
+        portFolioPaths.includes(currentPathName) &&
+        portFolioPaths.includes(to)
+      )
+    ) {
+      setIsNavigating(true)
+
+      return 250
+    }
+
+    return 0
+  }
+
+  const handleNavigationComplete = (): void => {
+    setIsNavigating(false)
+  }
+
   const contextValue: PortfolioContextValueType = {
     portfolioMap,
     projectIds,
     isLoading,
-    setPortfolioMap
+    isNavigating,
+    handleNavigation,
+    handleNavigationComplete
   }
 
   return (

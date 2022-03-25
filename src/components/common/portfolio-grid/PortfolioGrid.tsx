@@ -23,27 +23,21 @@ interface PortfolioGridProps {
 
 export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter }) => {
   const [areImagesLoaded, setAreImagesLoaded] = useState(false)
+  const [isInitialLoad, setIsInitialLoad] = useState(true)
 
   const {
     portfolioMap,
-    projectIds
+    projectIds,
+    isNavigating
   } = useContext(PortfolioContext)
 
   useEffect(
     () => {
-      const preloadImages = async (imageUrls: string[]): Promise<null[]> =>
-        await Promise.all(imageUrls.map(async url => {
-          return (
-            await new Promise(resolve => {
-              const imageObject = new Image()
-              imageObject.src = url
-              imageObject.onload = () => { resolve(null) }
-            })
-          )
-        }))
-
       void preloadImages(projectIds.map(projectId => portfolioMap[projectId].homeImage))
-        .then(() => setAreImagesLoaded(true))
+        .then(() => {
+          setAreImagesLoaded(true)
+          setIsInitialLoad(false)
+        })
     },
     [
       projectIds,
@@ -51,8 +45,46 @@ export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter })
     ]
   )
 
+  const preloadImages = async (imageUrls: string[]): Promise<null[]> =>
+    await Promise.all(imageUrls.map(async url =>
+      await new Promise(resolve => {
+        const imageObject = new Image()
+        imageObject.onload = () => { resolve(null) }
+        imageObject.src = url
+      })))
+
+  const handleAppear = (
+    appearElement: HTMLElement,
+    appearIndex: number
+  ): void => {
+    setTimeout(
+      () => {
+        setTimeout(
+          () => { appearElement.classList.add('fade-in') },
+          appearIndex * 16
+        )
+      },
+      150
+    )
+  }
+
+  const handleExit = (
+    exitElement: HTMLElement,
+    exitIndex: number,
+    removeElement: () => void
+  ): void => {
+    exitElement.classList.add('fade-out')
+
+    setTimeout(
+      removeElement,
+      200
+    )
+  }
+
   const renderPortfolioGrid = (): ReactNode[] => {
-    const portfolioGridItems = []
+    const portfolioGridItems: ReactNode[] = []
+
+    if (!areImagesLoaded || isInitialLoad || isNavigating) return portfolioGridItems
 
     for (let i = 0; i < projectIds.length; i++) {
       const projectId = projectIds[i]
@@ -72,36 +104,8 @@ export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter })
         <Flipped
           flipId={projectId}
           key={projectId}
-          onAppear={
-            (
-              appearElement,
-              appearIndex
-            ) => {
-              setTimeout(
-                () => {
-                  setTimeout(
-                    () => { appearElement.classList.add('fade-in') },
-                    appearIndex * 16
-                  )
-                },
-                150
-              )
-            }
-          }
-          onExit={
-            (
-              exitElement,
-              exitIndex,
-              removeElement
-            ) => {
-              exitElement.classList.add('fade-out')
-
-              setTimeout(
-                removeElement,
-                200
-              )
-            }
-          }
+          onAppear={handleAppear}
+          onExit={handleExit}
         >
           <PortfolioGridItem
             homeImage={homeImage}
@@ -114,6 +118,10 @@ export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter })
     return portfolioGridItems
   }
 
+  // flipKey will will trigger reevaluation of items in the grid, triggering animation if they have changed.
+  // Key is changed for prejectId length, filter, isInitialLoad, and isNavigating
+  const flipKey = `${projectIds.length}${filter ?? '1'}${isInitialLoad ? '1' : '0'}${isNavigating ? '1' : '0'}`
+
   return (
     <PageRow>
       <Container>
@@ -122,7 +130,7 @@ export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter })
           r={3}
         >
           <Flipper
-            flipKey={`${filter ?? 'no-filter'}`}
+            flipKey={flipKey}
             handleEnterUpdateDelete={
               ({
                 hideEnteringElements,
@@ -141,7 +149,7 @@ export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter })
             spring={{ stiffness: 1190, damping: 120 }}
           >
             <PortfolioGridStyled>
-              { areImagesLoaded && renderPortfolioGrid() }
+              { renderPortfolioGrid() }
             </PortfolioGridStyled>
           </ Flipper>
         </ Spacer>

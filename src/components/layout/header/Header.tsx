@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react'
 import styled from 'styled-components'
 import LogoImg from '../../../assets/images/site/kelleghanlogocompblack.png'
 import { Image } from '../../common/image/Image'
-import { LinkCustom } from '../../common/link-custom/LinkCustom'
+import { LinkDelayed } from '../../common/link-delayed/LinkDelayed'
 import { Container } from '../container/Container'
 import { NavBar } from '../nav-bar/NavBar'
 import { PageRow } from '../page-row/PageRow'
@@ -22,11 +22,11 @@ export const Header: FunctionComponent = () =>
           <div className='header-wrapper'>
             <div className='logo-wrapper'>
               <div className='logo-link-wrapper'>
-                <LinkCustom to={'/'}>
+                <LinkDelayed to={'/'}>
                   <Image
                     src={LogoImg}
                   />
-                </LinkCustom>
+                </LinkDelayed>
               </div>
             </div>
             <div className='nav-wrapper'>
