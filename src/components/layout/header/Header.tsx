@@ -12,7 +12,7 @@ import { HeaderStyles } from './HeaderStyles'
 const HeaderStyled = styled.div`${HeaderStyles}`
 
 export const Header: FunctionComponent = () =>
-  <PageRow>
+  <PageRow stickyMobile>
     <Container>
       <HeaderStyled>
         <Spacer
@@ -23,9 +23,7 @@ export const Header: FunctionComponent = () =>
             <div className='logo-wrapper'>
               <div className='logo-link-wrapper'>
                 <LinkDelayed to={'/'}>
-                  <Image
-                    src={LogoImg}
-                  />
+                  <Image src={LogoImg} />
                 </LinkDelayed>
               </div>
             </div>

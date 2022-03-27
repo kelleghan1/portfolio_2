@@ -26,6 +26,10 @@ export const PortfolioGridItemStyles = css`
     animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
   }
 
+  .image-wrapper {
+    cursor: pointer;
+  }
+
   @media screen and (min-width: ${MEDIUM_MIN}) {
     padding: 1%;
     flex: 0 0 20%;
@@ -36,18 +40,18 @@ export const PortfolioGridItemStyles = css`
     flex: 0 0 25%;
   }
 
+  @media screen and (min-width: ${SMALL_MIN}) {
+    .image-wrapper {
+      &:hover {
+        box-shadow: 0px 0px 10px ${GREY3};
+        transition: all .2s ease;
+        transform: scale(1.05, 1.05);
+      }
+    }
+  }
+
   @media screen and (max-width: ${XSMALL_MAX}) {
     padding: 0px 0px ${SPACING_Y_L} 0px;
     flex: 0 0 100%;
-  }
-
-  .image-wrapper {
-    cursor: pointer;
-
-    &:hover {
-      box-shadow: 0px 0px 10px ${GREY3};
-      transition: all .2s ease;
-      transform: scale(1.05, 1.05);
-    }
   }
 `

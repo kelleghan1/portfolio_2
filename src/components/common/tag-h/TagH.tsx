@@ -7,8 +7,15 @@ const H2TagStyled = styled.h2`${TagHStyles}`
 const H3TagStyled = styled.h3`${TagHStyles}`
 const H4TagStyled = styled.h4`${TagHStyles}`
 
+enum SizeOptionsType {
+  one = 1,
+  two,
+  three,
+  four
+}
+
 interface TagHProps {
-  size: number
+  size: SizeOptionsType
   margin?: string
   color?: string
 }

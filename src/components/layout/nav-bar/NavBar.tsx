@@ -1,55 +1,135 @@
 import React,
 {
   FunctionComponent,
-  ReactElement
+  ReactElement,
+  ReactEventHandler,
+  useRef,
+  useState
 } from 'react'
+import { Flipped, Flipper } from 'react-flip-toolkit'
 import styled from 'styled-components'
+import { ButtonCustom } from '../../common/button-custom/ButtonCustom'
+import { UseClickOutsideRefHandler } from '../../hooks/UseClickOutsideRefHandler'
 import { NavBarItem } from '../nav-bar-item/NavBarItem'
+import { Spacer } from '../spacer/Spacer'
 import { NavBarStyles } from './NavBarStyles'
 
 const NavBarStyled = styled.div`${NavBarStyles}`
 
 export const NavBar: FunctionComponent = () => {
-  // const [isNavOpen, setIsNavOpen] = useState(false)
+  const [isNavOpen, setIsNavOpen] = useState(false)
+  const wrapperRef = useRef(null)
 
-  const renderNav = (): ReactElement =>
+  const closeMenu = (): void => {
+    if (isNavOpen) setIsNavOpen(false)
+  }
+
+  const handleOutsideRefClick = (): void => { closeMenu() }
+
+  const handleLinkClick = (): void => {
+    closeMenu()
+  }
+
+  UseClickOutsideRefHandler(
+    wrapperRef,
+    handleOutsideRefClick
+  )
+
+  const handleClick: ReactEventHandler = () => {
+    setIsNavOpen(!isNavOpen)
+  }
+
+  const renderNavItems = (isMobile: boolean): ReactElement => {
+    const spacerProps = isMobile
+      ? ({
+        b: 1,
+        l: 3,
+        r: 3,
+        t: 1
+      })
+      : ({
+        b: 0,
+        l: 2,
+        r: 0,
+        t: 0
+      })
+
+    return (
+      <>
+        <div className='nav-bar-item-wrapper'>
+          <Spacer {...spacerProps} >
+            <NavBarItem
+              handleCLick={handleLinkClick}
+              text={'Development'}
+              toUrl={'/development'}
+            />
+          </Spacer>
+        </div>
+        <div className='nav-bar-item-wrapper'>
+          <Spacer {...spacerProps} >
+            <NavBarItem
+              handleCLick={handleLinkClick}
+              text={'Design'}
+              toUrl={'/design'}
+            />
+          </Spacer>
+        </div>
+        <div className='nav-bar-item-wrapper'>
+          <Spacer {...spacerProps} >
+            <NavBarItem
+              handleCLick={handleLinkClick}
+              text={'All'}
+              toUrl={'/'}
+            />
+          </Spacer>
+        </div>
+        <div className='nav-bar-item-wrapper'>
+          <Spacer {...spacerProps} >
+            <NavBarItem
+              handleCLick={handleLinkClick}
+              text={'Contact'}
+              toUrl={'/contact'}
+            />
+          </Spacer>
+        </div>
+      </>
+    )
+  }
+
+  const renderNavLarge = (): ReactElement =>
     <nav className='large'>
-      <NavBarItem
-        delay={250}
-        text={'Development'}
-        toUrl={'/development'}
-      />
-      <NavBarItem
-        delay={250}
-        text={'Design'}
-        toUrl={'/design'}
-      />
-      <NavBarItem
-        delay={250}
-        text={'All'}
-        toUrl={'/'}
-      />
-      <NavBarItem
-        delay={250}
-        text={'Contact'}
-        toUrl={'/contact'}
-      />
+      { renderNavItems(false) }
     </nav>
 
   const renderNavMobile = (): ReactElement =>
-    <div className='hamburger-wrapper'>
-      <button>
-        <div className='line-wrapper'>
-          <div className='hamburger-line' />
-          <div className='hamburger-line' />
-          <div className='hamburger-line' />
-        </div>
-      </button>
-    </div>
+    <>
+      <div className='hamburger-wrapper'>
+        <ButtonCustom
+          onClick={handleClick}
+          title={isNavOpen ? 'Close nav menu' : 'Open nav menu'}
+        >
+          <div className='line-wrapper'>
+            <div className='hamburger-line' />
+            <div className='hamburger-line' />
+            <div className='hamburger-line' />
+          </div>
+        </ButtonCustom>
+      </div>
+      <Flipper flipKey={isNavOpen}>
+        <Flipped flipId='mobile-nav'>
+          <nav
+            className={`mobile ${isNavOpen ? 'open' : ''}`}
+            ref={wrapperRef}
+          >
+            { renderNavItems(true) }
+          </nav>
+        </Flipped>
+      </Flipper>
+    </>
 
   return (
     <NavBarStyled>
-      { renderNav() }
+      { renderNavLarge() }
       { renderNavMobile() }
     </NavBarStyled>
   )

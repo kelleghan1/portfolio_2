@@ -4,6 +4,8 @@ body {
   font-family: 'futura';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative;
 }
 
 h1,
