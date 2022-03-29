@@ -82,6 +82,16 @@ const portfolioItemArray: PortfolioItemType[] = [
       dropzioMock3,
       dropzioMock4
     ],
+    githubLinks: [
+      {
+        url: 'https://github.com/kelleghan1/dropzioApp2/',
+        label: 'View front end Github'
+      },
+      {
+        url: 'https://github.com/kelleghan1/dropzio_server/',
+        label: 'View back end on Github'
+      }
+    ],
     description: 'Dropzio is a geolocation hybrid app that allows users to post images and messages to their current location. The posts then become visible to other users in the vicinity. Dropzio was created with Cordova and Ionic and was written in AngularJS. The back end was created using Ruby on Rails and manages users, posts, and geographic data through CRUD operations. The logo was created with Adobe Illustrator.'
   },
   {
@@ -116,7 +126,13 @@ const portfolioItemArray: PortfolioItemType[] = [
       flightSwitchShirtFlag,
       flightSwitchShirtSoldier
     ],
-    description: 'Flight Switch is a Colorado based clothing company. The brand and products were created using Adobe Illustrator, Adobe Photoshop, and Adobe InDesign. The online store was created with JavaScript and Handlebars on the front end. The back end was created with Express, Bookshelf, and Knex to manage a robust inventory management system for administrators. You can demo the online store <a target="_blank" href="http://flight-switch-store.herokuapp.com/shirts"><strong>here</strong></a>. To see the GitHub page click <a href="https://github.com/kelleghan1/flight-switch-store" target="_blank"><strong>here</strong></a>.'
+    githubLinks: [
+      {
+        url: 'https://github.com/kelleghan1/flight-switch-store/',
+        label: 'View on Github'
+      }
+    ],
+    description: 'Flight Switch is a Colorado based clothing company. The brand and products were created using Adobe Illustrator, Adobe Photoshop, and Adobe InDesign. The online store was created with JavaScript and Handlebars on the front end. The back end was created with Express, Bookshelf, and Knex to manage a robust inventory management system for administrators.'
   },
   {
     categories: ['design', 'development'],
@@ -130,7 +146,13 @@ const portfolioItemArray: PortfolioItemType[] = [
       carvellSiteMockSquare,
       carvellWhite
     ],
-    description: 'Carvell Design + Build is a full service design and build firm that specializes in customized remodels and restoration, additions, and new construction work. The logo was created with Adobe Illustrator and the <a target="_blank" href="http://carvelldesignbuild.com/">Carvell website</a> was created using Wordpress.'
+    productLinks: [
+      {
+        label: 'Visit the website',
+        url: 'https://carvelldesignbuild.com/'
+      }
+    ],
+    description: 'Carvell Design + Build is a full service design and build firm that specializes in customized remodels and restoration, additions, and new construction work. The logo was created with Adobe Illustrator and the Carvell website was created using Wordpress.'
   },
   {
     categories: ['design'],
@@ -171,7 +193,13 @@ const portfolioItemArray: PortfolioItemType[] = [
     homeImage: geoball,
     primaryImage: geoball,
     images: [],
-    description: 'Geoball is a game created using JavaScript, jQuery, and canvas elements. It was then modified to function in AngularJS on this website. The game contacts an image API to retrieve a random background image for each game. Play the game <a href="/geoballdemo"><strong>here</strong></a>. To see the GitHub page click <a href="https://github.com/kelleghan1/mySite.github.io" target="_blank"><strong>here</strong></a>.'
+    githubLinks: [
+      {
+        label: 'View on Github',
+        url: 'https://github.com/kelleghan1/mySite.github.io/'
+      }
+    ],
+    description: 'Geoball is a game created using JavaScript, jQuery, and canvas elements. It was then modified to function in AngularJS on this website. The game contacts an image API to retrieve a random background image for each game.'
   },
   {
     categories: ['development'],
@@ -181,12 +209,22 @@ const portfolioItemArray: PortfolioItemType[] = [
     homeImage: yodelMockSquare,
     primaryImage: yodelMock,
     products: ['Logo, Mobile App'],
+    githubLinks: [
+      {
+        label: 'View front end on Github',
+        url: 'https://github.com/MSturges/YodelApp/'
+      },
+      {
+        label: 'View back end on Github',
+        url: 'https://github.com/MatieuB/yodel/'
+      }
+    ],
     images: [
       yodelMock1,
       yodelMock3,
       yodelMock4
     ],
-    description: 'Yodel is a social geolocation hybrid app designed to promote meeting new people and face to face interaction. The app allows users to see others within a custom range and send those users messages. It was created in Ionic and Cordova and written in AngularJS. It has a CRUD back end in Express and Knex to manage users and their location data. The logo was created using Adobe Illustrator. To see the front end on GitHub click <a href="https://github.com/MSturges/YodelApp" target="_blank"><strong>here</strong></a> and to see the back end click <a href="https://github.com/MatieuB/yodel" target="_blank"><strong>here</strong></a>'
+    description: 'Yodel is a social geolocation hybrid app designed to promote meeting new people and face to face interaction. The app allows users to see others within a custom range and send those users messages. It was created in Ionic and Cordova and written in AngularJS. It has a CRUD back end in Express and Knex to manage users and their location data. The logo was created using Adobe Illustrator.'
   },
   {
     categories: ['design'],
@@ -283,9 +321,7 @@ const portfolioItemArray: PortfolioItemType[] = [
     rowColor: '#fff',
     homeImage: teneoTalentWhite,
     primaryImage: teneoTalentWhite,
-    images: [
-      teneoTalentBlack
-    ],
+    images: [teneoTalentBlack],
     description: 'Teneo Talent is a job placement service based in Colorado. The logo and the Teneo Talent website were redesigned using Adobe Illustrator.'
   },
   {
@@ -311,7 +347,20 @@ const portfolioItemArray: PortfolioItemType[] = [
     images: [
       knightMovesMock
     ],
-    description: 'Knight Moves is a web application that calculates the minimum number of moves a chess knight can take to reach a given position. The app was written in Javascript with an AngularJS front end. Try the app <a href="/knightmovesdemo"><strong>here</strong></a>. To see the GitHub page click <a href="https://github.com/kelleghan1/knight" target="_blank"><strong>here</strong></a>.'
+    productLinks: [
+      {
+        url: '/knightmovesdemo',
+        label: 'Try the app',
+        isInternal: true
+      }
+    ],
+    githubLinks: [
+      {
+        label: 'View on Github',
+        url: 'https://github.com/kelleghan1/knight/'
+      }
+    ],
+    description: 'Knight Moves is a web application that calculates the minimum number of moves a chess knight can take to reach a given position. The app was written in Javascript and AngularJS.'
   },
   {
     categories: ['design', 'development'],

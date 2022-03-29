@@ -3,7 +3,7 @@ import { XSMALL_MAX } from '../../../constants/Breakpoints'
 import { GREY3, TEXT1 } from '../../../constants/Colors'
 import { SPACING_Y } from '../../../constants/Spacings'
 
-export const NavBarStyles = css`
+export const NavMenuStyles = css`
   nav.large {
     .nav-bar-item-wrapper {
       display: inline-block;
@@ -13,7 +13,9 @@ export const NavBarStyles = css`
   nav.mobile {
     display: none;
     position: absolute;
-    right: -100px;
+    /* visibility: hidden; */
+    /* right: -100px; */
+    left: 0px;
     opacity: 0;
     background-color: #fff;
     z-index: 1;
@@ -48,6 +50,7 @@ export const NavBarStyles = css`
       display: block;
 
       &.open {
+        left: unset;
         right: 0px;
         opacity: 1;
       }

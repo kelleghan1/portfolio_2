@@ -18,7 +18,8 @@ const intialPortfolioContextState: PortfolioContextStateType = {
   portfolioMap: {},
   projectIds: [],
   isLoading: true,
-  isNavigating: false
+  isNavigating: false,
+  isMobileNavOpen: false
 }
 
 const PortfolioContext = React.createContext<PortfolioContextStateType>(intialPortfolioContextState)
@@ -28,6 +29,7 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
   const [projectIds, setProjectIds] = useState(intialPortfolioContextState.projectIds)
   const [isLoading, setIsLoading] = useState(intialPortfolioContextState.isLoading)
   const [isNavigating, setIsNavigating] = useState(false)
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false)
 
   const getData = async (): Promise<void> => {
     const portfolioDataResponse = await getPortfolioData()
@@ -83,12 +85,14 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
   }
 
   const contextValue: PortfolioContextValueType = {
+    handleNavigation,
+    handleNavigationComplete,
+    isLoading,
+    isMobileNavOpen,
+    isNavigating,
     portfolioMap,
     projectIds,
-    isLoading,
-    isNavigating,
-    handleNavigation,
-    handleNavigationComplete
+    setIsMobileNavOpen
   }
 
   return (

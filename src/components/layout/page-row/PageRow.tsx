@@ -6,18 +6,23 @@ const PageRowStyled = styled.div`${PageRowStyles}`
 
 interface PageRowProps {
   color?: string
-  stickyMobile?: boolean
+  isStickyOnMobile?: boolean
 }
 
 export const PageRow: FunctionComponent<PageRowProps> = ({
   children,
   color,
-  stickyMobile
-}) =>
-  <PageRowStyled
-    color={color}
-    stickyMobile={stickyMobile}
-  >
-    {children}
-  </PageRowStyled>
+  isStickyOnMobile
+}) => {
+  const pageRowClassname = isStickyOnMobile ? 'sticky-mobile' : ''
+
+  return (
+    <PageRowStyled
+      className={pageRowClassname}
+      color={color}
+    >
+      {children}
+    </PageRowStyled>
+  )
+}
 

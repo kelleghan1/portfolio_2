@@ -4,7 +4,7 @@ import LogoImg from '../../../assets/images/site/kelleghanlogocompblack.png'
 import { Image } from '../../common/image/Image'
 import { LinkDelayed } from '../../common/link-delayed/LinkDelayed'
 import { Container } from '../container/Container'
-import { NavBar } from '../nav-bar/NavBar'
+import { NavMenu } from '../nav-menu/NavMenu'
 import { PageRow } from '../page-row/PageRow'
 import { Spacer } from '../spacer/Spacer'
 import { HeaderStyles } from './HeaderStyles'
@@ -12,7 +12,7 @@ import { HeaderStyles } from './HeaderStyles'
 const HeaderStyled = styled.div`${HeaderStyles}`
 
 export const Header: FunctionComponent = () =>
-  <PageRow stickyMobile>
+  <PageRow isStickyOnMobile>
     <Container>
       <HeaderStyled>
         <Spacer
@@ -28,11 +28,10 @@ export const Header: FunctionComponent = () =>
               </div>
             </div>
             <div className='nav-wrapper'>
-              <NavBar />
+              <NavMenu />
             </div>
           </div>
         </Spacer>
       </HeaderStyled>
     </Container>
   </PageRow>
-

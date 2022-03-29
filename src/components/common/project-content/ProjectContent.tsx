@@ -12,6 +12,7 @@ import { Container } from '../../layout/container/Container'
 import { PageRow } from '../../layout/page-row/PageRow'
 import { Spacer } from '../../layout/spacer/Spacer'
 import { Image } from '../image/Image'
+import { LinkCustom } from '../link-custom/LinkCustom'
 import { TagH } from '../tag-h/TagH'
 import { TagP } from '../tag-p/TagP'
 import { ProjectContentStyles } from './ProjectContentStyles'
@@ -35,7 +36,10 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
     images,
     name,
     primaryImage,
-    products
+    products,
+    productLinks,
+    githubLinks,
+    id
   } = portfolioItem
 
   const renderProjectImage = (src: string): ReactElement =>
@@ -49,11 +53,55 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
       <Image src={src}/>
     </Spacer>
 
-  const renderDescription = (
-    description: string,
-    name: string,
-    products: string[]
-  ): ReactElement => (
+  const renderLinks = (): ReactElement | null => {
+    const linkItems = [
+      ...(productLinks ?? []),
+      ...(githubLinks ?? [])
+    ]
+
+    if (!linkItems.length) return null
+
+    return (
+      <Spacer
+        b={0}
+        l={0}
+        r={0}
+        t={2}
+      >
+        {
+          linkItems.map((
+            {
+              url,
+              label,
+              isInternal
+            },
+            index
+          ) => (
+            <Spacer
+              b={(index === linkItems.length - 1) ? 0 : 1}
+              key={`${id}${url}`}
+              l={0}
+              r={0}
+              t={0}
+            >
+              <div className='link-item-wrapper' >
+                <LinkCustom
+                  isExternal={!isInternal}
+                  showLinkStyling={true}
+                  target={!isInternal ? '_blank' : undefined}
+                  to={url}
+                >
+                  { label }
+                </LinkCustom>
+              </div>
+            </Spacer>
+          ))
+        }
+      </Spacer>
+    )
+  }
+
+  const renderDescription = (): ReactElement => (
     <Spacer
       b={3}
       key={name}
@@ -63,37 +111,43 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
     >
       <div className='description-wrapper'>
         <Spacer
-          b={3}
           l={3}
           r={3}
         >
-          <div className='name-wrapper'>
+          <Spacer
+            b={2}
+            l={0}
+            r={0}
+            t={0}
+          >
             <TagH size={2}>
               { name }
             </TagH>
-          </div>
-          <div className='products-wrapper'>
+          </Spacer>
+          <Spacer
+            b={2}
+            l={0}
+            r={0}
+            t={0}
+          >
             <TagH size={4}>
               { products.join(', ') }
             </TagH>
-          </div>
+          </Spacer>
           <TagP>
             { description }
           </TagP>
+          { renderLinks() }
         </Spacer>
       </div>
     </Spacer>
   )
 
-  const renderColumns = (): ReactElement => {
+  const renderColumnView = (): ReactElement => {
     const column1 = [renderProjectImage(primaryImage)]
 
     const column2 = [
-      renderDescription(
-        description,
-        name,
-        products
-      )
+      renderDescription()
     ]
 
     images.forEach((
@@ -131,13 +185,9 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
     )
   }
 
-  const renderList = (): ReactElement => {
+  const renderListView = (): ReactElement => {
     const column = [
-      renderDescription(
-        description,
-        name,
-        products
-      ),
+      renderDescription(),
       renderProjectImage(primaryImage)
     ]
 
@@ -161,8 +211,8 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
     <PageRow>
       <Container>
         <ProjectContentStyled className={`fade-in ${isNavigating ? 'fade-out' : ''}`}>
-          { renderColumns() }
-          { renderList() }
+          { renderColumnView() }
+          { renderListView() }
         </ProjectContentStyled>
       </Container>
     </PageRow>

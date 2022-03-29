@@ -2,7 +2,12 @@
 //   data: { [key: string]: unknown}
 // }
 
-// Portfolio items
+export interface PortfolioItemLinkType {
+  url: string
+  label: string
+  isInternal?: boolean
+}
+
 export interface PortfolioItemType {
   description: string
   homeImage: string
@@ -14,6 +19,8 @@ export interface PortfolioItemType {
   rowColor: string
   textColor?: string
   categories: string[]
+  githubLinks?: PortfolioItemLinkType[]
+  productLinks?: PortfolioItemLinkType[]
 }
 
 export interface PortfolioItemsResponseType {

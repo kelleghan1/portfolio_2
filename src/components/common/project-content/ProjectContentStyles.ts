@@ -23,6 +23,10 @@ export const ProjectContentStyles = css`
 
   .description-wrapper {
     background-color: #fff;
+
+    .link-item-wrapper {
+      display: inline-block;
+    }
   }
 
   .name-wrapper {

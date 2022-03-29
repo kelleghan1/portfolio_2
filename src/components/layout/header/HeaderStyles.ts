@@ -24,12 +24,17 @@ export const HeaderStyles = css`
 
   @media screen and (max-width: ${XSMALL_MAX}) {
     background-color: #fff;
-    position: sticky;
-    top: 0;
     box-shadow: 0px 0px 10px ${GREY3};
-    z-index: 1;
 
     .header-wrapper {
+      .logo-wrapper {
+        flex: 1;
+
+        .logo-link-wrapper {
+          width: 150px;
+        }
+      }
+
       .nav-wrapper {
         justify-content: center;
       }

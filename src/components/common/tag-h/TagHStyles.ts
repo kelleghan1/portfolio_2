@@ -18,6 +18,7 @@ const renderColor = ({ color }: TagHStyleType): string => {
 }
 
 export const TagHStyles = css<TagHStyleType>`
+  line-height: 1em;
   ${renderMargin}
   ${renderColor}
 `

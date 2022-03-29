@@ -2,32 +2,33 @@ import React, { FunctionComponent } from 'react'
 import { useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import { LinkDelayed } from '../../common/link-delayed/LinkDelayed'
-import { NavBarItemStyles } from './NavBarItemStyles'
+import { NavMenuItemStyles } from './NavMenuItemStyles'
 
-const NavBarItemStyled = styled.div`${NavBarItemStyles}`
+const NavMenuItemStyled = styled.div`${NavMenuItemStyles}`
 
-interface NavBarItemPropsType {
+interface NavMenuItemPropsType {
   toUrl: string
   text: string
   handleCLick?: () => void
 }
 
-export const NavBarItem: FunctionComponent<NavBarItemPropsType> = ({
+export const NavMenuItem: FunctionComponent<NavMenuItemPropsType> = ({
   toUrl,
   text,
   handleCLick
 }) => {
   const location = useLocation()
+  const navMenuItemClassname = location?.pathname === toUrl ? 'selected' : ''
 
   return (
-    <NavBarItemStyled selected={location?.pathname === toUrl}>
+    <NavMenuItemStyled className={navMenuItemClassname}>
       <LinkDelayed
         handleCLick={handleCLick}
         to={toUrl}
       >
         { text }
       </LinkDelayed>
-    </NavBarItemStyled>
+    </NavMenuItemStyled>
   )
 }
 
