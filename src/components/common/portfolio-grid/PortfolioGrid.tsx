@@ -128,6 +128,7 @@ export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter })
         <Spacer
           l={3}
           r={3}
+          t={0}
         >
           <Flipper
             flipKey={flipKey}

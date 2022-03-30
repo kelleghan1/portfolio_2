@@ -2,30 +2,26 @@ import React,
 {
   FunctionComponent,
   ReactElement,
+  ReactEventHandler,
   useRef,
-  useContext
+  useState
 } from 'react'
 import { Flipped, Flipper } from 'react-flip-toolkit'
 import styled from 'styled-components'
-import { PortfolioContextValueType } from '../../../types/contextTypes'
-import { PortfolioContext } from '../../context/PortfolioContextProvider'
+import { ButtonCustom } from '../../common/button-custom/ButtonCustom'
 import { UseClickOutsideRefHandler } from '../../hooks/UseClickOutsideRefHandler'
 import { NavMenuItem } from '../nav-menu-item/NavMenuItem'
 import { Spacer } from '../spacer/Spacer'
 import { NavMenuMobileStyles } from './NavMenuMobileStyles'
 
-const NavBarStyled = styled.div`${NavMenuMobileStyles}`
+const NavMenuMobileStyled = styled.div`${NavMenuMobileStyles}`
 
 export const NavMenuMobile: FunctionComponent = () => {
-  const {
-    setIsMobileNavOpen,
-    isMobileNavOpen
-  } = useContext(PortfolioContext) as PortfolioContextValueType
-
+  const [isNavOpen, setIsNavOpen] = useState(false)
   const wrapperRef = useRef(null)
 
   const closeMenu = (): void => {
-    if (isMobileNavOpen) setIsMobileNavOpen(false)
+    if (isNavOpen) setIsNavOpen(false)
   }
 
   const handleOutsideRefClick = (): void => { closeMenu() }
@@ -39,7 +35,11 @@ export const NavMenuMobile: FunctionComponent = () => {
     handleOutsideRefClick
   )
 
-  const renderNavItems = (): ReactElement => {
+  const handleClick: ReactEventHandler = () => {
+    setIsNavOpen(!isNavOpen)
+  }
+
+  const renderNavItems = (isMobile: boolean): ReactElement => {
     const spacerProps = {
       b: 1,
       l: 3,
@@ -90,18 +90,30 @@ export const NavMenuMobile: FunctionComponent = () => {
   }
 
   return (
-    <NavBarStyled>
-      <Flipper flipKey={isMobileNavOpen}>
+    <NavMenuMobileStyled>
+      <div className='hamburger-wrapper'>
+        <ButtonCustom
+          onClick={handleClick}
+          title={isNavOpen ? 'Close nav menu' : 'Open nav menu'}
+        >
+          <div className='line-wrapper'>
+            <div className='hamburger-line' />
+            <div className='hamburger-line' />
+            <div className='hamburger-line' />
+          </div>
+        </ButtonCustom>
+      </div>
+      <Flipper flipKey={isNavOpen}>
         <Flipped flipId='mobile-nav'>
           <nav
-            className={`mobile ${isMobileNavOpen ? 'open' : ''}`}
+            className={`mobile ${isNavOpen ? 'open' : ''}`}
             ref={wrapperRef}
           >
-            { renderNavItems() }
+            { renderNavItems(true) }
           </nav>
         </Flipped>
       </Flipper>
-    </NavBarStyled>
+    </NavMenuMobileStyled>
   )
 }
 

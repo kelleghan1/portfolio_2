@@ -168,6 +168,7 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
             <Spacer
               l={3}
               r={1.5}
+              t={0}
             >
               { column1 }
             </Spacer>
@@ -176,6 +177,7 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
             <Spacer
               l={1.5}
               r={3}
+              t={0}
             >
               { column2 }
             </Spacer>
@@ -200,6 +202,7 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
         <Spacer
           l={3}
           r={3}
+          t={0}
         >
           { column }
         </Spacer>

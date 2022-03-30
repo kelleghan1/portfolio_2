@@ -1,8 +1,11 @@
 import { css } from 'styled-components'
 import { XSMALL_MAX } from '../../../constants/Breakpoints'
 import { GREY3 } from '../../../constants/Colors'
+import { SPACING_Y_L, SPACING_Y_NUM } from '../../../constants/Spacings'
 
 export const HeaderStyles = css`
+  margin-bottom: ${SPACING_Y_L};
+
   .header-wrapper {
     display: flex;
 
@@ -22,14 +25,15 @@ export const HeaderStyles = css`
     }
   }
 
+  &.mobile-header-content {
+    display: none;
+  }
+  
   @media screen and (max-width: ${XSMALL_MAX}) {
-    background-color: #fff;
-    box-shadow: 0px 0px 10px ${GREY3};
+    margin-bottom: ${SPACING_Y_NUM * 3}px;
 
     .header-wrapper {
       .logo-wrapper {
-        flex: 1;
-
         .logo-link-wrapper {
           width: 150px;
         }
@@ -38,6 +42,18 @@ export const HeaderStyles = css`
       .nav-wrapper {
         justify-content: center;
       }
+    }
+
+    &.mobile-header-content {
+      overflow-x: clip;
+      background-color: #fff;
+      box-shadow: 0px 0px 10px ${GREY3};
+      display: block;
+      left: 0px;
+      position: fixed;
+      right: 0px;
+      top: 0px;
+      z-index: 1;
     }
   }
 `
