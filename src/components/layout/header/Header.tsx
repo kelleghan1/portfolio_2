@@ -16,7 +16,10 @@ export const Header: FunctionComponent = () => {
   const renderHeaderLogo = (): ReactNode =>
     <div className='logo-wrapper'>
       <div className='logo-link-wrapper'>
-        <LinkDelayed to={'/'}>
+        <LinkDelayed
+          isBlock
+          to={'/'}
+        >
           <Image src={LogoImg} />
         </LinkDelayed>
       </div>

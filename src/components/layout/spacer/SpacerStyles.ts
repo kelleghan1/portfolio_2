@@ -23,4 +23,8 @@ export const SpacerStyles = css<SpacerStrings>`
     padding-right: ${r ?? SPACING_X_L};
     padding-top: ${t ?? SPACING_Y_L};
   `)}
+
+  &.spacer-flex {
+    display: flex;
+  }
 `

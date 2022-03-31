@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react'
 import styled from 'styled-components'
 import { TagPStyles } from './TagPStyles'
 
-const PTagStyled = styled.p`${TagPStyles}`
+const TagPStyled = styled.p`${TagPStyles}`
 
 interface PTagPropsType {
   color?: string
@@ -11,4 +11,4 @@ interface PTagPropsType {
 export const TagP: FunctionComponent<PTagPropsType> = ({
   children,
   color
-}) => <PTagStyled color={color}>{ children }</PTagStyled>
+}) => <TagPStyled color={color}>{ children }</TagPStyled>

@@ -10,12 +10,14 @@ interface NavMenuItemPropsType {
   toUrl: string
   text: string
   handleCLick?: () => void
+  tabIndex?: number
 }
 
 export const NavMenuItem: FunctionComponent<NavMenuItemPropsType> = ({
   toUrl,
   text,
-  handleCLick
+  handleCLick,
+  tabIndex
 }) => {
   const location = useLocation()
   const navMenuItemClassname = location?.pathname === toUrl ? 'selected' : ''
@@ -24,6 +26,7 @@ export const NavMenuItem: FunctionComponent<NavMenuItemPropsType> = ({
     <NavMenuItemStyled className={navMenuItemClassname}>
       <LinkDelayed
         handleCLick={handleCLick}
+        tabIndex={tabIndex}
         to={toUrl}
       >
         { text }

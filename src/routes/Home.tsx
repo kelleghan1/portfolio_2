@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import { useParams } from 'react-router'
-import { PortfolioGrid } from '../components/common/portfolio-grid/PortfolioGrid'
+import { PortfolioGrid } from '../components/page-content/portfolio-grid/PortfolioGrid'
 // import { PortfolioList } from '../components/common/portfolio-list/PortfolioList'
 
 interface ParamsType {

@@ -53,6 +53,7 @@ export const NavMenuMobile: FunctionComponent = () => {
           <Spacer {...spacerProps} >
             <NavMenuItem
               handleCLick={handleLinkClick}
+              tabIndex={isNavOpen ? 0 : -1}
               text={'Development'}
               toUrl={'/development'}
             />
@@ -62,6 +63,7 @@ export const NavMenuMobile: FunctionComponent = () => {
           <Spacer {...spacerProps} >
             <NavMenuItem
               handleCLick={handleLinkClick}
+              tabIndex={isNavOpen ? 0 : -1}
               text={'Design'}
               toUrl={'/design'}
             />
@@ -71,6 +73,7 @@ export const NavMenuMobile: FunctionComponent = () => {
           <Spacer {...spacerProps} >
             <NavMenuItem
               handleCLick={handleLinkClick}
+              tabIndex={isNavOpen ? 0 : -1}
               text={'All'}
               toUrl={'/'}
             />
@@ -80,6 +83,7 @@ export const NavMenuMobile: FunctionComponent = () => {
           <Spacer {...spacerProps} >
             <NavMenuItem
               handleCLick={handleLinkClick}
+              tabIndex={isNavOpen ? 0 : -1}
               text={'Contact'}
               toUrl={'/contact'}
             />

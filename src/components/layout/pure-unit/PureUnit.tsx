@@ -1,10 +1,26 @@
 import React, { FunctionComponent } from 'react'
+import styled from 'styled-components'
+import { PureUnitStyles } from './PureUnitStyles'
 
 interface PureUnitProps {
   pureClass: string
+  isFlex?: boolean
 }
 
-export const PureUnit: FunctionComponent<PureUnitProps> = ({ pureClass, children }) =>
-  <div className={pureClass}>
-    {children}
-  </div>
+const PureUnitStyled = styled.div`${PureUnitStyles}`
+
+export const PureUnit: FunctionComponent<PureUnitProps> = ({
+  pureClass,
+  children,
+  isFlex
+}) => {
+  let className = pureClass
+
+  if (isFlex) className += ' pure-unit-flex'
+
+  return (
+    <PureUnitStyled className={className}>
+      {children}
+    </PureUnitStyled>
+  )
+}

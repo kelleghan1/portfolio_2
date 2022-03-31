@@ -12,6 +12,7 @@ interface SpacerProps {
   r?: number
   t?: number
   b?: number
+  isFlex?: boolean
 }
 
 const SpacerStyled = styled.div`${SpacerStyles}`
@@ -21,8 +22,13 @@ export const Spacer: FunctionComponent<SpacerProps> = ({
   b,
   l,
   r,
-  t
+  t,
+  isFlex
 }) => {
+  let className = ''
+
+  if (isFlex) className = 'spacer-flex'
+
   const getSpacings = useMemo(
     () => {
       const spacings: SpacerStrings = {}
@@ -43,7 +49,10 @@ export const Spacer: FunctionComponent<SpacerProps> = ({
   )
 
   return (
-    <SpacerStyled {...getSpacings }>
+    <SpacerStyled
+      className={className}
+      {...getSpacings }
+    >
       {children}
     </SpacerStyled>
   )

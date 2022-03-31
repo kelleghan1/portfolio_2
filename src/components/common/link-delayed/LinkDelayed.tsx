@@ -14,12 +14,16 @@ import { LinkCustom } from '../link-custom/LinkCustom'
 interface LinkDelayedPropsType {
   to: string
   handleCLick?: () => void
+  isBlock?: boolean
+  tabIndex?: number
 }
 
 export const LinkDelayed: FunctionComponent<LinkDelayedPropsType> = ({
   children,
   to,
-  handleCLick
+  handleCLick,
+  isBlock,
+  tabIndex
 }) => {
   const {
     handleNavigation,
@@ -63,7 +67,9 @@ export const LinkDelayed: FunctionComponent<LinkDelayedPropsType> = ({
 
   return (
     <LinkCustom
+      isBlock={isBlock}
       onClick={handleClick}
+      tabIndex={tabIndex}
       to={to}
     >
       { children }

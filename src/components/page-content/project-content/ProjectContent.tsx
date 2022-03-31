@@ -5,16 +5,16 @@ import React,
   useContext
 } from 'react'
 import styled from 'styled-components'
-import { PureUnit } from '../../../components/layout/pure-unit/PureUnit'
-import { Pure } from '../../../components/layout/pure/Pure'
+import { Image } from '../../common/image/Image'
+import { LinkCustom } from '../../common/link-custom/LinkCustom'
+import { TagH } from '../../common/tag-h/TagH'
+import { TagP } from '../../common/tag-p/TagP'
 import { PortfolioContext } from '../../context/PortfolioContextProvider'
 import { Container } from '../../layout/container/Container'
 import { PageRow } from '../../layout/page-row/PageRow'
+import { PureUnit } from '../../layout/pure-unit/PureUnit'
+import { Pure } from '../../layout/pure/Pure'
 import { Spacer } from '../../layout/spacer/Spacer'
-import { Image } from '../image/Image'
-import { LinkCustom } from '../link-custom/LinkCustom'
-import { TagH } from '../tag-h/TagH'
-import { TagP } from '../tag-p/TagP'
 import { ProjectContentStyles } from './ProjectContentStyles'
 
 const ProjectContentStyled = styled.div`${ProjectContentStyles}`
@@ -86,8 +86,8 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
             >
               <div className='link-item-wrapper' >
                 <LinkCustom
+                  hasLinkStyling={true}
                   isExternal={!isInternal}
-                  showLinkStyling={true}
                   target={!isInternal ? '_blank' : undefined}
                   to={url}
                 >

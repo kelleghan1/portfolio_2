@@ -8,11 +8,11 @@ import React,
 } from 'react'
 import { Flipper, Flipped } from 'react-flip-toolkit'
 import styled from 'styled-components'
+import { PortfolioGridItem } from '../../common/portfolio-grid-item/PortfolioGridItem'
 import { PortfolioContext } from '../../context/PortfolioContextProvider'
 import { Container } from '../../layout/container/Container'
 import { PageRow } from '../../layout/page-row/PageRow'
 import { Spacer } from '../../layout/spacer/Spacer'
-import { PortfolioGridItem } from '../portfolio-grid-item/PortfolioGridItem'
 import { PortfolioGridStyles } from './PortfolioGridStyles'
 
 const PortfolioGridStyled = styled.div`${PortfolioGridStyles}`

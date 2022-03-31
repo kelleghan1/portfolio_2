@@ -4,7 +4,6 @@ import { GREY2, LINK1, TEXT1 } from '../../../constants/Colors'
 export const LinkCustomStyles = css`
   & > a {
     text-decoration: none;
-    display: block;
     color: ${TEXT1};
 
     &:focus {
@@ -21,6 +20,10 @@ export const LinkCustomStyles = css`
       &:hover {
         text-decoration: underline;
       }
+    }
+
+    &.display-block {
+      display: block;
     }
   }
 `

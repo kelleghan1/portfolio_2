@@ -10,7 +10,9 @@ interface LinkCustomPropsType {
   onClick?: ReactEventHandler
   isExternal?: boolean
   target?: string
-  showLinkStyling?: boolean
+  hasLinkStyling?: boolean
+  isBlock?: boolean
+  tabIndex?: number
 }
 
 export const LinkCustom: FunctionComponent<LinkCustomPropsType> = ({
@@ -19,9 +21,13 @@ export const LinkCustom: FunctionComponent<LinkCustomPropsType> = ({
   to,
   isExternal,
   target,
-  showLinkStyling
+  hasLinkStyling,
+  tabIndex,
+  isBlock
 }) => {
-  const linkCLassname = showLinkStyling ? 'show-link-styling' : ''
+  let linkCLassname = hasLinkStyling ? 'show-link-styling' : ''
+
+  if (isBlock) linkCLassname += ' display-block'
 
   const renderLink = (): ReactNode => {
     if (isExternal) {
@@ -32,6 +38,7 @@ export const LinkCustom: FunctionComponent<LinkCustomPropsType> = ({
           id='test'
           onClick={onClick}
           rel="noreferrer"
+          tabIndex={tabIndex}
           target={target}
         >
           { children }
@@ -43,6 +50,7 @@ export const LinkCustom: FunctionComponent<LinkCustomPropsType> = ({
       <Link
         className={linkCLassname}
         onClick={onClick}
+        tabIndex={tabIndex}
         target={target}
         to={to}
       >

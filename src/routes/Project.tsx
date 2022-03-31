@@ -7,8 +7,8 @@ import {
   useParams,
   Redirect
 } from 'react-router'
-import { ProjectContent } from '../components/common/project-content/ProjectContent'
 import { PortfolioContext } from '../components/context/PortfolioContextProvider'
+import { ProjectContent } from '../components/page-content/project-content/ProjectContent'
 
 interface ParamsType {
   projectId: string
