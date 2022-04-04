@@ -70,11 +70,11 @@ import {
 const portfolioItemArray: PortfolioItemType[] = [
   {
     rowColor: '#fff',
-    categories: ['development'],
+    categories: [ 'development' ],
     name: 'Dropzio',
     id: 'dropzio',
     homeImage: dropzioMockSquare,
-    products: ['Logo', 'Mobile App'],
+    products: [ 'Logo', 'Mobile App' ],
     primaryImage: dropzioImg,
     images: [
       dropzioMock1,
@@ -96,11 +96,11 @@ const portfolioItemArray: PortfolioItemType[] = [
   },
   {
     rowColor: '#787a7b',
-    categories: ['design'],
+    categories: [ 'design' ],
     name: 'Silverline Media',
     id: 'silverlineMedia',
     textColor: '#fff',
-    products: ['Logo'],
+    products: [ 'Logo' ],
     homeImage: silverlineMediaGrey,
     primaryImage: silverlineMediaGrey,
     images: [
@@ -111,12 +111,12 @@ const portfolioItemArray: PortfolioItemType[] = [
   },
   {
     rowColor: '#050608',
-    categories: ['design', 'development'],
+    categories: [ 'design', 'development' ],
     name: 'Flight Switch',
     id: 'flightswitch',
     textColor: '#fff',
     homeImage: flightSwitchBlack,
-    products: ['Logo', 'Shirt Designs', 'Online Store'],
+    products: [ 'Logo', 'Shirt Designs', 'Online Store' ],
     primaryImage: flightSwitchBlack,
     images: [
       flightSwitchSiteMock,
@@ -135,11 +135,11 @@ const portfolioItemArray: PortfolioItemType[] = [
     description: 'Flight Switch is a Colorado based clothing company. The brand and products were created using Adobe Illustrator, Adobe Photoshop, and Adobe InDesign. The online store was created with JavaScript and Handlebars on the front end. The back end was created with Express, Bookshelf, and Knex to manage a robust inventory management system for administrators.'
   },
   {
-    categories: ['design', 'development'],
+    categories: [ 'design', 'development' ],
     name: 'Carvell Design + Build',
     rowColor: '#fff',
     id: 'carvell',
-    products: ['Logo', 'Website'],
+    products: [ 'Logo', 'Website' ],
     homeImage: carvellSiteMockSquare,
     primaryImage: carvellImg,
     images: [
@@ -155,11 +155,11 @@ const portfolioItemArray: PortfolioItemType[] = [
     description: 'Carvell Design + Build is a full service design and build firm that specializes in customized remodels and restoration, additions, and new construction work. The logo was created with Adobe Illustrator and the Carvell website was created using Wordpress.'
   },
   {
-    categories: ['design'],
+    categories: [ 'design' ],
     name: 'Grillerz Pub',
     rowColor: '#050608',
     id: 'grillerzpub',
-    products: ['Logo'],
+    products: [ 'Logo' ],
     textColor: '#fff',
     homeImage: grillerzFlames,
     primaryImage: grillerzFlames,
@@ -170,11 +170,11 @@ const portfolioItemArray: PortfolioItemType[] = [
     description: 'Grillerz Pub is a bar and restaurant in Englewood, Colorado. The logo was created using Adobe Illustrator.'
   },
   {
-    categories: ['design'],
+    categories: [ 'design' ],
     name: 'Sunshine Tree Farm',
     rowColor: '#fff',
     id: 'sunshinetreefarm',
-    products: ['Logo'],
+    products: [ 'Logo' ],
     homeImage: sunshineTreeFarmWhite,
     primaryImage: sunshineTreeFarmWhite,
     images: [
@@ -184,12 +184,12 @@ const portfolioItemArray: PortfolioItemType[] = [
     description: 'Sunshine Tree Farm grows and sell a variety of trees in Colorado. The logo was created with Adobe Illustrator.'
   },
   {
-    categories: ['development'],
+    categories: [ 'development' ],
     rowColor: '#050608',
     textColor: '#fff',
     id: 'geoball',
     name: 'Geoball',
-    products: ['Browser Game'],
+    products: [ 'Browser Game' ],
     homeImage: geoball,
     primaryImage: geoball,
     images: [],
@@ -202,13 +202,13 @@ const portfolioItemArray: PortfolioItemType[] = [
     description: 'Geoball is a game created using JavaScript, jQuery, and canvas elements. It was then modified to function in AngularJS on this website. The game contacts an image API to retrieve a random background image for each game.'
   },
   {
-    categories: ['development'],
+    categories: [ 'development' ],
     name: 'Yodel',
     rowColor: '#FFD67F',
     id: 'yodel',
     homeImage: yodelMockSquare,
     primaryImage: yodelMock,
-    products: ['Logo, Mobile App'],
+    products: [ 'Logo, Mobile App' ],
     githubLinks: [
       {
         label: 'View front end on Github',
@@ -227,9 +227,9 @@ const portfolioItemArray: PortfolioItemType[] = [
     description: 'Yodel is a social geolocation hybrid app designed to promote meeting new people and face to face interaction. The app allows users to see others within a custom range and send those users messages. It was created in Ionic and Cordova and written in AngularJS. It has a CRUD back end in Express and Knex to manage users and their location data. The logo was created using Adobe Illustrator.'
   },
   {
-    categories: ['design'],
+    categories: [ 'design' ],
     name: 'Alchemist Labs',
-    products: ['Logo'],
+    products: [ 'Logo' ],
     id: 'alchemistlabs',
     rowColor: '#627478',
     homeImage: alchemistLabsWater,
@@ -241,9 +241,9 @@ const portfolioItemArray: PortfolioItemType[] = [
     description: 'Alchemist Labs produces vapor concentrate for vaporizer products. The logo was created using Adobe Illustrator.'
   },
   {
-    categories: ['design'],
+    categories: [ 'design' ],
     name: 'Jam Factory',
-    products: ['Logo'],
+    products: [ 'Logo' ],
     id: 'jamfactory',
     rowColor: '#fff',
     homeImage: jamFactoryWhite,
@@ -255,9 +255,9 @@ const portfolioItemArray: PortfolioItemType[] = [
     description: 'Jam Factory is a music and entertainment event coordination and promotion company. The logo was created using Adobe Illustrator.'
   },
   {
-    categories: ['design'],
+    categories: [ 'design' ],
     name: 'Revmatek',
-    products: ['Logo'],
+    products: [ 'Logo' ],
     id: 'revmatek',
     rowColor: '#050608',
     homeImage: revmatekOrange,
@@ -270,11 +270,11 @@ const portfolioItemArray: PortfolioItemType[] = [
     description: 'Revmatek offers peer to peer streaming service and solutions. The logo was created using Adobe Illustrator.'
   },
   {
-    categories: ['design', 'development'],
+    categories: [ 'design', 'development' ],
     name: 'Family Home Health',
     id: 'familyhomehealth',
     rowColor: '#fff',
-    products: ['Brochure', 'Website'],
+    products: [ 'Brochure', 'Website' ],
     homeImage: fhhSiteSquare,
     primaryImage: fhhSiteSquare,
     images: [
@@ -284,11 +284,11 @@ const portfolioItemArray: PortfolioItemType[] = [
     description: 'Family Home Health is a Colorado based company that offers health care at the homes of their patients. Their trifold brochure was created using Adobe Indesign, Adobe Illustrator, and Adobe Photoshop. The Family Home Health website was created in Wordpress.'
   },
   {
-    categories: ['design'],
+    categories: [ 'design' ],
     name: 'Purple State Productions',
     id: 'purplerstateproductions',
     rowColor: '#050608',
-    products: ['Logo', 'Event Poster'],
+    products: [ 'Logo', 'Event Poster' ],
     textColor: '#fff',
     homeImage: purpleStateBlack,
     primaryImage: purpleStateBlack,
@@ -299,11 +299,11 @@ const portfolioItemArray: PortfolioItemType[] = [
     description: 'Purple State organizes shows and music related events. The logo was created using Adobe Illustrator. The event poster was created using Adobe Illustrator, Adobe Photoshop, and Adobe InDesign.'
   },
   {
-    categories: ['design'],
+    categories: [ 'design' ],
     name: 'Rising Sun',
     id: 'risingsun',
     rowColor: '#fff',
-    products: ['Logo', 'Album Cover', 'Booklet'],
+    products: [ 'Logo', 'Album Cover', 'Booklet' ],
     homeImage: risingSunCover,
     primaryImage: risingSunCover,
     images: [
@@ -314,21 +314,21 @@ const portfolioItemArray: PortfolioItemType[] = [
     description: 'Rising sun is an English DJ and producer. The album cover and logo were created using Adobe Illustrator, Adobe Photoshop, and Adobe InDesign.'
   },
   {
-    categories: ['design'],
+    categories: [ 'design' ],
     name: 'Teneo Talent',
     id: 'teneotalent',
-    products: ['Logo'],
+    products: [ 'Logo' ],
     rowColor: '#fff',
     homeImage: teneoTalentWhite,
     primaryImage: teneoTalentWhite,
-    images: [teneoTalentBlack],
+    images: [ teneoTalentBlack ],
     description: 'Teneo Talent is a job placement service based in Colorado. The logo and the Teneo Talent website were redesigned using Adobe Illustrator.'
   },
   {
-    categories: ['design'],
+    categories: [ 'design' ],
     name: 'Proper Motion',
     id: 'propermotion',
-    products: ['Album Cover'],
+    products: [ 'Album Cover' ],
     rowColor: '#050608',
     homeImage: properMotionCover,
     primaryImage: properMotionCover,
@@ -337,13 +337,13 @@ const portfolioItemArray: PortfolioItemType[] = [
     description: 'Proper Motion is a music producer based in Colorado. The album cover was created using Adobe Photoshop and Adobe Illustrator.'
   },
   {
-    categories: ['development'],
+    categories: [ 'development' ],
     name: 'Knight Moves',
     id: 'knightmoves',
     rowColor: '#fff',
     homeImage: knightMovesMock,
     primaryImage: knightMoves,
-    products: ['Side Project'],
+    products: [ 'Side Project' ],
     images: [
       knightMovesMock
     ],
@@ -363,10 +363,10 @@ const portfolioItemArray: PortfolioItemType[] = [
     description: 'Knight Moves is a web application that calculates the minimum number of moves a chess knight can take to reach a given position. The app was written in Javascript and AngularJS.'
   },
   {
-    categories: ['design', 'development'],
+    categories: [ 'design', 'development' ],
     name: 'Family Hospice',
     id: 'familyhospice',
-    products: ['Brochure', 'Website'],
+    products: [ 'Brochure', 'Website' ],
     rowColor: '#fff',
     homeImage: familyhospiceSiteSquare,
     primaryImage: familyhospiceSiteSquare,
@@ -377,10 +377,10 @@ const portfolioItemArray: PortfolioItemType[] = [
     description: 'Family Hospice is an end of life care service. They serve patients at their homes in order to maximize quality of life. Their brochure was creaed using Adobe Illustrator, Adobe InDesign, and Adobe Photoshop. The Family Hospice website was created using the Adobe Creative Suite and Wordpress.'
   },
   {
-    categories: ['design'],
+    categories: [ 'design' ],
     name: 'Moonwalkers',
     id: 'moonwalkers',
-    products: ['Logo'],
+    products: [ 'Logo' ],
     rowColor: '#fff',
     homeImage: moonwalkersWhite,
     primaryImage: moonwalkersWhite,
@@ -391,10 +391,10 @@ const portfolioItemArray: PortfolioItemType[] = [
     description: 'Moonwalkers is an all cancer benefit and fundraising team. Their logo was created using Adobe Illustrator.'
   },
   {
-    categories: ['design'],
+    categories: [ 'design' ],
     name: 'Absinthe House',
     id: 'absinthehouse',
-    products: ['Logo, Menu, Website'],
+    products: [ 'Logo, Menu, Website' ],
     rowColor: '#050608',
     textColor: '#fff',
     homeImage: absintheHouseBlack,

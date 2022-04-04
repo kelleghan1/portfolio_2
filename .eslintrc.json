@@ -39,6 +39,14 @@
       1,
       "multiline"
     ],
+    "array-bracket-spacing": [
+      "error",
+      "always", 
+      {
+        "objectsInArrays": false,
+        "arraysInArrays": false
+      }
+    ],
     "object-property-newline": [1],
     "function-call-argument-newline": ["error", "always"],
     "function-paren-newline": ["error", { "minItems": 2 }],
@@ -109,6 +117,7 @@
         "**/*.ts?(x)"
       ],
       "rules": {
+        "@typescript-eslint/no-unused-vars": ["warn"],
         "@typescript-eslint/indent": ["error", 2],
         "@typescript-eslint/strict-boolean-expressions": "off",
         "@typescript-eslint/triple-slash-reference": "off"

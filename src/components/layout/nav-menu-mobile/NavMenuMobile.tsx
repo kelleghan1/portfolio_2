@@ -17,7 +17,7 @@ import { NavMenuMobileStyles } from './NavMenuMobileStyles'
 const NavMenuMobileStyled = styled.div`${NavMenuMobileStyles}`
 
 export const NavMenuMobile: FunctionComponent = () => {
-  const [isNavOpen, setIsNavOpen] = useState(false)
+  const [ isNavOpen, setIsNavOpen ] = useState(false)
   const wrapperRef = useRef(null)
 
   const closeMenu = (): void => {

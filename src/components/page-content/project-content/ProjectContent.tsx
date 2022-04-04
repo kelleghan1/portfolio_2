@@ -144,7 +144,7 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
   )
 
   const renderColumnView = (): ReactElement => {
-    const column1 = [renderProjectImage(primaryImage)]
+    const column1 = [ renderProjectImage(primaryImage) ]
 
     const column2 = [
       renderDescription()

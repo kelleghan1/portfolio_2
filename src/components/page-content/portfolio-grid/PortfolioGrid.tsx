@@ -22,8 +22,8 @@ interface PortfolioGridProps {
 }
 
 export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter }) => {
-  const [areImagesLoaded, setAreImagesLoaded] = useState(false)
-  const [isInitialLoad, setIsInitialLoad] = useState(true)
+  const [ areImagesLoaded, setAreImagesLoaded ] = useState(false)
+  const [ isInitialLoad, setIsInitialLoad ] = useState(true)
 
   const {
     portfolioMap,
