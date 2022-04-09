@@ -27,7 +27,10 @@ const renderItemImage = (homeImage: PortfolioListItemPropsType['homeImage']): Re
   return (
     <div className='half-wrapper'>
       <div className='image-wrapper'>
-        <Image src={ homeImage } />
+        <Image
+          altText=''
+          src={ homeImage }
+        />
       </div>
     </div>
   )

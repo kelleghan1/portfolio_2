@@ -418,7 +418,7 @@ export const getPortfolioData = async (): Promise<PortfolioItemsResponseType> =>
       () => {
         resolve({ data: { items: portfolioItemArray } })
       },
-      1000
+      10
     )
   })
 

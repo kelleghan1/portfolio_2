@@ -11,11 +11,13 @@ const PortfolioGridItemStyled = styled.div`
 interface PortfolioGridItemPropsType {
   homeImage: string
   projectId: string
+  name: string
 }
 
 export const PortfolioGridItem: FunctionComponent<PortfolioGridItemPropsType> = ({
   homeImage,
   projectId,
+  name,
   ...rest
 }) => (
   <PortfolioGridItemStyled {...rest} >
@@ -24,7 +26,11 @@ export const PortfolioGridItem: FunctionComponent<PortfolioGridItemPropsType> = 
         isBlock
         to={`/project/${projectId}`}
       >
-        <Image src={ homeImage } />
+        <Image
+          altText={`View project page for ${name}`}
+          aspectRatio={'1 / 1'}
+          src={ homeImage }
+        />
       </LinkDelayed>
     </div>
   </PortfolioGridItemStyled>

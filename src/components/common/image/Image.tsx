@@ -9,15 +9,21 @@ interface ImageProps {
   width?: string
   height?: string
   onLoad?: ReactEventHandler
+  altText: string
+  aspectRatio?: string
 }
 
 export const Image: FunctionComponent<ImageProps> = ({
   src,
   width = '100%',
   height,
-  onLoad
+  onLoad,
+  altText,
+  aspectRatio
 }) => (
   <ImageStyled
+    alt={altText}
+    aspectRatio={aspectRatio}
     height={height}
     onLoad={onLoad}
     src={src}

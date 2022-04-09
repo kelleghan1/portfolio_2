@@ -44,7 +44,10 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
     id
   } = portfolioItem
 
-  const renderProjectImage = (src: string): ReactElement =>
+  const renderProjectImage = (
+    src: string,
+    altText: string
+  ): ReactElement =>
     <Spacer
       b={3}
       key={src}
@@ -52,7 +55,10 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
       r={0}
       t={0}
     >
-      <Image src={src}/>
+      <Image
+        altText={altText}
+        src={src}
+      />
     </Spacer>
 
   const renderLink = (
@@ -173,7 +179,12 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
   )
 
   const renderColumnView = (): ReactElement => {
-    const column1 = [ renderProjectImage(primaryImage) ]
+    const column1 = [
+      renderProjectImage(
+        primaryImage,
+        `${name} primary image`
+      )
+    ]
 
     const column2 = [
       renderDescription()
@@ -184,9 +195,15 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
       index
     ) => {
       if (index % 2 === 0) {
-        column2.push(renderProjectImage(imageUrl))
+        column2.push(renderProjectImage(
+          imageUrl,
+          `${name} image ${index}`
+        ))
       } else {
-        column1.push(renderProjectImage(imageUrl))
+        column1.push(renderProjectImage(
+          imageUrl,
+          `${name} image ${index}`
+        ))
       }
     })
 
@@ -219,12 +236,21 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
   const renderListView = (): ReactElement => {
     const column = [
       renderDescription(),
-      renderProjectImage(primaryImage)
+      renderProjectImage(
+        primaryImage,
+        `${name} primary image`
+      )
     ]
 
-    for (const imageUrl of images) {
-      column.push(renderProjectImage(imageUrl))
-    }
+    images.forEach((
+      imageUrl,
+      index
+    ) => {
+      column.push(renderProjectImage(
+        imageUrl,
+        `${name} image ${index}`
+      ))
+    })
 
     return (
       <div className='list-wrapper'>

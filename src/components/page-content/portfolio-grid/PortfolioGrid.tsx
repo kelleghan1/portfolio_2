@@ -98,7 +98,10 @@ export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter })
         )
       ) continue
 
-      const { homeImage } = portfolioItem
+      const {
+        homeImage,
+        name
+      } = portfolioItem
 
       portfolioGridItems[portfolioGridItems.length] = (
         <Flipped
@@ -109,6 +112,7 @@ export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter })
         >
           <PortfolioGridItem
             homeImage={homeImage}
+            name={name}
             projectId={projectId}
           />
         </Flipped>

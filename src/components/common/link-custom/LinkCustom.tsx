@@ -35,7 +35,6 @@ export const LinkCustom: FunctionComponent<LinkCustomPropsType> = ({
         <a
           className={linkCLassname}
           href={to}
-          id='test'
           onClick={onClick}
           rel="noreferrer"
           tabIndex={tabIndex}

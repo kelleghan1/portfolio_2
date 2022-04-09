@@ -20,7 +20,10 @@ export const Header: FunctionComponent = () => {
           isBlock
           to={'/'}
         >
-          <Image src={LogoImg} />
+          <Image
+            altText='Kelleghan Design homepage'
+            src={LogoImg}
+          />
         </LinkDelayed>
       </div>
     </div>
