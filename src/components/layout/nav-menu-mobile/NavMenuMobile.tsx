@@ -52,7 +52,7 @@ export const NavMenuMobile: FunctionComponent = () => {
         <div className='nav-bar-item-wrapper'>
           <Spacer {...spacerProps} >
             <NavMenuItem
-              handleCLick={handleLinkClick}
+              handleClick={handleLinkClick}
               tabIndex={isNavOpen ? 0 : -1}
               text={'Development'}
               toUrl={'/development'}
@@ -62,7 +62,7 @@ export const NavMenuMobile: FunctionComponent = () => {
         <div className='nav-bar-item-wrapper'>
           <Spacer {...spacerProps} >
             <NavMenuItem
-              handleCLick={handleLinkClick}
+              handleClick={handleLinkClick}
               tabIndex={isNavOpen ? 0 : -1}
               text={'Design'}
               toUrl={'/design'}
@@ -72,7 +72,7 @@ export const NavMenuMobile: FunctionComponent = () => {
         <div className='nav-bar-item-wrapper'>
           <Spacer {...spacerProps} >
             <NavMenuItem
-              handleCLick={handleLinkClick}
+              handleClick={handleLinkClick}
               tabIndex={isNavOpen ? 0 : -1}
               text={'All'}
               toUrl={'/'}
@@ -82,7 +82,7 @@ export const NavMenuMobile: FunctionComponent = () => {
         <div className='nav-bar-item-wrapper'>
           <Spacer {...spacerProps} >
             <NavMenuItem
-              handleCLick={handleLinkClick}
+              handleClick={handleLinkClick}
               tabIndex={isNavOpen ? 0 : -1}
               text={'Contact'}
               toUrl={'/contact'}

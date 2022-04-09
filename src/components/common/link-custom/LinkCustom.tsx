@@ -6,13 +6,13 @@ import { LinkCustomStyles } from './LinkCustomStyles'
 const LinkCustomStyled = styled.span`${LinkCustomStyles}`
 
 interface LinkCustomPropsType {
-  to: string
-  onClick?: ReactEventHandler
-  isExternal?: boolean
-  target?: string
   hasLinkStyling?: boolean
   isBlock?: boolean
+  isExternal?: boolean
+  onClick?: ReactEventHandler
   tabIndex?: number
+  target?: string
+  to: string
 }
 
 export const LinkCustom: FunctionComponent<LinkCustomPropsType> = ({

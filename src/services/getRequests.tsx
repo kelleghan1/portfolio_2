@@ -349,18 +349,22 @@ const portfolioItemArray: PortfolioItemType[] = [
     ],
     productLinks: [
       {
-        url: '/knightmovesdemo',
+        url: '/project/knightmoves/demo',
         label: 'Try the app',
         isInternal: true
       }
     ],
     githubLinks: [
       {
-        label: 'View on Github',
+        label: 'View on Github (Angular)',
         url: 'https://github.com/kelleghan1/knight/'
+      },
+      {
+        label: 'View on Github (React, NPM package)',
+        url: 'https://github.com/kelleghan1/knight_moves_2'
       }
     ],
-    description: 'Knight Moves is a web application that calculates the minimum number of moves a chess knight can take to reach a given position. The app was written in Javascript and AngularJS.'
+    description: 'Knight Moves is a web application that calculates the minimum minimum number of moves needed for a chess knight to reach a given position. The app was written in Javascript and AngularJS in 2016, and rewritten in React as a public npm package.'
   },
   {
     categories: [ 'design', 'development' ],

@@ -2,11 +2,13 @@ import React,
 {
   FunctionComponent,
   ReactElement,
+  ReactNode,
   useContext
 } from 'react'
 import styled from 'styled-components'
 import { Image } from '../../common/image/Image'
 import { LinkCustom } from '../../common/link-custom/LinkCustom'
+import { LinkDelayed } from '../../common/link-delayed/LinkDelayed'
 import { TagH } from '../../common/tag-h/TagH'
 import { TagP } from '../../common/tag-p/TagP'
 import { PortfolioContext } from '../../context/PortfolioContextProvider'
@@ -53,6 +55,34 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
       <Image src={src}/>
     </Spacer>
 
+  const renderLink = (
+    url: string,
+    label: string,
+    isInternal: boolean
+  ): ReactNode => {
+    if (isInternal) {
+      return (
+        <LinkDelayed
+          hasLinkStyling={true}
+          to={url}
+        >
+          { label }
+        </LinkDelayed>
+      )
+    }
+
+    return (
+      <LinkCustom
+        hasLinkStyling={true}
+        isExternal={true}
+        target={!isInternal ? '_blank' : undefined}
+        to={url}
+      >
+        { label }
+      </LinkCustom>
+    )
+  }
+
   const renderLinks = (): ReactElement | null => {
     const linkItems = [
       ...(productLinks ?? []),
@@ -73,7 +103,7 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
             {
               url,
               label,
-              isInternal
+              isInternal = false
             },
             index
           ) => (
@@ -85,14 +115,13 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
               t={0}
             >
               <div className='link-item-wrapper' >
-                <LinkCustom
-                  hasLinkStyling={true}
-                  isExternal={!isInternal}
-                  target={!isInternal ? '_blank' : undefined}
-                  to={url}
-                >
-                  { label }
-                </LinkCustom>
+                {
+                  renderLink(
+                    url,
+                    label,
+                    isInternal
+                  )
+                }
               </div>
             </Spacer>
           ))

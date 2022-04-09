@@ -7,6 +7,8 @@ import { Header } from './components/layout/header/Header'
 import { Contact } from './routes/Contact'
 import { Home } from './routes/Home'
 import { Project } from './routes/Project'
+import { ProjectDemo } from './routes/ProjectDemo'
+
 const AppStyled = styled.div`${appStyles}`
 
 export const App: FunctionComponent = () => {
@@ -33,6 +35,11 @@ export const App: FunctionComponent = () => {
               component={Project}
               exact
               path='/project/:projectId'
+            />
+            <Route
+              component={ProjectDemo}
+              exact
+              path='/project/:projectId/demo'
             />
             <Redirect to='/' />
           </Switch>

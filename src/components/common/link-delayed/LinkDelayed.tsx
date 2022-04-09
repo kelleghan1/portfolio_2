@@ -13,17 +13,19 @@ import { LinkCustom } from '../link-custom/LinkCustom'
 
 interface LinkDelayedPropsType {
   to: string
-  handleCLick?: () => void
+  handleClick?: () => void
   isBlock?: boolean
   tabIndex?: number
+  hasLinkStyling?: boolean
 }
 
 export const LinkDelayed: FunctionComponent<LinkDelayedPropsType> = ({
   children,
   to,
-  handleCLick,
+  handleClick,
   isBlock,
-  tabIndex
+  tabIndex,
+  hasLinkStyling
 }) => {
   const {
     handleNavigation,
@@ -33,8 +35,8 @@ export const LinkDelayed: FunctionComponent<LinkDelayedPropsType> = ({
   const history = useHistory()
   const location = useLocation()
 
-  const handleClick: ReactEventHandler = event => {
-    if (handleCLick) handleCLick()
+  const handleLinkClick: ReactEventHandler = event => {
+    if (handleClick) handleClick()
 
     const currentPathName = location?.pathname
 
@@ -67,8 +69,9 @@ export const LinkDelayed: FunctionComponent<LinkDelayedPropsType> = ({
 
   return (
     <LinkCustom
+      hasLinkStyling={hasLinkStyling}
       isBlock={isBlock}
-      onClick={handleClick}
+      onClick={handleLinkClick}
       tabIndex={tabIndex}
       to={to}
     >
