@@ -85,7 +85,7 @@ export const ContactContent: FunctionComponent = () => {
           </TagH>
         </Spacer>
         <TagP>
-          This website is built using React and create-react-app with Typescript. It is served and supported by a Node and Express API.
+          This website is built using React and create-react-app with Typescript. The code for this site serves as the most accurate representation of how I build React websites:
         </TagP>
         <Spacer
           b={0}
@@ -99,7 +99,7 @@ export const ContactContent: FunctionComponent = () => {
             target='_blank'
             to='https://github.com/kelleghan1/portfolio_2'
           >
-            View front end on Github
+            View the code for this website on Github
           </LinkCustom>
         </Spacer>
       </Spacer>
