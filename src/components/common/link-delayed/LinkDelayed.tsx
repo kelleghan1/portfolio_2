@@ -69,11 +69,11 @@ export const LinkDelayed: FunctionComponent<LinkDelayedPropsType> = ({
 
   return (
     <LinkCustom
-      hasLinkStyling={ hasLinkStyling }
-      isBlock={ isBlock }
-      onClick={ handleLinkClick }
-      tabIndex={ tabIndex }
-      to={ to }
+      hasLinkStyling={hasLinkStyling}
+      isBlock={isBlock}
+      onClick={handleLinkClick}
+      tabIndex={tabIndex}
+      to={to}
     >
       { children }
     </LinkCustom>

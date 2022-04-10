@@ -11,4 +11,4 @@ interface PTagPropsType {
 export const TagP: FunctionComponent<PTagPropsType> = ({
   children,
   color
-}) => <TagPStyled color={ color }>{ children }</TagPStyled>
+}) => <TagPStyled color={color}>{ children }</TagPStyled>

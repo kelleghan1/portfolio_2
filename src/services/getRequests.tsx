@@ -428,7 +428,7 @@ const portfolioItemArray: PortfolioItemType[] = [
         url: 'https://github.com/kelleghan1/knight_moves_2'
       }
     ],
-    description: 'Knight Moves is a web application that calculates the minimum minimum number of moves needed for a chess knight to reach a given position. The app was written in Javascript and AngularJS in 2016, and rewritten in React as a public npm package.'
+    description: 'Knight Moves is a web application that calculates the minimum minimum number of moves needed for a chess knight to reach a given position. The app was written in Javascript and AngularJS in 2016, and rewritten with React as a public npm package in 2022.'
   },
   {
     categories: [ 'design', 'development' ],

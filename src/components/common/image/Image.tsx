@@ -22,12 +22,12 @@ export const Image: FunctionComponent<ImageProps> = ({
   aspectRatio
 }) => (
   <ImageStyled
-    alt={ altText }
-    aspectRatio={ aspectRatio }
-    height={ height }
-    onLoad={ onLoad }
-    src={ src }
-    width={ width }
+    alt={altText}
+    aspectRatio={aspectRatio}
+    height={height}
+    onLoad={onLoad}
+    src={src}
+    width={width}
   />
 )
 

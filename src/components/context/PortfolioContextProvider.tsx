@@ -96,7 +96,7 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
   }
 
   return (
-    <PortfolioContext.Provider value={ contextValue }>
+    <PortfolioContext.Provider value={contextValue}>
       { isLoading && <LoadingOverlay /> }
       { children }
     </PortfolioContext.Provider>

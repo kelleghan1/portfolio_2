@@ -33,11 +33,11 @@ export const LinkCustom: FunctionComponent<LinkCustomPropsType> = ({
     if (isExternal) {
       return (
         <a
-          href={ to }
-          onClick={ onClick }
+          href={to}
+          onClick={onClick}
           rel="noreferrer"
-          tabIndex={ tabIndex }
-          target={ target }
+          tabIndex={tabIndex}
+          target={target}
         >
           { children }
         </a>
@@ -46,10 +46,10 @@ export const LinkCustom: FunctionComponent<LinkCustomPropsType> = ({
 
     return (
       <Link
-        onClick={ onClick }
-        tabIndex={ tabIndex }
-        target={ target }
-        to={ to }
+        onClick={onClick}
+        tabIndex={tabIndex}
+        target={target}
+        to={to}
       >
         { children }
       </Link>
@@ -57,7 +57,7 @@ export const LinkCustom: FunctionComponent<LinkCustomPropsType> = ({
   }
 
   return (
-    <LinkCustomStyled className={ linkCLassname }>
+    <LinkCustomStyled className={linkCLassname}>
       { renderLink() }
     </LinkCustomStyled>
   )

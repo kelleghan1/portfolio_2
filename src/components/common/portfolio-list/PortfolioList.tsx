@@ -44,14 +44,14 @@ export const PortfolioList: FunctionComponent<PortfolioListProps> = ({ filter })
 
     return (
       <PortfolioListItem
-        description={ description }
-        homeImage={ homeImage }
-        id={ id }
-        key={ id }
-        name={ name }
-        products={ products }
-        rowColor={ rowColor }
-        textColor={ textColor }
+        description={description}
+        homeImage={homeImage}
+        id={id}
+        key={id}
+        name={name}
+        products={products}
+        rowColor={rowColor}
+        textColor={textColor}
       />
     )
   }

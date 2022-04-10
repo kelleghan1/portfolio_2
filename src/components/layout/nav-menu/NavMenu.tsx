@@ -21,7 +21,7 @@ export const NavMenu: FunctionComponent = () => {
     <NavMenuStyled>
       <nav className='large'>
         <div className='nav-bar-item-wrapper'>
-          <Spacer { ...spacerProps } >
+          <Spacer {...spacerProps} >
             <NavMenuItem
               text="Development"
               toUrl="/development"
@@ -29,7 +29,7 @@ export const NavMenu: FunctionComponent = () => {
           </Spacer>
         </div>
         <div className='nav-bar-item-wrapper'>
-          <Spacer { ...spacerProps } >
+          <Spacer {...spacerProps} >
             <NavMenuItem
               text="Design"
               toUrl="/design"
@@ -37,7 +37,7 @@ export const NavMenu: FunctionComponent = () => {
           </Spacer>
         </div>
         <div className='nav-bar-item-wrapper'>
-          <Spacer { ...spacerProps } >
+          <Spacer {...spacerProps} >
             <NavMenuItem
               text="All"
               toUrl="/"
@@ -45,7 +45,7 @@ export const NavMenu: FunctionComponent = () => {
           </Spacer>
         </div>
         <div className='nav-bar-item-wrapper'>
-          <Spacer { ...spacerProps } >
+          <Spacer {...spacerProps} >
             <NavMenuItem
               text="Contact"
               toUrl="/contact"

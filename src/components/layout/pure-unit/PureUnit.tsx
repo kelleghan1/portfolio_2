@@ -19,7 +19,7 @@ export const PureUnit: FunctionComponent<PureUnitProps> = ({
   if (isFlex) className += ' pure-unit-flex'
 
   return (
-    <PureUnitStyled className={ className }>
+    <PureUnitStyled className={className}>
       { children }
     </PureUnitStyled>
   )

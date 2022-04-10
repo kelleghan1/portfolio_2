@@ -99,9 +99,8 @@
     "react/jsx-curly-spacing": [
       2,
       {
-        "when": "always",
-        "children": true ,
-        "spacing": { "objectLiterals": "never" }
+        "when": "never",
+        "children": { "when": "always" }
       }
     ],
     "react/jsx-wrap-multilines": [

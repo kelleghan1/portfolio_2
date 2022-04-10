@@ -50,40 +50,40 @@ export const NavMenuMobile: FunctionComponent = () => {
     return (
       <>
         <div className='nav-bar-item-wrapper'>
-          <Spacer { ...spacerProps } >
+          <Spacer {...spacerProps} >
             <NavMenuItem
-              handleClick={ handleLinkClick }
-              tabIndex={ isNavOpen ? 0 : -1 }
+              handleClick={handleLinkClick}
+              tabIndex={isNavOpen ? 0 : -1}
               text="Development"
               toUrl="/development"
             />
           </Spacer>
         </div>
         <div className='nav-bar-item-wrapper'>
-          <Spacer { ...spacerProps } >
+          <Spacer {...spacerProps} >
             <NavMenuItem
-              handleClick={ handleLinkClick }
-              tabIndex={ isNavOpen ? 0 : -1 }
+              handleClick={handleLinkClick}
+              tabIndex={isNavOpen ? 0 : -1}
               text="Design"
               toUrl="/design"
             />
           </Spacer>
         </div>
         <div className='nav-bar-item-wrapper'>
-          <Spacer { ...spacerProps } >
+          <Spacer {...spacerProps} >
             <NavMenuItem
-              handleClick={ handleLinkClick }
-              tabIndex={ isNavOpen ? 0 : -1 }
+              handleClick={handleLinkClick}
+              tabIndex={isNavOpen ? 0 : -1}
               text="All"
               toUrl="/"
             />
           </Spacer>
         </div>
         <div className='nav-bar-item-wrapper'>
-          <Spacer { ...spacerProps } >
+          <Spacer {...spacerProps} >
             <NavMenuItem
-              handleClick={ handleLinkClick }
-              tabIndex={ isNavOpen ? 0 : -1 }
+              handleClick={handleLinkClick}
+              tabIndex={isNavOpen ? 0 : -1}
               text="Contact"
               toUrl="/contact"
             />
@@ -97,8 +97,8 @@ export const NavMenuMobile: FunctionComponent = () => {
     <NavMenuMobileStyled>
       <div className='hamburger-wrapper'>
         <ButtonCustom
-          onClick={ handleClick }
-          title={ isNavOpen ? 'Close nav menu' : 'Open nav menu' }
+          onClick={handleClick}
+          title={isNavOpen ? 'Close nav menu' : 'Open nav menu'}
         >
           <div className='line-wrapper'>
             <div className='hamburger-line' />
@@ -107,11 +107,11 @@ export const NavMenuMobile: FunctionComponent = () => {
           </div>
         </ButtonCustom>
       </div>
-      <Flipper flipKey={ isNavOpen }>
+      <Flipper flipKey={isNavOpen}>
         <Flipped flipId='mobile-nav'>
           <nav
-            className={ `mobile ${isNavOpen ? 'open' : ''}` }
-            ref={ wrapperRef }
+            className={`mobile ${isNavOpen ? 'open' : ''}`}
+            ref={wrapperRef}
           >
             { renderNavItems(true) }
           </nav>

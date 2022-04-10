@@ -21,6 +21,7 @@ export const Header: FunctionComponent = () => {
         >
           <Image
             altText='Kelleghan Design homepage'
+            aspectRatio='720 / 288'
             src="https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/site/kelleghanlogocompblack_oIgmytkWui.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649531438837"
           />
         </LinkDelayed>
@@ -32,8 +33,8 @@ export const Header: FunctionComponent = () => {
       <Container>
         <HeaderStyled>
           <Spacer
-            l={ 3 }
-            r={ 3 }
+            l={3}
+            r={3}
           >
             <div className='header-wrapper'>
               { renderHeaderLogo() }
@@ -45,8 +46,8 @@ export const Header: FunctionComponent = () => {
         </HeaderStyled>
         <HeaderStyled className='mobile-header-content'>
           <Spacer
-            l={ 3 }
-            r={ 3 }
+            l={3}
+            r={3}
           >
             <div className='header-wrapper'>
               { renderHeaderLogo() }

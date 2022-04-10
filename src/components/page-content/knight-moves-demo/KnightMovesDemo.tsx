@@ -16,12 +16,12 @@ export const KnightMovesDemo: FunctionComponent = () => {
     <PageRow>
       <Container>
         <Spacer
-          l={ 3 }
-          r={ 3 }
-          t={ 0 }
+          l={3}
+          r={3}
+          t={0}
         >
-          <KnightMovesDemoStyled className={ `fade-in ${isNavigating ? 'fade-out' : ''}` }>
-            <KnightMoves quadrantSize={ 15 } />
+          <KnightMovesDemoStyled className={`fade-in ${isNavigating ? 'fade-out' : ''}`}>
+            <KnightMoves quadrantSize={15} />
           </KnightMovesDemoStyled>
         </Spacer>
       </Container>

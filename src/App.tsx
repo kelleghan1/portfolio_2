@@ -19,25 +19,25 @@ export const App: FunctionComponent = () => {
           <Header />
           <Switch>
             <Route
-              component={ Home }
+              component={Home}
               exact
-              path={ [
+              path={[
                 '/',
                 '/:filter(design|development)'
-              ] }
+              ]}
             />
             <Route
-              component={ Contact }
+              component={Contact}
               exact
               path='/contact'
             />
             <Route
-              component={ Project }
+              component={Project}
               exact
               path='/project/:projectId'
             />
             <Route
-              component={ ProjectDemo }
+              component={ProjectDemo}
               exact
               path='/project/:projectId/demo'
             />

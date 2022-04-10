@@ -50,8 +50,8 @@ export const Spacer: FunctionComponent<SpacerProps> = ({
 
   return (
     <SpacerStyled
-      className={ className }
-      { ...getSpacings }
+      className={className}
+      {...getSpacings}
     >
       { children }
     </SpacerStyled>

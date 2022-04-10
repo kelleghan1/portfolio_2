@@ -38,7 +38,7 @@ export const ProjectDemo: FunctionComponent = () => {
       return <Redirect to='/' />
     }
 
-    return <Redirect to={ `/project/${projectId}` } />
+    return <Redirect to={`/project/${projectId}`} />
   }
 
   return projectDemoMap[projectId]

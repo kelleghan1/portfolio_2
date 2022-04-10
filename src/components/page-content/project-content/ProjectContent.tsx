@@ -49,15 +49,15 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
     altText: string
   ): ReactElement =>
     <Spacer
-      b={ 3 }
-      key={ src }
-      l={ 0 }
-      r={ 0 }
-      t={ 0 }
+      b={3}
+      key={src}
+      l={0}
+      r={0}
+      t={0}
     >
       <Image
-        altText={ altText }
-        src={ src }
+        altText={altText}
+        src={src}
       />
     </Spacer>
 
@@ -69,8 +69,8 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
     if (isInternal) {
       return (
         <LinkDelayed
-          hasLinkStyling={ true }
-          to={ url }
+          hasLinkStyling={true}
+          to={url}
         >
           { label }
         </LinkDelayed>
@@ -79,10 +79,10 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
 
     return (
       <LinkCustom
-        hasLinkStyling={ true }
-        isExternal={ true }
-        target={ !isInternal ? '_blank' : undefined }
-        to={ url }
+        hasLinkStyling={true}
+        isExternal={true}
+        target={!isInternal ? '_blank' : undefined}
+        to={url}
       >
         { label }
       </LinkCustom>
@@ -99,10 +99,10 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
 
     return (
       <Spacer
-        b={ 0 }
-        l={ 0 }
-        r={ 0 }
-        t={ 2 }
+        b={0}
+        l={0}
+        r={0}
+        t={2}
       >
         {
           linkItems.map((
@@ -114,11 +114,11 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
             index
           ) => (
             <Spacer
-              b={ (index === linkItems.length - 1) ? 0 : 1 }
-              key={ `${id}${url}` }
-              l={ 0 }
-              r={ 0 }
-              t={ 0 }
+              b={(index === linkItems.length - 1) ? 0 : 1}
+              key={`${id}${url}`}
+              l={0}
+              r={0}
+              t={0}
             >
               <div className='link-item-wrapper' >
                 {
@@ -138,34 +138,34 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
 
   const renderDescription = (): ReactElement => (
     <Spacer
-      b={ 3 }
-      key={ name }
-      l={ 0 }
-      r={ 0 }
-      t={ 0 }
+      b={3}
+      key={name}
+      l={0}
+      r={0}
+      t={0}
     >
       <div className='description-wrapper'>
         <Spacer
-          l={ 3 }
-          r={ 3 }
+          l={3}
+          r={3}
         >
           <Spacer
-            b={ 2 }
-            l={ 0 }
-            r={ 0 }
-            t={ 0 }
+            b={2}
+            l={0}
+            r={0}
+            t={0}
           >
-            <TagH size={ 2 }>
+            <TagH size={2}>
               { name }
             </TagH>
           </Spacer>
           <Spacer
-            b={ 2 }
-            l={ 0 }
-            r={ 0 }
-            t={ 0 }
+            b={2}
+            l={0}
+            r={0}
+            t={0}
           >
-            <TagH size={ 4 }>
+            <TagH size={4}>
               { products.join(', ') }
             </TagH>
           </Spacer>
@@ -212,18 +212,18 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
         <Pure>
           <PureUnit pureClass='u-md-1-2'>
             <Spacer
-              l={ 3 }
-              r={ 1.5 }
-              t={ 0 }
+              l={3}
+              r={1.5}
+              t={0}
             >
               { column1 }
             </Spacer>
           </PureUnit>
           <PureUnit pureClass='u-md-1-2'>
             <Spacer
-              l={ 1.5 }
-              r={ 3 }
-              t={ 0 }
+              l={1.5}
+              r={3}
+              t={0}
             >
               { column2 }
             </Spacer>
@@ -255,9 +255,9 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
     return (
       <div className='list-wrapper'>
         <Spacer
-          l={ 3 }
-          r={ 3 }
-          t={ 0 }
+          l={3}
+          r={3}
+          t={0}
         >
           { column }
         </Spacer>
@@ -268,7 +268,7 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
   return (
     <PageRow>
       <Container>
-        <ProjectContentStyled className={ `fade-in ${isNavigating ? 'fade-out' : ''}` }>
+        <ProjectContentStyled className={`fade-in ${isNavigating ? 'fade-out' : ''}`}>
           { renderColumnView() }
           { renderListView() }
         </ProjectContentStyled>
