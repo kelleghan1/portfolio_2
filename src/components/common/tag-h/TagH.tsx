@@ -30,8 +30,8 @@ export const TagH: FunctionComponent<TagHProps> = ({
     case 4:
       return (
         <H4TagStyled
-          color={color}
-          margin={margin}
+          color={ color }
+          margin={ margin }
         >
           { children }
         </H4TagStyled>
@@ -39,8 +39,8 @@ export const TagH: FunctionComponent<TagHProps> = ({
     case 3:
       return (
         <H3TagStyled
-          color={color}
-          margin={margin}
+          color={ color }
+          margin={ margin }
         >
           { children }
         </H3TagStyled>
@@ -48,8 +48,8 @@ export const TagH: FunctionComponent<TagHProps> = ({
     case 2:
       return (
         <H2TagStyled
-          color={color}
-          margin={margin}
+          color={ color }
+          margin={ margin }
         >
           { children }
         </H2TagStyled>
@@ -57,8 +57,8 @@ export const TagH: FunctionComponent<TagHProps> = ({
     case 1:
       return (
         <H1TagStyled
-          color={color}
-          margin={margin}
+          color={ color }
+          margin={ margin }
         >
           { children }
         </H1TagStyled>

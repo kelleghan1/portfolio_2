@@ -12,8 +12,8 @@ export const PageRow: FunctionComponent<PageRowProps> = ({
   children,
   color
 }) => (
-  <PageRowStyled color={color}>
-    {children}
+  <PageRowStyled color={ color }>
+    { children }
   </PageRowStyled>
 )
 

@@ -13,16 +13,22 @@ export const LinkCustomStyles = css`
     &:visited {
       color: ${TEXT1};
     }
+  }
 
-    &.show-link-styling {
+  &.show-link-styling {
+    > a {
       color: ${LINK1};
 
       &:hover {
         text-decoration: underline;
       }
     }
+  }
 
-    &.display-block {
+  &.display-block {
+    display: block;
+    
+    > a {
       display: block;
     }
   }

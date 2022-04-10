@@ -8,8 +8,8 @@ export const Development: FunctionComponent = () => {
     <PageRow>
       <Container>
         <Spacer>
-          <div>
-            Development
+          <div style={{ backgroundColor: 'red' }}>
+            { PageRow }
           </div>
         </Spacer>
       </Container>

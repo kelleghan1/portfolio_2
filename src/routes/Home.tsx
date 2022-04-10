@@ -12,6 +12,6 @@ export const Home: FunctionComponent = () => {
   const filterToLowerCase = filter?.toLowerCase()
 
   // return <PortfolioList filter={filterToLowerCase} />
-  return <PortfolioGrid filter={filterToLowerCase} />
+  return <PortfolioGrid filter={ filterToLowerCase } />
 }
 

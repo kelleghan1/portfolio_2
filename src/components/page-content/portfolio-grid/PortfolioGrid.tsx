@@ -105,15 +105,15 @@ export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter })
 
       portfolioGridItems[portfolioGridItems.length] = (
         <Flipped
-          flipId={projectId}
-          key={projectId}
-          onAppear={handleAppear}
-          onExit={handleExit}
+          flipId={ projectId }
+          key={ projectId }
+          onAppear={ handleAppear }
+          onExit={ handleExit }
         >
           <PortfolioGridItem
-            homeImage={homeImage}
-            name={name}
-            projectId={projectId}
+            homeImage={ homeImage }
+            name={ name }
+            projectId={ projectId }
           />
         </Flipped>
       )
@@ -130,12 +130,12 @@ export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter })
     <PageRow>
       <Container>
         <Spacer
-          l={3}
-          r={3}
-          t={0}
+          l={ 3 }
+          r={ 3 }
+          t={ 0 }
         >
           <Flipper
-            flipKey={flipKey}
+            flipKey={ flipKey }
             handleEnterUpdateDelete={
               ({
                 hideEnteringElements,
@@ -156,10 +156,10 @@ export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter })
             <PortfolioGridStyled>
               { renderPortfolioGrid() }
             </PortfolioGridStyled>
-          </ Flipper>
-        </ Spacer>
-      </ Container>
-    </ PageRow>
+          </Flipper>
+        </Spacer>
+      </Container>
+    </PageRow>
   )
 }
 

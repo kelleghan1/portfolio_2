@@ -30,5 +30,5 @@ export const Project: FunctionComponent = () => {
     !projectIds.includes(projectId)
   ) return <Redirect to='/' />
 
-  return <ProjectContent projectId={projectId} />
+  return <ProjectContent projectId={ projectId } />
 }

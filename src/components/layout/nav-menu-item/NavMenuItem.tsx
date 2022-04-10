@@ -23,11 +23,11 @@ export const NavMenuItem: FunctionComponent<NavMenuItemPropsType> = ({
   const navMenuItemClassname = location?.pathname === toUrl ? 'selected' : ''
 
   return (
-    <NavMenuItemStyled className={navMenuItemClassname}>
+    <NavMenuItemStyled className={ navMenuItemClassname }>
       <LinkDelayed
-        handleClick={handleClick}
-        tabIndex={tabIndex}
-        to={toUrl}
+        handleClick={ handleClick }
+        tabIndex={ tabIndex }
+        to={ toUrl }
       >
         { text }
       </LinkDelayed>

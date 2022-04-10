@@ -15,8 +15,8 @@ export const ButtonCustom: FunctionComponent<ButtonCustomPropsType> = ({
   title
 }) =>
   <ButtonCustomStyled
-    onClick={onClick}
-    title={title}
+    onClick={ onClick }
+    title={ title }
   >
     { children }
   </ButtonCustomStyled>

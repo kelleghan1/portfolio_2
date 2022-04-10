@@ -20,15 +20,15 @@ export const PortfolioGridItem: FunctionComponent<PortfolioGridItemPropsType> = 
   name,
   ...rest
 }) => (
-  <PortfolioGridItemStyled {...rest} >
+  <PortfolioGridItemStyled { ...rest } >
     <div className='image-wrapper'>
       <LinkDelayed
         isBlock
-        to={`/project/${projectId}`}
+        to={ `/project/${projectId}` }
       >
         <Image
-          altText={`View project page for ${name}`}
-          aspectRatio={'1 / 1'}
+          altText={ `View project page for ${name}` }
+          aspectRatio="1 / 1"
           src={ homeImage }
         />
       </LinkDelayed>

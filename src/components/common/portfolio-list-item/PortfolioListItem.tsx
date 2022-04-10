@@ -45,26 +45,26 @@ const renderItemInfo = (
   return (
     <div className='half-wrapper'>
       <Spacer
-        b={3}
-        l={3}
-        r={3}
-        t={3}
+        b={ 3 }
+        l={ 3 }
+        r={ 3 }
+        t={ 3 }
       >
         <TagH
-          color={textColor}
-          margin={`0 0 ${SPACING_Y} 0`}
-          size={2}
+          color={ textColor }
+          margin={ `0 0 ${SPACING_Y} 0` }
+          size={ 2 }
         >
           { name }
         </TagH>
         <TagH
-          color={textColor}
-          margin={`0 0 ${SPACING_Y_NUM * 2}px 0`}
-          size={3}
+          color={ textColor }
+          margin={ `0 0 ${SPACING_Y_NUM * 2}px 0` }
+          size={ 3 }
         >
-          { products.join(', ')}
+          { products.join(', ') }
         </TagH>
-        <TagP color={textColor}>
+        <TagP color={ textColor }>
           { description }
         </TagP>
       </Spacer>
@@ -82,13 +82,13 @@ export const PortfolioListItem: FunctionComponent<PortfolioListItemPropsType> = 
   textColor
 }) => {
   return (
-    <PageRow key={id}>
+    <PageRow key={ id }>
       <Container>
         <Spacer
-          l={3}
-          r={3}
+          l={ 3 }
+          r={ 3 }
         >
-          <PortfolioListItemStyled rowColor={rowColor}>
+          <PortfolioListItemStyled rowColor={ rowColor }>
             <Pure>
               <PureUnit pureClass='u-1 u-md-1-2'>
                 { renderItemImage(homeImage) }

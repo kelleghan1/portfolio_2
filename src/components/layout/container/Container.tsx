@@ -6,6 +6,6 @@ const ContainerStyled = styled.div`${ContainerStyles}`
 
 export const Container: FunctionComponent = ({ children }) =>
   <ContainerStyled>
-    {children}
+    { children }
   </ContainerStyled>
 
