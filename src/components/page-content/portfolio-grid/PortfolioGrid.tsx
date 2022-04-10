@@ -49,7 +49,7 @@ export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter })
     await Promise.all(imageUrls.map(async url =>
       await new Promise(resolve => {
         const imageObject = new Image()
-        imageObject.onload = () => { console.log('###'); resolve(null) }
+        imageObject.onload = () => { resolve(null) }
         imageObject.src = url
       })))
 

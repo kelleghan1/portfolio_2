@@ -22,11 +22,6 @@ export const PortfolioList: FunctionComponent<PortfolioListProps> = ({ filter })
     projectIds
   } = useContext(PortfolioContext) as PortfolioContextValueType
 
-  // console.log(
-  //   '###',
-  //   filter
-  // )
-
   const renderPageRow = (projectId: string): ReactElement | null => {
     const portfolioItem = portfolioMap[projectId]
 
