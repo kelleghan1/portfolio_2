@@ -11,6 +11,7 @@ import { TagH } from '../../common/tag-h/TagH'
 import { TagP } from '../../common/tag-p/TagP'
 import { PortfolioContext } from '../../context/PortfolioContextProvider'
 import { Container } from '../../layout/container/Container'
+import { FlexWrapper } from '../../layout/flex-wrapper/FlexWrapper'
 import { PageRow } from '../../layout/page-row/PageRow'
 import { PureUnit } from '../../layout/pure-unit/PureUnit'
 import { Pure } from '../../layout/pure/Pure'
@@ -29,81 +30,91 @@ export const ContactContent: FunctionComponent = () => {
       target='_blank'
       to='https://github.com/kelleghan1/'
     >
-      Github
+      here
     </LinkCustom>
 
   const renderContact = (): ReactElement =>
-    <div className='info-wrapper'>
+    <FlexWrapper backgroundColor='#fff'>
       <Spacer
+        isFlex
         l={3}
         r={3}
       >
-        <Spacer
-          b={2}
-          l={0}
-          r={0}
-          t={0}
-        >
-          <TagH size={4}>
-            Contact
-          </TagH>
-        </Spacer>
-        <Spacer
-          l={0}
-          r={0}
-          t={0}
-        >
-          <TagP>
-            Like my work? I create websites, online stores, mobile apps, logos, print material, advertisements and more.
-            Connect with me on <span>{ renderGithubLink() }</span> here or tell me about your project at:
-          </TagP>
-        </Spacer>
-        <LinkCustom
-          hasLinkStyling
-          isExternal
-          to='mailto: coleman@kelleghandesign.com'
-        >
-          coleman@kelleghandesign.com
-        </LinkCustom>
-      </Spacer>
-    </div>
-
-  const renderAbout = (): ReactElement =>
-    <div className='info-wrapper'>
-      <Spacer
-        l={3}
-        r={3}
-      >
-        <Spacer
-          b={2}
-          l={0}
-          r={0}
-          t={0}
-        >
-          <TagH size={4}>
-            About this website
-          </TagH>
-        </Spacer>
-        <TagP>
-          This website is built using React and create-react-app with Typescript. See how I build React websites by checking out the code repository:
-        </TagP>
-        <Spacer
-          b={0}
-          l={0}
-          r={0}
-          t={2}
-        >
+        <FlexWrapper flexColumn>
+          <div className='flex-grow'>
+            <Spacer
+              b={2}
+              l={0}
+              r={0}
+              t={0}
+            >
+              <TagH size={4}>
+                Contact
+              </TagH>
+            </Spacer>
+            <Spacer
+              l={0}
+              r={0}
+              t={0}
+            >
+              <TagP>
+                Like my work? I create websites, online stores, mobile apps, logos, print material, advertisements and more.
+                Connect with me on Github <span>{ renderGithubLink() }</span> or tell me about your project at:
+              </TagP>
+            </Spacer>
+          </div>
           <LinkCustom
             hasLinkStyling
             isExternal
-            target='_blank'
-            to='https://github.com/kelleghan1/portfolio_2'
+            to='mailto: coleman@kelleghandesign.com'
           >
-            View the code for this website on Github
+            coleman@kelleghandesign.com
           </LinkCustom>
-        </Spacer>
+        </FlexWrapper>
       </Spacer>
-    </div>
+    </FlexWrapper>
+
+  const renderAbout = (): ReactElement =>
+    <FlexWrapper backgroundColor='#fff'>
+      <Spacer
+        isFlex
+        l={3}
+        r={3}
+      >
+        <FlexWrapper flexColumn>
+          <div className='flex-grow'>
+            <Spacer
+              b={2}
+              l={0}
+              r={0}
+              t={0}
+            >
+              <TagH size={4}>
+                About this website
+              </TagH>
+            </Spacer>
+            <TagP>
+              This website is built using React and create-react-app with Typescript. See how I build React websites by checking out the code repository:
+            </TagP>
+          </div>
+          <Spacer
+            b={0}
+            l={0}
+            r={0}
+            t={2}
+          >
+            <LinkCustom
+              hasLinkStyling
+              isExternal
+              target='_blank'
+              to='https://github.com/kelleghan1/portfolio_2'
+            >
+              View the code for this website on Github
+            </LinkCustom>
+          </Spacer>
+        </FlexWrapper>
+      </Spacer>
+    </FlexWrapper>
 
   const renderColumns = (): ReactElement =>
     <Spacer

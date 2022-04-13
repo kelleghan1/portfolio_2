@@ -14,18 +14,12 @@ export const ContactContentStyles = css`
   animation: ${fadeIn} .25s forwards;
   animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
 
-  .inline-span {
-    a {
-      display: inline;
-    }
-  }
-
-  .info-wrapper {
-    background-color: #fff;
-  }
-
   &.fade-out {
     animation: ${fadeOut} .2s forwards;
     animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+  }
+
+  .flex-grow {
+    flex-grow: 1;
   }
 `
