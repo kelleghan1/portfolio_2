@@ -50,6 +50,7 @@ export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter })
       await new Promise(resolve => {
         const imageObject = new Image()
         imageObject.onload = () => { resolve(null) }
+        imageObject.onerror = () => { resolve(null) }
         imageObject.src = url
       })))
 
