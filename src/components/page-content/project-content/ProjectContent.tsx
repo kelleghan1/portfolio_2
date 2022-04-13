@@ -3,9 +3,12 @@ import React,
   FunctionComponent,
   ReactElement,
   ReactNode,
-  useContext
+  useContext,
+  useEffect,
+  useState
 } from 'react'
 import styled from 'styled-components'
+import { preloadImages } from '../../../utils/helpers'
 import { Image } from '../../common/image/Image'
 import { LinkCustom } from '../../common/link-custom/LinkCustom'
 import { LinkDelayed } from '../../common/link-delayed/LinkDelayed'
@@ -26,6 +29,8 @@ interface ProjectContentProps {
 }
 
 export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ projectId }) => {
+  const [ areImagesLoaded, setAreImagesLoaded ] = useState(false)
+
   const {
     portfolioMap,
     isNavigating
@@ -43,6 +48,14 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
     githubLinks,
     id
   } = portfolioItem
+
+  useEffect(
+    () => {
+      void preloadImages(images)
+        .then(() => { setAreImagesLoaded(true) })
+    },
+    [ projectId ]
+  )
 
   const renderProjectImage = (
     src: string,
@@ -178,7 +191,9 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
     </Spacer>
   )
 
-  const renderColumnView = (): ReactElement => {
+  const renderColumnView = (): ReactNode => {
+    if (!areImagesLoaded) return null
+
     const column1 = [
       renderProjectImage(
         primaryImage,
@@ -208,7 +223,7 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
     })
 
     return (
-      <div className='columns-wrapper'>
+      <div className={`fade-in columns-wrapper ${isNavigating ? 'fade-out' : ''}`}>
         <Pure>
           <PureUnit pureClass='u-md-1-2'>
             <Spacer
@@ -233,7 +248,9 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
     )
   }
 
-  const renderListView = (): ReactElement => {
+  const renderListView = (): ReactNode => {
+    if (!areImagesLoaded) return null
+
     const column = [
       renderDescription(),
       renderProjectImage(
@@ -253,7 +270,7 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
     })
 
     return (
-      <div className='list-wrapper'>
+      <div className={`fade-in list-wrapper ${isNavigating ? 'fade-out' : ''}`}>
         <Spacer
           l={3}
           r={3}
@@ -268,7 +285,7 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
   return (
     <PageRow>
       <Container>
-        <ProjectContentStyled className={`fade-in ${isNavigating ? 'fade-out' : ''}`}>
+        <ProjectContentStyled>
           { renderColumnView() }
           { renderListView() }
         </ProjectContentStyled>

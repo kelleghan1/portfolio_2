@@ -8,6 +8,7 @@ import React,
 } from 'react'
 import { Flipper, Flipped } from 'react-flip-toolkit'
 import styled from 'styled-components'
+import { preloadImages } from '../../../utils/helpers'
 import { PortfolioGridItem } from '../../common/portfolio-grid-item/PortfolioGridItem'
 import { PortfolioContext } from '../../context/PortfolioContextProvider'
 import { Container } from '../../layout/container/Container'
@@ -44,15 +45,6 @@ export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter })
       portfolioMap
     ]
   )
-
-  const preloadImages = async (imageUrls: string[]): Promise<null[]> =>
-    await Promise.all(imageUrls.map(async url =>
-      await new Promise(resolve => {
-        const imageObject = new Image()
-        imageObject.onload = () => { resolve(null) }
-        imageObject.onerror = () => { resolve(null) }
-        imageObject.src = url
-      })))
 
   const handleAppear = (
     appearElement: HTMLElement,

@@ -13,14 +13,6 @@ const fadeIn = keyframes`
 `
 
 export const ProjectContentStyles = css`
-  animation: ${fadeIn} .25s forwards;
-  animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
-
-  &.fade-out {
-    animation: ${fadeOut} .2s forwards;
-    animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
-  }
-
   .description-wrapper {
     background-color: #fff;
 
@@ -39,7 +31,7 @@ export const ProjectContentStyles = css`
 
   .columns-wrapper {
     display: none;
-    
+
     @media screen and (min-width: ${MEDIUM_MIN}) {
       display: block;
     }
@@ -47,9 +39,20 @@ export const ProjectContentStyles = css`
   
   .list-wrapper {
     display: none;
-    
+
     @media screen and (max-width: ${SMALL_MAX}) {
       display: block;
+    }
+  }
+
+  .columns-wrapper,
+  .list-wrapper {
+    animation: ${fadeIn} .25s forwards;
+    animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+
+    &.fade-out {
+      animation: ${fadeOut} .2s forwards;
+      animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
     }
   }
 `
