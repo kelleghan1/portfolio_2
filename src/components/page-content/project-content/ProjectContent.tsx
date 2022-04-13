@@ -51,7 +51,7 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
 
   useEffect(
     () => {
-      void preloadImages(images)
+      void preloadImages([ primaryImage, ...images ])
         .then(() => { setAreImagesLoaded(true) })
     },
     [ projectId ]
@@ -201,9 +201,7 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
       )
     ]
 
-    const column2 = [
-      renderDescription()
-    ]
+    const column2 = [ renderDescription() ]
 
     images.forEach((
       imageUrl,
