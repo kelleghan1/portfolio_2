@@ -3,12 +3,9 @@ import React,
   FunctionComponent,
   ReactElement,
   ReactNode,
-  useContext,
-  useEffect,
-  useState
+  useContext
 } from 'react'
 import styled from 'styled-components'
-import { preloadImages } from '../../../utils/helpers'
 import { Image } from '../../common/image/Image'
 import { LinkCustom } from '../../common/link-custom/LinkCustom'
 import { LinkDelayed } from '../../common/link-delayed/LinkDelayed'
@@ -29,11 +26,10 @@ interface ProjectContentProps {
 }
 
 export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ projectId }) => {
-  const [ areImagesLoaded, setAreImagesLoaded ] = useState(false)
-
   const {
     portfolioMap,
-    isNavigating
+    isNavigating,
+    projectImagePreloadMap
   } = useContext(PortfolioContext)
 
   const portfolioItem = portfolioMap[projectId]
@@ -48,14 +44,6 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
     githubLinks,
     id
   } = portfolioItem
-
-  useEffect(
-    () => {
-      void preloadImages([ primaryImage, ...images ])
-        .then(() => { setAreImagesLoaded(true) })
-    },
-    [ projectId ]
-  )
 
   const renderProjectImage = (
     src: string,
@@ -192,7 +180,7 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
   )
 
   const renderColumnView = (): ReactNode => {
-    if (!areImagesLoaded) return null
+    if (!projectImagePreloadMap[id]) return null
 
     const column1 = [
       renderProjectImage(
@@ -247,7 +235,7 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
   }
 
   const renderListView = (): ReactNode => {
-    if (!areImagesLoaded) return null
+    if (!projectImagePreloadMap[id]) return null
 
     const column = [
       renderDescription(),

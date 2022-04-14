@@ -24,7 +24,8 @@ const intialPortfolioContextState: PortfolioContextStateType = {
   isLoading: true,
   isNavigating: false,
   isMobileNavOpen: false,
-  areHomeImagesLoaded: false
+  areHomeImagesLoaded: false,
+  projectImagePreloadMap: {}
 }
 
 const PortfolioContext = React.createContext<PortfolioContextStateType>(intialPortfolioContextState)
@@ -36,6 +37,7 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
   const [ isNavigating, setIsNavigating ] = useState(intialPortfolioContextState.isNavigating)
   const [ isMobileNavOpen, setIsMobileNavOpen ] = useState(intialPortfolioContextState.isMobileNavOpen)
   const [ areHomeImagesLoaded, setAreHomeImagesLoaded ] = useState(intialPortfolioContextState.areHomeImagesLoaded)
+  const [ projectImagePreloadMap, setProjectImagePreloadMap ] = useState(intialPortfolioContextState.projectImagePreloadMap)
 
   const getData = async (): Promise<void> => {
     const portfolioDataResponse = await getPortfolioData()
@@ -47,6 +49,11 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
       if (item?.id) {
         projectIds.push(item.id)
         portfolioMap[item.id] = item
+
+        void preloadImages([ item.primaryImage, ...item.images ])
+          .then(() => {
+            setProjectImagePreloadMap(prevState => ({ ...prevState, [item.id]: true }))
+          })
       }
     }
 
@@ -105,6 +112,7 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
     isNavigating,
     portfolioMap,
     projectIds,
+    projectImagePreloadMap,
     setIsMobileNavOpen
   }
 

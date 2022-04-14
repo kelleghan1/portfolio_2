@@ -15,6 +15,7 @@ export interface PortfolioContextStateType {
   isNavigating: boolean
   portfolioMap: PortfolioMapType
   projectIds: string[]
+  projectImagePreloadMap: { [key: string]: boolean}
 }
 
 export type PortfolioContextValueType = PortfolioContextStateType & {
