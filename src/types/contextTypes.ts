@@ -9,11 +9,12 @@ export interface PortfolioMapType {
 }
 
 export interface PortfolioContextStateType {
+  areHomeImagesLoaded: boolean
   isLoading: boolean
+  isMobileNavOpen: boolean
   isNavigating: boolean
   portfolioMap: PortfolioMapType
   projectIds: string[]
-  isMobileNavOpen: boolean
 }
 
 export type PortfolioContextValueType = PortfolioContextStateType & {

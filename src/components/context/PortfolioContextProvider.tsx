@@ -12,6 +12,10 @@ import {
 } from '../../types/contextTypes'
 import { PortfolioItemType } from '../../types/dataTypes'
 import { HandleNavigationFunctionType } from '../../types/sharedTypes'
+import {
+  preloadImages,
+  scrollToTop
+} from '../../utils/helpers'
 import { LoadingOverlay } from '../common/loading-overlay/LoadingOverlay'
 
 const intialPortfolioContextState: PortfolioContextStateType = {
@@ -19,7 +23,8 @@ const intialPortfolioContextState: PortfolioContextStateType = {
   projectIds: [],
   isLoading: true,
   isNavigating: false,
-  isMobileNavOpen: false
+  isMobileNavOpen: false,
+  areHomeImagesLoaded: false
 }
 
 const PortfolioContext = React.createContext<PortfolioContextStateType>(intialPortfolioContextState)
@@ -28,8 +33,9 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
   const [ portfolioMap, setPortfolioMap ] = useState(intialPortfolioContextState.portfolioMap)
   const [ projectIds, setProjectIds ] = useState(intialPortfolioContextState.projectIds)
   const [ isLoading, setIsLoading ] = useState(intialPortfolioContextState.isLoading)
-  const [ isNavigating, setIsNavigating ] = useState(false)
-  const [ isMobileNavOpen, setIsMobileNavOpen ] = useState(false)
+  const [ isNavigating, setIsNavigating ] = useState(intialPortfolioContextState.isNavigating)
+  const [ isMobileNavOpen, setIsMobileNavOpen ] = useState(intialPortfolioContextState.isMobileNavOpen)
+  const [ areHomeImagesLoaded, setAreHomeImagesLoaded ] = useState(intialPortfolioContextState.areHomeImagesLoaded)
 
   const getData = async (): Promise<void> => {
     const portfolioDataResponse = await getPortfolioData()
@@ -43,6 +49,9 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
         portfolioMap[item.id] = item
       }
     }
+
+    void preloadImages(projectIds.map(projectId => portfolioMap[projectId].homeImage))
+      .then(() => { setAreHomeImagesLoaded(true) })
 
     setPortfolioMap(portfolioMap)
     setProjectIds(projectIds)
@@ -73,9 +82,12 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
       )
     ) {
       setIsNavigating(true)
+      scrollToTop()
 
       return 250
     }
+
+    scrollToTop()
 
     return 0
   }
@@ -85,6 +97,7 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
   }
 
   const contextValue: PortfolioContextValueType = {
+    areHomeImagesLoaded,
     handleNavigation,
     handleNavigationComplete,
     isLoading,

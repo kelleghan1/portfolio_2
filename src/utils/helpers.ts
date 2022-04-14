@@ -21,3 +21,12 @@ export const preloadImages = async (imageUrls: string[]): Promise<null[]> =>
       imageObject.onerror = () => { resolve(null) }
       imageObject.src = url
     })))
+
+export const scrollToTop = (): void => {
+  if (window.scrollTo) {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
+}

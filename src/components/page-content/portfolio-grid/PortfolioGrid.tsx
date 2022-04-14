@@ -2,13 +2,10 @@ import React,
 {
   FunctionComponent,
   ReactNode,
-  useContext,
-  useEffect,
-  useState
+  useContext
 } from 'react'
 import { Flipper, Flipped } from 'react-flip-toolkit'
 import styled from 'styled-components'
-import { preloadImages } from '../../../utils/helpers'
 import { PortfolioGridItem } from '../../common/portfolio-grid-item/PortfolioGridItem'
 import { PortfolioContext } from '../../context/PortfolioContextProvider'
 import { Container } from '../../layout/container/Container'
@@ -23,28 +20,12 @@ interface PortfolioGridProps {
 }
 
 export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter }) => {
-  const [ areImagesLoaded, setAreImagesLoaded ] = useState(false)
-  const [ isInitialLoad, setIsInitialLoad ] = useState(true)
-
   const {
     portfolioMap,
     projectIds,
-    isNavigating
+    isNavigating,
+    areHomeImagesLoaded
   } = useContext(PortfolioContext)
-
-  useEffect(
-    () => {
-      void preloadImages(projectIds.map(projectId => portfolioMap[projectId].homeImage))
-        .then(() => {
-          setAreImagesLoaded(true)
-          setIsInitialLoad(false)
-        })
-    },
-    [
-      projectIds,
-      portfolioMap
-    ]
-  )
 
   const handleAppear = (
     appearElement: HTMLElement,
@@ -77,7 +58,7 @@ export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter })
   const renderPortfolioGrid = (): ReactNode[] => {
     const portfolioGridItems: ReactNode[] = []
 
-    if (!areImagesLoaded || isInitialLoad || isNavigating) return portfolioGridItems
+    if (!areHomeImagesLoaded || isNavigating) return portfolioGridItems
 
     for (let i = 0; i < projectIds.length; i++) {
       const projectId = projectIds[i]
@@ -117,7 +98,7 @@ export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter })
 
   // flipKey will will trigger reevaluation of items in the grid, triggering animation if they have changed.
   // Key is changed for prejectId length, filter, isInitialLoad, and isNavigating
-  const flipKey = `${projectIds.length}${filter ?? '1'}${isInitialLoad ? '1' : '0'}${isNavigating ? '1' : '0'}`
+  const flipKey = `${projectIds.length}${areHomeImagesLoaded ? '0' : '1'}${filter ?? '1'}${isNavigating ? '1' : '0'}`
 
   return (
     <PageRow>
