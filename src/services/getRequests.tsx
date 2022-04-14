@@ -66,29 +66,36 @@ import {
   PortfolioItemsResponseType,
   PortfolioItemType
 } from '../types/dataTypes'
+const absintheHouseBlack = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/absinthe-house/absinthehouseblack_mIT7CvR5t.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531484659'
+const absintheHouseMenuMock = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/absinthe-house/absinthemenumockup_1DnD6-KNl.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649531484677'
+const absintheHouseSiteSquare = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/absinthe-house/absinthehousesite-square_tv4tyC637.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531484726'
+const absintheHouseWhite = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/absinthe-house/absinthehousewhite_eL5n7s_xo.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531484684'
+const alchemistLabsBlue = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/alchemist-labs/alchemistlabsblue_lsM4HIPOY.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531475963'
 const alchemistLabsWater = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/alchemist-labs/alchemistlabswater_Nml9xSkLYt.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531476082'
 const carvellImg = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/carvell/carvell_9XskAAjxI.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649531363420'
 const carvellSiteMockSquare = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/carvell/carvellsitemock-square_T2_0ehA3b.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531363485'
 const carvellWhite = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/carvell/carvellwhite_yMxD96CXkd.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649531363451'
+const craftHealthBlue = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/craft-health/crafthealthblue_8vQyNMfpG.jpeg?ik-sdk-version=javascript-1.4.3&updatedAt=1649905948447'
+const craftHealthWhite = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/craft-health/crafthealthwhite_Wn8_pqlwt.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649905948466'
 const dropzioImg = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/dropzio/dropzio_eSTn3VUTE.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531355532'
 const dropzioMock1 = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/dropzio/dropziomock1_L1MLHjjDy.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531355512'
 const dropzioMock2 = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/dropzio/dropziomock2_DqHUuh6CPR.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531355529'
 const dropzioMock3 = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/dropzio/dropziomock3_UssMXIgUgw.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531355523'
 const dropzioMock4 = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/dropzio/dropziomock4__MIY5GmrA0.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531355509'
 const dropzioMockSquare = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/dropzio/dropziomocksquare_f-oJjhcnw.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531355551'
-const fhhSiteBrochureInside = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/family-home-health/fhhbrochuresquare-inside_BMeZsNgxnE.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531468506'
-const fhhSiteBrochureOutside = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/family-home-health/fhhbrochuresquare-outside_RIRNrLkfo.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531468551'
-const fhhSiteSquare = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/family-home-health/fhhsite-square_Soo5RqR6a.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531468494'
 const familyhospiceBrochureInside = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/family-hospice/familyhospicebrochuresquare-inside_tNkTaDeGo.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531347277'
 const familyhospiceBrochureOutside = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/family-hospice/familyhospicebrochuresquare-outside_z6Knaumea9.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531347287'
 const familyhospiceSiteSquare = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/family-hospice/familyhospicesite-square_VfglL2lbx.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531347310'
+const fhhSiteBrochureInside = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/family-home-health/fhhbrochuresquare-inside_BMeZsNgxnE.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531468506'
+const fhhSiteBrochureOutside = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/family-home-health/fhhbrochuresquare-outside_RIRNrLkfo.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531468551'
+const fhhSiteSquare = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/family-home-health/fhhsite-square_Soo5RqR6a.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531468494'
 const flightSwitchBlack = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/flightswitch/flightswitchblack_pGwAzocZU.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531340098'
-const flightSwitchSiteMock = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/flightswitch/flightswitchsitemock_yfhuUDG86.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531340042'
-const flightSwitchWhite = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/flightswitch/flightswitchwhite_XVC_O4cIT.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531340063'
 const flightSwitchShirtAstro = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/flightswitch/shirtastro_EJ954QcZWY.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649531340134'
 const flightSwitchShirtCity = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/flightswitch/shirtcity_m1yy80rkA.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649531340066'
 const flightSwitchShirtFlag = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/flightswitch/shirtflag_V6xyP5bF6M.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649531340085'
 const flightSwitchShirtSoldier = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/flightswitch/shirtsoldier_qKP5oTPlt.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649531340060'
+const flightSwitchSiteMock = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/flightswitch/flightswitchsitemock_yfhuUDG86.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531340042'
+const flightSwitchWhite = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/flightswitch/flightswitchwhite_XVC_O4cIT.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531340063'
 const geoball = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/geoball/geoball_YmhG3bo8I.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531372456'
 const grillerzFlames = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/grillerz/grillerzflames_la6pwSJG1N.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531331517'
 const grillerzSign = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/grillerz/grillerzsign_Kd5bvPsH2K.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531331476'
@@ -125,11 +132,6 @@ const yodelMock1 = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/yodel/yo
 const yodelMock3 = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/yodel/yodelmock3_jNiVB058BL.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531303189'
 const yodelMock4 = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/yodel/yodelmock4_axuPrKybf6.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531303131'
 const yodelMockSquare = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/yodel/yodelmocksquare_lGpQ_zK0B.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531303137'
-const alchemistLabsBlue = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/alchemist-labs/alchemistlabsblue_lsM4HIPOY.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531475963'
-const absintheHouseWhite = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/absinthe-house/absinthehousewhite_eL5n7s_xo.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531484684'
-const absintheHouseMenuMock = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/absinthe-house/absinthemenumockup_1DnD6-KNl.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649531484677'
-const absintheHouseBlack = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/absinthe-house/absinthehouseblack_mIT7CvR5t.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531484659'
-const absintheHouseSiteSquare = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/absinthe-house/absinthehousesite-square_tv4tyC637.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531484726'
 
 const portfolioItemArray: PortfolioItemType[] = [
   {
@@ -429,6 +431,18 @@ const portfolioItemArray: PortfolioItemType[] = [
       }
     ],
     description: 'Knight Moves is a web application that calculates the minimum minimum number of moves needed for a chess knight to reach a given position. The app was written in Javascript and AngularJS in 2016, and rewritten with React as a public npm package in 2022.'
+  },
+  {
+    categories: [ 'design' ],
+    name: 'Craft Health',
+    id: 'crafthealth',
+    products: [ 'Logo' ],
+    rowColor: '#050608',
+    homeImage: craftHealthBlue,
+    primaryImage: craftHealthBlue,
+    textColor: '#fff',
+    images: [ craftHealthWhite ],
+    description: 'Craft Health is a leading home health care provider in Colorado. The logo was created in Adobe Illustrator.'
   },
   {
     categories: [ 'design', 'development' ],
