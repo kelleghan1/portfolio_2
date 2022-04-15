@@ -49,10 +49,12 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
     src: string,
     altText: string
   ): ReactElement =>
-    <div className={`fade-in ${isNavigating ? 'fade-out' : ''}`}>
+    <div
+      className={`fade-in ${isNavigating ? 'fade-out' : ''}`}
+      key={src}
+    >
       <Spacer
         b={3}
-        key={src}
         l={0}
         r={0}
         t={0}
@@ -140,10 +142,12 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
   }
 
   const renderDescription = (): ReactElement =>
-    <div className={`fade-in ${isNavigating ? 'fade-out' : ''}`}>
+    <div
+      className={`fade-in ${isNavigating ? 'fade-out' : ''}`}
+      key={name}
+    >
       <Spacer
         b={3}
-        key={name}
         l={0}
         r={0}
         t={0}

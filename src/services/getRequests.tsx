@@ -1,138 +1,77 @@
-// import absintheHouseBlack from '../assets/images/absinthe-house/absinthehouseblack.jpg'
-// import absintheHouseSiteSquare from '../assets/images/absinthe-house/absinthehousesite-square.jpg'
-// import absintheHouseWhite from '../assets/images/absinthe-house/absinthehousewhite.jpg'
-// import absintheHouseMenuMock from '../assets/images/absinthe-house/absinthemenumockup.png'
-// import alchemistLabsBlue from '../assets/images/alchemist-labs/alchemistlabsblue.jpg'
-// import alchemistLabsWater from '../assets/images/alchemist-labs/alchemistlabswater.jpg'
-// import carvellImg from '../assets/images/carvell/carvell.png'
-// import carvellSiteMockSquare from '../assets/images/carvell/carvellsitemock-square.jpg'
-// import carvellWhite from '../assets/images/carvell/carvellwhite.png'
-// import dropzioImg from '../assets/images/dropzio/dropzio.jpg'
-// import dropzioMock1 from '../assets/images/dropzio/dropziomock1.jpg'
-// import dropzioMock2 from '../assets/images/dropzio/dropziomock2.jpg'
-// import dropzioMock3 from '../assets/images/dropzio/dropziomock3.jpg'
-// import dropzioMock4 from '../assets/images/dropzio/dropziomock4.jpg'
-// import dropzioMockSquare from '../assets/images/dropzio/dropziomocksquare.jpg'
-// import fhhSiteBrochureInside from '../assets/images/family-home-health/fhhbrochuresquare-inside.jpg'
-// import fhhSiteBrochureOutside from '../assets/images/family-home-health/fhhbrochuresquare-outside.jpg'
-// import fhhSiteSquare from '../assets/images/family-home-health/fhhsite-square.jpg'
-// import familyhospiceBrochureInside from '../assets/images/family-hospice/familyhospicebrochuresquare-inside.jpg'
-// import familyhospiceBrochureOutside from '../assets/images/family-hospice/familyhospicebrochuresquare-outside.jpg'
-// import familyhospiceSiteSquare from '../assets/images/family-hospice/familyhospicesite-square.jpg'
-// import flightSwitchBlack from '../assets/images/flightswitch/flightswitchblack.jpg'
-// import flightSwitchSiteMock from '../assets/images/flightswitch/flightswitchsitemock.jpg'
-// import flightSwitchWhite from '../assets/images/flightswitch/flightswitchwhite.jpg'
-// import flightSwitchShirtAstro from '../assets/images/flightswitch/shirtastro.png'
-// import flightSwitchShirtCity from '../assets/images/flightswitch/shirtcity.png'
-// import flightSwitchShirtFlag from '../assets/images/flightswitch/shirtflag.png'
-// import flightSwitchShirtSoldier from '../assets/images/flightswitch/shirtsoldier.png'
-// import geoball from '../assets/images/geoball/geoball.jpg'
-// import grillerzFlames from '../assets/images/grillerz/grillerzflames.jpg'
-// import grillerzSign from '../assets/images/grillerz/grillerzsign.jpg'
-// import grillerzWhite from '../assets/images/grillerz/grillerzwhite.jpg'
-// import jamFactoryBlack from '../assets/images/jam-factory/jamfactoryblack.jpg'
-// import jamFactoryBlackAndWhite from '../assets/images/jam-factory/jamfactoryblackandwhite.jpg'
-// import jamFactoryWhite from '../assets/images/jam-factory/jamfactorywhite.jpg'
-// import knightMoves from '../assets/images/knight-moves/knightmoves.png'
-// import knightMovesMock from '../assets/images/knight-moves/knightmovesmock.png'
-// import moonwalkersBlack from '../assets/images/moonwalkers/moonwalkersblack.jpg'
-// import moonwalkersPink from '../assets/images/moonwalkers/moonwalkerspink.jpg'
-// import moonwalkersWhite from '../assets/images/moonwalkers/moonwalkerswhite.jpg'
-// import properMotionCover from '../assets/images/proper-motion/propermotioncover.jpg'
-// import purpleStateBlack from '../assets/images/purple-state/purplestateblack.jpg'
-// import purpleStatePosterMock from '../assets/images/purple-state/purplestatepostermock.png'
-// import purpleStateWhite from '../assets/images/purple-state/purplestatewhite.jpg'
-// import revmatekBlack from '../assets/images/revmatek/revmatekblack.jpg'
-// import revmatekOrange from '../assets/images/revmatek/revmatekorange.jpg'
-// import revmatekWhite from '../assets/images/revmatek/revmatekwhite.jpg'
-// import risingSunBook from '../assets/images/rising-sun/risingsunbook.jpg'
-// import risingSunCover from '../assets/images/rising-sun/risingsuncover.jpg'
-// import risingSunDisc from '../assets/images/rising-sun/risingsundisc.jpg'
-// import risingSunLogo from '../assets/images/rising-sun/risingsunlogo.jpg'
-// import silverlineMediaBlack from '../assets/images/silverline-media/silverlinemediablack.jpg'
-// import silverlineMediaGrey from '../assets/images/silverline-media/silverlinemediagrey.jpg'
-// import silverlineMediaWhite from '../assets/images/silverline-media/silverlinemediawhite.jpg'
-// import sunshineTreeFarmBlack from '../assets/images/sunshine-tree-farm/sunshinetreefarmblack.jpg'
-// import sunshineTreeFarmGreen from '../assets/images/sunshine-tree-farm/sunshinetreefarmgreen.jpg'
-// import sunshineTreeFarmWhite from '../assets/images/sunshine-tree-farm/sunshinetreefarmwhite.jpg'
-// import teneoTalentBlack from '../assets/images/teneo-talent/teneotalentblack.jpg'
-// import teneoTalentWhite from '../assets/images/teneo-talent/teneotalentwhite.jpg'
-// import yodelMock from '../assets/images/yodel/yodelmock.jpg'
-// import yodelMock1 from '../assets/images/yodel/yodelmock1.jpg'
-// import yodelMock3 from '../assets/images/yodel/yodelmock3.jpg'
-// import yodelMock4 from '../assets/images/yodel/yodelmock4.jpg'
-// import yodelMockSquare from '../assets/images/yodel/yodelmocksquare.jpg'
+import {
+  absintheHouseBlack,
+  absintheHouseMenuMock,
+  absintheHouseSiteSquare,
+  absintheHouseWhite,
+  alchemistLabsBlue,
+  alchemistLabsWater,
+  carvellImg,
+  carvellSiteMockSquare,
+  carvellWhite,
+  craftHealthBlue,
+  craftHealthWhite,
+  dropzioImg,
+  dropzioMock1,
+  dropzioMock2,
+  dropzioMock3,
+  dropzioMock4,
+  dropzioMockSquare,
+  familyhospiceBrochureInside,
+  familyhospiceBrochureOutside,
+  familyhospiceSiteSquare,
+  fhhSiteBrochureInside,
+  fhhSiteBrochureOutside,
+  fhhSiteSquare,
+  flightSwitchBlack,
+  flightSwitchShirtAstro,
+  flightSwitchShirtCity,
+  flightSwitchShirtFlag,
+  flightSwitchShirtSoldier,
+  flightSwitchSiteMock,
+  flightSwitchWhite,
+  ftaSiteMockSquare,
+  geoball,
+  grillerzFlames,
+  grillerzSign,
+  grillerzWhite,
+  jamFactoryBlack,
+  jamFactoryBlackAndWhite,
+  jamFactoryWhite,
+  knightMoves,
+  knightMovesMock,
+  moonwalkersBlack,
+  moonwalkersPink,
+  moonwalkersWhite,
+  properMotionCover,
+  purpleStateBlack,
+  purpleStatePosterMock,
+  purpleStateWhite,
+  revmatekBlack,
+  revmatekOrange,
+  revmatekWhite,
+  risingSunBook,
+  risingSunCover,
+  risingSunDisc,
+  risingSunLogo,
+  silverlineMediaBlack,
+  silverlineMediaGrey,
+  silverlineMediaWhite,
+  sunshineTreeFarmBlack,
+  sunshineTreeFarmGreen,
+  sunshineTreeFarmWhite,
+  teneoTalentBlack,
+  teneoTalentWhite,
+  yodelLogo,
+  yodelMock,
+  yodelMock1,
+  yodelMock3,
+  yodelMock4,
+  yodelMockSquare
+} from '../constants/ImageLinksCdn'
 import {
   PortfolioItemsResponseType,
   PortfolioItemType
 } from '../types/dataTypes'
-const absintheHouseBlack = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/absinthe-house/absinthehouseblack_mIT7CvR5t.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531484659'
-const absintheHouseMenuMock = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/absinthe-house/absinthemenumockup_1DnD6-KNl.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649531484677'
-const absintheHouseSiteSquare = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/absinthe-house/absinthehousesite-square_tv4tyC637.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531484726'
-const absintheHouseWhite = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/absinthe-house/absinthehousewhite_eL5n7s_xo.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531484684'
-const alchemistLabsBlue = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/alchemist-labs/alchemistlabsblue_lsM4HIPOY.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531475963'
-const alchemistLabsWater = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/alchemist-labs/alchemistlabswater_Nml9xSkLYt.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531476082'
-const carvellImg = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/carvell/carvell_9XskAAjxI.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649531363420'
-const carvellSiteMockSquare = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/carvell/carvellsitemock-square_T2_0ehA3b.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531363485'
-const carvellWhite = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/carvell/carvellwhite_yMxD96CXkd.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649531363451'
-const craftHealthBlue = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/craft-health/crafthealthblue_8vQyNMfpG.jpeg?ik-sdk-version=javascript-1.4.3&updatedAt=1649905948447'
-const craftHealthWhite = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/craft-health/crafthealthwhite_Wn8_pqlwt.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649905948466'
-const dropzioImg = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/dropzio/dropzio_eSTn3VUTE.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531355532'
-const dropzioMock1 = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/dropzio/dropziomock1_L1MLHjjDy.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531355512'
-const dropzioMock2 = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/dropzio/dropziomock2_DqHUuh6CPR.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531355529'
-const dropzioMock3 = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/dropzio/dropziomock3_UssMXIgUgw.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531355523'
-const dropzioMock4 = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/dropzio/dropziomock4__MIY5GmrA0.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531355509'
-const dropzioMockSquare = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/dropzio/dropziomocksquare_f-oJjhcnw.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531355551'
-const familyhospiceBrochureInside = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/family-hospice/familyhospicebrochuresquare-inside_tNkTaDeGo.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531347277'
-const familyhospiceBrochureOutside = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/family-hospice/familyhospicebrochuresquare-outside_z6Knaumea9.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531347287'
-const familyhospiceSiteSquare = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/family-hospice/familyhospicesite-square_VfglL2lbx.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531347310'
-const fhhSiteBrochureInside = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/family-home-health/fhhbrochuresquare-inside_BMeZsNgxnE.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531468506'
-const fhhSiteBrochureOutside = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/family-home-health/fhhbrochuresquare-outside_RIRNrLkfo.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531468551'
-const fhhSiteSquare = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/family-home-health/fhhsite-square_Soo5RqR6a.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531468494'
-const flightSwitchBlack = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/flightswitch/flightswitchblack_pGwAzocZU.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531340098'
-const flightSwitchShirtAstro = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/flightswitch/shirtastro_EJ954QcZWY.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649531340134'
-const flightSwitchShirtCity = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/flightswitch/shirtcity_m1yy80rkA.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649531340066'
-const flightSwitchShirtFlag = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/flightswitch/shirtflag_V6xyP5bF6M.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649531340085'
-const flightSwitchShirtSoldier = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/flightswitch/shirtsoldier_qKP5oTPlt.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649531340060'
-const flightSwitchSiteMock = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/flightswitch/flightswitchsitemock_yfhuUDG86.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531340042'
-const flightSwitchWhite = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/flightswitch/flightswitchwhite_XVC_O4cIT.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531340063'
-const geoball = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/geoball/geoball_YmhG3bo8I.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531372456'
-const grillerzFlames = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/grillerz/grillerzflames_la6pwSJG1N.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531331517'
-const grillerzSign = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/grillerz/grillerzsign_Kd5bvPsH2K.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531331476'
-const grillerzWhite = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/grillerz/grillerzwhite_X4Inkg-hp.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531331511'
-const jamFactoryBlack = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/jam-factory/jamfactoryblack_MnvFdJtCY7.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531379526'
-const jamFactoryBlackAndWhite = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/jam-factory/jamfactoryblackandwhite_Q09rWb8wn.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531379532'
-const jamFactoryWhite = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/jam-factory/jamfactorywhite_FSzRXarCc.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531379587'
-const knightMoves = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/knight-moves/knightmoves_s5SX2kbE3.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649531386526'
-const knightMovesMock = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/knight-moves/knightmovesmock_S03mdjcKr-.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649531386546'
-const moonwalkersBlack = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/moonwalkers/moonwalkersblack_5e3HFvuLAg.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531394286'
-const moonwalkersPink = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/moonwalkers/moonwalkerspink_NKJEl7aYZ.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531394289'
-const moonwalkersWhite = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/moonwalkers/moonwalkerswhite_aL8uG96l6.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531394260'
-const properMotionCover = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/proper-motion/propermotioncover_ijoAHV3l3.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531458876'
-const purpleStateBlack = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/purple-state/purplestateblack_UOW-py7fN.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531403017'
-const purpleStatePosterMock = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/purple-state/purplestatepostermock_wS5fqeJhNG.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649531403045'
-const purpleStateWhite = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/purple-state/purplestatewhite_zVV0rH_Kc.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531403009'
-const revmatekBlack = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/revmatek/revmatekblack_2j1ks0anpk.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531451708'
-const revmatekOrange = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/revmatek/revmatekorange_OJlv1EsCA.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531451786'
-const revmatekWhite = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/revmatek/revmatekwhite_4BJfbgySd.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531451745'
-const risingSunBook = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/rising-sun/risingsunbook_d4tJ36Pb-.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531283948'
-const risingSunCover = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/rising-sun/risingsuncover_6pxhOY1YR.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531283923'
-const risingSunDisc = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/rising-sun/risingsundisc_7pT1rBMMLB.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531283870'
-const risingSunLogo = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/rising-sun/risingsunlogo_Nw6PUQtAO.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531283932'
-const silverlineMediaBlack = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/silverline-media/silverlinemediablack_v94_ehum8G.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531445343'
-const silverlineMediaGrey = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/silverline-media/silverlinemediagrey_TtZao9hRz.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531445429'
-const silverlineMediaWhite = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/silverline-media/silverlinemediawhite_jApruepbfh.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531445404'
-const sunshineTreeFarmBlack = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/sunshine-tree-farm/sunshinetreefarmblack_IqFi2CX1QM.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531421254'
-const sunshineTreeFarmGreen = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/sunshine-tree-farm/sunshinetreefarmgreen_OJ637SbVU.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531421162'
-const sunshineTreeFarmWhite = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/sunshine-tree-farm/sunshinetreefarmwhite_Twey4I6S8.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531421177'
-const teneoTalentBlack = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/teneo-talent/teneotalentblack_jZuCsP1tdH.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531413606'
-const teneoTalentWhite = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/teneo-talent/teneotalentwhite_wL6-VsPkR.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531413613'
-const yodelMock = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/yodel/yodelmock_hJQ_gUTQm.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531303176'
-const yodelMock1 = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/yodel/yodelmock1_4EnwhAASh_.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531303170'
-const yodelMock3 = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/yodel/yodelmock3_jNiVB058BL.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531303189'
-const yodelMock4 = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/yodel/yodelmock4_axuPrKybf6.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531303131'
-const yodelMockSquare = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/yodel/yodelmocksquare_lGpQ_zK0B.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531303137'
-const ftaSiteMockSquare = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/fantasy-team-advice/ftasitemocks-quare_tQjL7rAGS.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649910837359'
 
 const portfolioItemArray: PortfolioItemType[] = [
   {
@@ -317,7 +256,7 @@ const portfolioItemArray: PortfolioItemType[] = [
     rowColor: '#FFD67F',
     id: 'yodel',
     homeImage: yodelMockSquare,
-    primaryImage: yodelMock,
+    primaryImage: yodelLogo,
     products: [ 'Logo, Mobile App' ],
     githubLinks: [
       {
@@ -330,6 +269,7 @@ const portfolioItemArray: PortfolioItemType[] = [
       }
     ],
     images: [
+      yodelMock,
       yodelMock1,
       yodelMock3,
       yodelMock4
@@ -491,8 +431,8 @@ const portfolioItemArray: PortfolioItemType[] = [
     homeImage: moonwalkersWhite,
     primaryImage: moonwalkersWhite,
     images: [
-      moonwalkersBlack,
-      moonwalkersPink
+      moonwalkersPink,
+      moonwalkersBlack
     ],
     description: 'Moonwalkers is an all cancer benefit and fundraising team. Their logo was created using Adobe Illustrator.'
   },
