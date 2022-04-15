@@ -19,7 +19,7 @@ const projectDemoMap: {[key: string]: ReactElement} = {
   knightmoves: <KnightMovesDemo />
 }
 
-export const ProjectDemo: FunctionComponent = () => {
+const ProjectDemo: FunctionComponent = () => {
   const { projectId } = useParams<ParamsType>()
 
   const {
@@ -43,3 +43,5 @@ export const ProjectDemo: FunctionComponent = () => {
 
   return projectDemoMap[projectId]
 }
+
+export default ProjectDemo

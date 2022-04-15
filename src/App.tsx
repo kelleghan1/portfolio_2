@@ -1,13 +1,18 @@
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, Suspense } from 'react'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 import { appStyles } from './AppStyles'
 import { PortfolioContextProvider } from './components/context/PortfolioContextProvider'
 import { Header } from './components/layout/header/Header'
-import { Contact } from './routes/Contact'
+// import { Contact } from './routes/Contact'
 import { Home } from './routes/Home'
-import { Project } from './routes/Project'
-import { ProjectDemo } from './routes/ProjectDemo'
+// import { Project } from './routes/Project'
+// import { ProjectDemo } from './routes/ProjectDemo'
+
+const Contact = React.lazy(async () => await import('./routes/Contact'))
+// const Home = React.lazy(async () => await import('./routes/Home'))
+const Project = React.lazy(async () => await import('./routes/Project'))
+const ProjectDemo = React.lazy(async () => await import('./routes/ProjectDemo'))
 
 const AppStyled = styled.div`${appStyles}`
 
@@ -27,17 +32,17 @@ export const App: FunctionComponent = () => {
               ]}
             />
             <Route
-              component={Contact}
+              component={() => <Suspense fallback={null}><Contact /></Suspense>}
               exact
               path='/contact'
             />
             <Route
-              component={Project}
+              component={() => <Suspense fallback={null}><Project /></Suspense>}
               exact
               path='/project/:projectId'
             />
             <Route
-              component={ProjectDemo}
+              component={() => <Suspense fallback={null}><ProjectDemo /></Suspense>}
               exact
               path='/project/:projectId/demo'
             />

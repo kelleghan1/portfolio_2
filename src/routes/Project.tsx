@@ -14,7 +14,7 @@ interface ParamsType {
   projectId: string
 }
 
-export const Project: FunctionComponent = () => {
+const Project: FunctionComponent = () => {
   const { projectId } = useParams<ParamsType>()
 
   const {
@@ -32,3 +32,5 @@ export const Project: FunctionComponent = () => {
 
   return <ProjectContent projectId={projectId} />
 }
+
+export default Project

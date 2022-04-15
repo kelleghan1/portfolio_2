@@ -65,9 +65,6 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
       }
     }
 
-    void preloadImages(projectIds.map(projectId => newPortfolioMap[projectId].homeImage))
-      .then(() => { setAreHomeImagesLoaded(true) })
-
     const projectId = getProjectPathId(currentPathName)
     const portfolioItem = newPortfolioMap[projectId]
 
@@ -77,6 +74,9 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
           setProjectImagePreloadMap(prevState => ({ ...prevState, [projectId]: true }))
         })
     }
+
+    void preloadImages(projectIds.map(projectId => newPortfolioMap[projectId].homeImage))
+      .then(() => { setAreHomeImagesLoaded(true) })
 
     setPortfolioMap(newPortfolioMap)
     setProjectIds(projectIds)
