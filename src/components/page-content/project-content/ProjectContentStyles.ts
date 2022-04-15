@@ -45,8 +45,7 @@ export const ProjectContentStyles = css`
     }
   }
 
-  .columns-wrapper,
-  .list-wrapper {
+  .fade-in {
     animation: ${fadeIn} .25s forwards;
     animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
 

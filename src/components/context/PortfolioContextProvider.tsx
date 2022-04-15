@@ -4,6 +4,7 @@ import React,
   useEffect,
   useState
 } from 'react'
+import { useLocation } from 'react-router-dom'
 import { getPortfolioData } from '../../services/getRequests'
 import {
   PortfolioContextStateType,
@@ -38,29 +39,46 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
   const [ isMobileNavOpen, setIsMobileNavOpen ] = useState(intialPortfolioContextState.isMobileNavOpen)
   const [ areHomeImagesLoaded, setAreHomeImagesLoaded ] = useState(intialPortfolioContextState.areHomeImagesLoaded)
   const [ projectImagePreloadMap, setProjectImagePreloadMap ] = useState(intialPortfolioContextState.projectImagePreloadMap)
+  const location = useLocation()
+
+  const getProjectPathId = (path: string): string => {
+    const pathSplit = path.split('/')
+
+    if (pathSplit[1] === 'project') {
+      return pathSplit[2] || ''
+    }
+
+    return ''
+  }
 
   const getData = async (): Promise<void> => {
     const portfolioDataResponse = await getPortfolioData()
     const portfolioItems: PortfolioItemType[] = portfolioDataResponse?.data?.items
     const projectIds: string[] = []
-    const portfolioMap: PortfolioMapType = {}
+    const newPortfolioMap: PortfolioMapType = {}
+    const currentPathName = location?.pathname
 
     for (const item of portfolioItems) {
       if (item?.id) {
         projectIds.push(item.id)
-        portfolioMap[item.id] = item
-
-        void preloadImages([ item.primaryImage, ...item.images ])
-          .then(() => {
-            setProjectImagePreloadMap(prevState => ({ ...prevState, [item.id]: true }))
-          })
+        newPortfolioMap[item.id] = item
       }
     }
 
-    void preloadImages(projectIds.map(projectId => portfolioMap[projectId].homeImage))
+    void preloadImages(projectIds.map(projectId => newPortfolioMap[projectId].homeImage))
       .then(() => { setAreHomeImagesLoaded(true) })
 
-    setPortfolioMap(portfolioMap)
+    const projectId = getProjectPathId(currentPathName)
+    const portfolioItem = newPortfolioMap[projectId]
+
+    if (portfolioItem) {
+      void preloadImages([ portfolioItem.primaryImage, ...portfolioItem.images ])
+        .then(() => {
+          setProjectImagePreloadMap(prevState => ({ ...prevState, [projectId]: true }))
+        })
+    }
+
+    setPortfolioMap(newPortfolioMap)
     setProjectIds(projectIds)
     setIsLoading(false)
   }
@@ -91,6 +109,16 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
       setIsNavigating(true)
       scrollToTop()
 
+      const projectId = getProjectPathId(to)
+      const portfolioItem = portfolioMap[projectId]
+
+      if (portfolioItem) {
+        void preloadImages([ portfolioItem.primaryImage, ...portfolioItem.images ])
+          .then(() => {
+            setProjectImagePreloadMap(prevState => ({ ...prevState, [projectId]: true }))
+          })
+      }
+
       return 250
     }
 
@@ -118,7 +146,7 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
 
   return (
     <PortfolioContext.Provider value={contextValue}>
-      { isLoading && <LoadingOverlay /> }
+      { (!areHomeImagesLoaded || isLoading) && <LoadingOverlay /> }
       { children }
     </PortfolioContext.Provider>
   )

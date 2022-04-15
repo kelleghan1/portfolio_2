@@ -33,6 +33,16 @@ export const ContactContent: FunctionComponent = () => {
       here
     </LinkCustom>
 
+  const renderImageKitLink = (): ReactNode =>
+    <LinkCustom
+      hasLinkStyling
+      isExternal
+      target='_blank'
+      to='https://imagekit.io/'
+    >
+      imagekit.io
+    </LinkCustom>
+
   const renderContact = (): ReactElement =>
     <FlexWrapper backgroundColor='#fff'>
       <Spacer
@@ -94,7 +104,7 @@ export const ContactContent: FunctionComponent = () => {
               </TagH>
             </Spacer>
             <TagP>
-              This website is built using React and create-react-app with Typescript. See how I build React websites by checking out the code repository:
+              This website is built using React and create-react-app with Typescript. Images are served by the { renderImageKitLink() } CDN. See how I build React websites by checking out the code repository:
             </TagP>
           </div>
           <Spacer

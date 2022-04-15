@@ -132,6 +132,7 @@ const yodelMock1 = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/yodel/yo
 const yodelMock3 = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/yodel/yodelmock3_jNiVB058BL.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531303189'
 const yodelMock4 = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/yodel/yodelmock4_axuPrKybf6.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531303131'
 const yodelMockSquare = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/yodel/yodelmocksquare_lGpQ_zK0B.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649531303137'
+const ftaSiteMockSquare = 'https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/fantasy-team-advice/ftasitemocks-quare_tQjL7rAGS.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649910837359'
 
 const portfolioItemArray: PortfolioItemType[] = [
   {
@@ -158,7 +159,24 @@ const portfolioItemArray: PortfolioItemType[] = [
         label: 'View back end on Github'
       }
     ],
-    description: 'Dropzio is a geolocation hybrid app that allows users to post images and messages to their current location. The posts then become visible to other users in the vicinity. Dropzio was created with Cordova and Ionic and was written in AngularJS. The back end was created using Ruby on Rails and manages users, posts, and geographic data through CRUD operations. The logo was created with Adobe Illustrator.'
+    description: 'Dropzio is a geolocation hybrid app that allows users to post images and messages to their current location. The posts then become visible to other users in the vicinity. Dropzio was created with Cordova and Ionic and was written in AngularJS. The back end was created using Ruby on Rails and manages users, posts, and geographic data. The logo was created with Adobe Illustrator.'
+  },
+  {
+    categories: [ 'development' ],
+    name: 'Fantasy Team Advice',
+    rowColor: '#fff',
+    id: 'fantasyteamadvice',
+    products: [ 'Fantasy Sports Platform' ],
+    homeImage: ftaSiteMockSquare,
+    primaryImage: ftaSiteMockSquare,
+    images: [],
+    productLinks: [
+      {
+        label: 'Visit Fantasy Team Advice',
+        url: 'https://fantasyteamadvice.com/'
+      }
+    ],
+    description: 'The Fantasy Team Advice platform provides a comprehensive suite of fantasy tools, content, and advice for thousands of active fantasy sports players. It offers a subscription service with multiple tiers, lineup generators, and advanced sports data analysis tools for more than eight sports leagues. The front end is built on React served by a Node/Express backend and hosted on an AWS EC2 linux instance with Postgres and SQL. Several independent Node APIs are used to aggregate live sports data stored in the application database. Lineups are generated in an independent AWS Lambda Python function and relayed back to the client in real time using websockets. Recurring subscriptions are managed by Stripe and PayPal and synchronized with the application database via webhooks.'
   },
   {
     rowColor: '#787a7b',
@@ -174,6 +192,26 @@ const portfolioItemArray: PortfolioItemType[] = [
       silverlineMediaWhite
     ],
     description: 'Silverline Media offers photo and video production services. The logo was created using Adobe Illustrator.'
+  },
+  {
+    categories: [ 'design', 'development' ],
+    name: 'Carvell Design + Build',
+    rowColor: '#fff',
+    id: 'carvell',
+    products: [ 'Logo', 'Website' ],
+    homeImage: carvellSiteMockSquare,
+    primaryImage: carvellImg,
+    images: [
+      carvellSiteMockSquare,
+      carvellWhite
+    ],
+    productLinks: [
+      {
+        label: 'Visit Carvell Design + Build',
+        url: 'https://carvelldesignbuild.com/'
+      }
+    ],
+    description: 'Carvell Design + Build is a full service design and build firm that specializes in customized remodels and restoration, additions, and new construction work. The logo was created with Adobe Illustrator and the Carvell website was created using Wordpress.'
   },
   {
     rowColor: '#050608',
@@ -201,26 +239,6 @@ const portfolioItemArray: PortfolioItemType[] = [
     description: 'Flight Switch is a Colorado based clothing company. The brand and products were created using Adobe Illustrator, Adobe Photoshop, and Adobe InDesign. The online store was created with JavaScript and Handlebars on the front end. The back end was created with Express, Bookshelf, and Knex to manage a robust inventory management system for administrators.'
   },
   {
-    categories: [ 'design', 'development' ],
-    name: 'Carvell Design + Build',
-    rowColor: '#fff',
-    id: 'carvell',
-    products: [ 'Logo', 'Website' ],
-    homeImage: carvellSiteMockSquare,
-    primaryImage: carvellImg,
-    images: [
-      carvellSiteMockSquare,
-      carvellWhite
-    ],
-    productLinks: [
-      {
-        label: 'Visit the website',
-        url: 'https://carvelldesignbuild.com/'
-      }
-    ],
-    description: 'Carvell Design + Build is a full service design and build firm that specializes in customized remodels and restoration, additions, and new construction work. The logo was created with Adobe Illustrator and the Carvell website was created using Wordpress.'
-  },
-  {
     categories: [ 'design' ],
     name: 'Grillerz Pub',
     rowColor: '#050608',
@@ -234,6 +252,36 @@ const portfolioItemArray: PortfolioItemType[] = [
       grillerzWhite
     ],
     description: 'Grillerz Pub is a bar and restaurant in Englewood, Colorado. The logo was created using Adobe Illustrator.'
+  },
+  {
+    categories: [ 'development' ],
+    name: 'Knight Moves',
+    id: 'knightmoves',
+    rowColor: '#fff',
+    homeImage: knightMovesMock,
+    primaryImage: knightMoves,
+    products: [ 'Side Project' ],
+    images: [
+      knightMovesMock
+    ],
+    productLinks: [
+      {
+        url: '/project/knightmoves/demo',
+        label: 'Try the app',
+        isInternal: true
+      }
+    ],
+    githubLinks: [
+      {
+        label: 'View on Github (Angular)',
+        url: 'https://github.com/kelleghan1/knight/'
+      },
+      {
+        label: 'View on Github (React, NPM package)',
+        url: 'https://github.com/kelleghan1/knight_moves_2'
+      }
+    ],
+    description: 'Knight Moves is a web application that calculates the minimum minimum number of moves needed for a chess knight to reach a given position. The app was written in Javascript and AngularJS in 2016, and rewritten with React as a public npm package in 2022.'
   },
   {
     categories: [ 'design' ],
@@ -250,22 +298,18 @@ const portfolioItemArray: PortfolioItemType[] = [
     description: 'Sunshine Tree Farm grows and sell a variety of trees in Colorado. The logo was created with Adobe Illustrator.'
   },
   {
-    categories: [ 'development' ],
-    rowColor: '#050608',
+    categories: [ 'design' ],
+    name: 'Alchemist Labs',
+    products: [ 'Logo' ],
+    id: 'alchemistlabs',
+    rowColor: '#627478',
+    homeImage: alchemistLabsWater,
+    primaryImage: alchemistLabsWater,
     textColor: '#fff',
-    id: 'geoball',
-    name: 'Geoball',
-    products: [ 'Browser Game' ],
-    homeImage: geoball,
-    primaryImage: geoball,
-    images: [],
-    githubLinks: [
-      {
-        label: 'View on Github',
-        url: 'https://github.com/kelleghan1/mySite.github.io/'
-      }
+    images: [
+      alchemistLabsBlue
     ],
-    description: 'Geoball is a game created using JavaScript, jQuery, and canvas elements. It was then modified to function in AngularJS on this website. The game contacts an image API to retrieve a random background image for each game.'
+    description: 'Alchemist Labs produces vapor concentrate for vaporizer products. The logo was created using Adobe Illustrator.'
   },
   {
     categories: [ 'development' ],
@@ -290,21 +334,25 @@ const portfolioItemArray: PortfolioItemType[] = [
       yodelMock3,
       yodelMock4
     ],
-    description: 'Yodel is a social geolocation hybrid app designed to promote meeting new people and face to face interaction. The app allows users to see others within a custom range and send those users messages. It was created in Ionic and Cordova and written in AngularJS. It has a CRUD back end in Express and Knex to manage users and their location data. The logo was created using Adobe Illustrator.'
+    description: 'Yodel is a social geolocation hybrid app designed to promote meeting new people and face to face interaction. The app allows users to see others within a custom range and send those users messages. It was created in Ionic and Cordova and written in AngularJS. It leverages an Express backend with Knex and SQL to manage users and their location data. The logo was created using Adobe Illustrator.'
   },
   {
-    categories: [ 'design' ],
-    name: 'Alchemist Labs',
-    products: [ 'Logo' ],
-    id: 'alchemistlabs',
-    rowColor: '#627478',
-    homeImage: alchemistLabsWater,
-    primaryImage: alchemistLabsWater,
+    categories: [ 'development' ],
+    rowColor: '#050608',
     textColor: '#fff',
-    images: [
-      alchemistLabsBlue
+    id: 'geoball',
+    name: 'Geoball',
+    products: [ 'Browser Game' ],
+    homeImage: geoball,
+    primaryImage: geoball,
+    images: [],
+    githubLinks: [
+      {
+        label: 'View on Github',
+        url: 'https://github.com/kelleghan1/mySite.github.io/'
+      }
     ],
-    description: 'Alchemist Labs produces vapor concentrate for vaporizer products. The logo was created using Adobe Illustrator.'
+    description: 'Geoball is a game created using JavaScript, jQuery, and canvas elements. It was then modified to function in AngularJS on this website. The game contacts an image API to retrieve a random background image for each game.'
   },
   {
     categories: [ 'design' ],
@@ -403,36 +451,6 @@ const portfolioItemArray: PortfolioItemType[] = [
     description: 'Proper Motion is a music producer based in Colorado. The album cover was created using Adobe Photoshop and Adobe Illustrator.'
   },
   {
-    categories: [ 'development' ],
-    name: 'Knight Moves',
-    id: 'knightmoves',
-    rowColor: '#fff',
-    homeImage: knightMovesMock,
-    primaryImage: knightMoves,
-    products: [ 'Side Project' ],
-    images: [
-      knightMovesMock
-    ],
-    productLinks: [
-      {
-        url: '/project/knightmoves/demo',
-        label: 'Try the app',
-        isInternal: true
-      }
-    ],
-    githubLinks: [
-      {
-        label: 'View on Github (Angular)',
-        url: 'https://github.com/kelleghan1/knight/'
-      },
-      {
-        label: 'View on Github (React, NPM package)',
-        url: 'https://github.com/kelleghan1/knight_moves_2'
-      }
-    ],
-    description: 'Knight Moves is a web application that calculates the minimum minimum number of moves needed for a chess knight to reach a given position. The app was written in Javascript and AngularJS in 2016, and rewritten with React as a public npm package in 2022.'
-  },
-  {
     categories: [ 'design' ],
     name: 'Craft Health',
     id: 'crafthealth',
@@ -442,7 +460,13 @@ const portfolioItemArray: PortfolioItemType[] = [
     primaryImage: craftHealthBlue,
     textColor: '#fff',
     images: [ craftHealthWhite ],
-    description: 'Craft Health is a leading home health care provider in Colorado. The logo was created in Adobe Illustrator.'
+    productLinks: [
+      {
+        label: 'Visit Craft Health',
+        url: 'https://crafthealth.net/'
+      }
+    ],
+    description: 'Craft Health is a leading home health care provider in Colorado offering Skilled Nursing, Physical Therapy, Speech Therapy, CNA services, and more. The logo was created in Adobe Illustrator.'
   },
   {
     categories: [ 'design', 'development' ],

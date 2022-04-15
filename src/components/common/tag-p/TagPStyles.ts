@@ -11,6 +11,7 @@ const renderColor = ({ color }: ColorType): string => {
 }
 
 export const TagPStyles = css`
+  line-height: 1.4em;
   font-size: 16px;
   ${renderColor}
 `

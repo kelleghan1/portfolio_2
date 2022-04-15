@@ -49,18 +49,20 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
     src: string,
     altText: string
   ): ReactElement =>
-    <Spacer
-      b={3}
-      key={src}
-      l={0}
-      r={0}
-      t={0}
-    >
-      <Image
-        altText={altText}
-        src={src}
-      />
-    </Spacer>
+    <div className={`fade-in ${isNavigating ? 'fade-out' : ''}`}>
+      <Spacer
+        b={3}
+        key={src}
+        l={0}
+        r={0}
+        t={0}
+      >
+        <Image
+          altText={altText}
+          src={src}
+        />
+      </Spacer>
+    </div>
 
   const renderLink = (
     url: string,
@@ -137,79 +139,80 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
     )
   }
 
-  const renderDescription = (): ReactElement => (
-    <Spacer
-      b={3}
-      key={name}
-      l={0}
-      r={0}
-      t={0}
-    >
-      <div className='description-wrapper'>
-        <Spacer
-          l={3}
-          r={3}
-        >
+  const renderDescription = (): ReactElement =>
+    <div className={`fade-in ${isNavigating ? 'fade-out' : ''}`}>
+      <Spacer
+        b={3}
+        key={name}
+        l={0}
+        r={0}
+        t={0}
+      >
+        <div className='description-wrapper'>
           <Spacer
-            b={2}
-            l={0}
-            r={0}
-            t={0}
+            l={3}
+            r={3}
           >
-            <TagH size={2}>
-              { name }
-            </TagH>
+            <Spacer
+              b={2}
+              l={0}
+              r={0}
+              t={0}
+            >
+              <TagH size={2}>
+                { name }
+              </TagH>
+            </Spacer>
+            <Spacer
+              b={2}
+              l={0}
+              r={0}
+              t={0}
+            >
+              <TagH size={4}>
+                { products.join(' • ') }
+              </TagH>
+            </Spacer>
+            <TagP>
+              { description }
+            </TagP>
+            { renderLinks() }
           </Spacer>
-          <Spacer
-            b={2}
-            l={0}
-            r={0}
-            t={0}
-          >
-            <TagH size={4}>
-              { products.join(', ') }
-            </TagH>
-          </Spacer>
-          <TagP>
-            { description }
-          </TagP>
-          { renderLinks() }
-        </Spacer>
-      </div>
-    </Spacer>
-  )
+        </div>
+      </Spacer>
+    </div>
 
   const renderColumnView = (): ReactNode => {
-    if (!projectImagePreloadMap[id]) return null
-
-    const column1 = [
-      renderProjectImage(
-        primaryImage,
-        `${name} primary image`
-      )
-    ]
+    const column1 = []
 
     const column2 = [ renderDescription() ]
 
-    images.forEach((
-      imageUrl,
-      index
-    ) => {
-      if (index % 2 === 0) {
-        column2.push(renderProjectImage(
-          imageUrl,
-          `${name} image ${index}`
-        ))
-      } else {
-        column1.push(renderProjectImage(
-          imageUrl,
-          `${name} image ${index}`
-        ))
-      }
-    })
+    if (projectImagePreloadMap[id]) {
+      column1.push(renderProjectImage(
+        primaryImage,
+        `${name} primary image`
+      ))
+
+      images.forEach((
+        imageUrl,
+        index
+      ) => {
+        if (index % 2 === 0) {
+          column2.push(renderProjectImage(
+            imageUrl,
+            `${name} image ${index}`
+          ))
+        } else {
+          column1.push(renderProjectImage(
+            imageUrl,
+            `${name} image ${index}`
+          ))
+        }
+      })
+    }
 
     return (
-      <div className={`fade-in columns-wrapper ${isNavigating ? 'fade-out' : ''}`}>
+      <div className='columns-wrapper'>
         <Pure>
           <PureUnit pureClass='u-md-1-2'>
             <Spacer
@@ -256,7 +259,7 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
     })
 
     return (
-      <div className={`fade-in list-wrapper ${isNavigating ? 'fade-out' : ''}`}>
+      <div className='list-wrapper'>
         <Spacer
           l={3}
           r={3}
