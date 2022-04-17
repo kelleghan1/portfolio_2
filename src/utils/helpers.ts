@@ -13,12 +13,12 @@ export const trueVal = (value: string | number | undefined | null): boolean => {
   )
 }
 
-export const preloadImages = async (imageUrls: string[]): Promise<null[]> =>
+export const preloadImages = async (imageUrls: string[]): Promise<string[]> =>
   await Promise.all(imageUrls.map(async url =>
     await new Promise(resolve => {
       const imageObject = new Image()
-      imageObject.onload = () => { resolve(null) }
-      imageObject.onerror = () => { resolve(null) }
+      imageObject.onload = () => { resolve(url) }
+      imageObject.onerror = () => { resolve(url) }
       imageObject.src = url
     })))
 

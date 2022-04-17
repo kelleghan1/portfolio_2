@@ -127,8 +127,8 @@ const portfolioItemArray: PortfolioItemType[] = [
     homeImage: silverlineMediaGrey,
     primaryImage: silverlineMediaGrey,
     images: [
-      silverlineMediaBlack,
-      silverlineMediaWhite
+      silverlineMediaWhite,
+      silverlineMediaBlack
     ],
     description: 'Silverline Media offers photo and video production services. The logo was created using Adobe Illustrator.'
   },
@@ -137,7 +137,7 @@ const portfolioItemArray: PortfolioItemType[] = [
     name: 'Carvell Design + Build',
     rowColor: '#fff',
     id: 'carvell',
-    products: [ 'Logo', 'Website' ],
+    products: [ 'Brand', 'Website' ],
     homeImage: carvellSiteMockSquare,
     primaryImage: carvellImg,
     images: [

@@ -26,7 +26,7 @@ const intialPortfolioContextState: PortfolioContextStateType = {
   isNavigating: false,
   isMobileNavOpen: false,
   areHomeImagesLoaded: false,
-  projectImagePreloadMap: {}
+  projectImagesPreloaded: []
 }
 
 const PortfolioContext = React.createContext<PortfolioContextStateType>(intialPortfolioContextState)
@@ -38,7 +38,7 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
   const [ isNavigating, setIsNavigating ] = useState(intialPortfolioContextState.isNavigating)
   const [ isMobileNavOpen, setIsMobileNavOpen ] = useState(intialPortfolioContextState.isMobileNavOpen)
   const [ areHomeImagesLoaded, setAreHomeImagesLoaded ] = useState(intialPortfolioContextState.areHomeImagesLoaded)
-  const [ projectImagePreloadMap, setProjectImagePreloadMap ] = useState(intialPortfolioContextState.projectImagePreloadMap)
+  const [ projectImagesPreloaded, setProjectImagesPreloaded ] = useState(intialPortfolioContextState.projectImagesPreloaded)
   const location = useLocation()
 
   const getProjectPathId = (path: string): string => {
@@ -70,13 +70,16 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
 
     if (portfolioItem) {
       void preloadImages([ portfolioItem.primaryImage, ...portfolioItem.images ])
-        .then(() => {
-          setProjectImagePreloadMap(prevState => ({ ...prevState, [projectId]: true }))
+        .then(imageUrls => {
+          setProjectImagesPreloaded(prevState => ([ ...prevState, ...imageUrls ]))
         })
     }
 
     void preloadImages(projectIds.map(projectId => newPortfolioMap[projectId].homeImage))
-      .then(() => { setAreHomeImagesLoaded(true) })
+      .then(imageUrls => {
+        setProjectImagesPreloaded(prevState => [ ...prevState, ...imageUrls ])
+        setAreHomeImagesLoaded(true)
+      })
 
     setPortfolioMap(newPortfolioMap)
     setProjectIds(projectIds)
@@ -114,8 +117,8 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
 
       if (portfolioItem) {
         void preloadImages([ portfolioItem.primaryImage, ...portfolioItem.images ])
-          .then(() => {
-            setProjectImagePreloadMap(prevState => ({ ...prevState, [projectId]: true }))
+          .then(imageUrls => {
+            setProjectImagesPreloaded(prevState => ([ ...prevState, ...imageUrls ]))
           })
       }
 
@@ -127,9 +130,7 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
     return 0
   }
 
-  const handleNavigationComplete = (): void => {
-    setIsNavigating(false)
-  }
+  const handleNavigationComplete = (): void => { setIsNavigating(false) }
 
   const contextValue: PortfolioContextValueType = {
     areHomeImagesLoaded,
@@ -140,7 +141,7 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
     isNavigating,
     portfolioMap,
     projectIds,
-    projectImagePreloadMap,
+    projectImagesPreloaded,
     setIsMobileNavOpen
   }
 

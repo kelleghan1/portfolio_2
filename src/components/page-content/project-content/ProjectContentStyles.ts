@@ -32,6 +32,14 @@ export const ProjectContentStyles = css`
   .columns-wrapper {
     display: none;
 
+    .block-description {
+      display: none;
+    }
+
+    .single-image-tablet-columns {
+      display: none;
+    }
+
     @media screen and (min-width: ${MEDIUM_MIN}) {
       display: block;
     }
@@ -52,6 +60,26 @@ export const ProjectContentStyles = css`
     &.fade-out {
       animation: ${fadeOut} .2s forwards;
       animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    .columns-wrapper {
+      .block-description {
+        display: block;
+      }
+
+      .column-description {
+        display: none;
+      }
+
+      .single-image-tablet-columns {
+        display: block;
+      }
+
+      .single-image-desktop-columns {
+        display: none;
+      }
     }
   }
 `

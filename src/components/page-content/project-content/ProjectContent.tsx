@@ -29,7 +29,7 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
   const {
     portfolioMap,
     isNavigating,
-    projectImagePreloadMap
+    projectImagesPreloaded
   } = useContext(PortfolioContext)
 
   const portfolioItem = portfolioMap[projectId]
@@ -144,7 +144,7 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
   const renderDescription = (): ReactElement =>
     <div
       className={`fade-in ${isNavigating ? 'fade-out' : ''}`}
-      key={name}
+      key={`${name} description`}
     >
       <Spacer
         b={3}
@@ -154,8 +154,10 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
       >
         <div className='description-wrapper'>
           <Spacer
+            b={2.5}
             l={3}
             r={3}
+            t={2.5}
           >
             <Spacer
               b={2}
@@ -186,37 +188,21 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
       </Spacer>
     </div>
 
-  const renderColumnView = (): ReactNode => {
-    const column1 = []
-
-    const column2 = [ renderDescription() ]
-
-    if (projectImagePreloadMap[id]) {
-      column1.push(renderProjectImage(
-        primaryImage,
-        `${name} primary image`
-      ))
-
-      images.forEach((
-        imageUrl,
-        index
-      ) => {
-        if (index % 2 === 0) {
-          column2.push(renderProjectImage(
-            imageUrl,
-            `${name} image ${index}`
-          ))
-        } else {
-          column1.push(renderProjectImage(
-            imageUrl,
-            `${name} image ${index}`
-          ))
-        }
-      })
-    }
-
-    return (
-      <div className='columns-wrapper'>
+  const renderSingleImageContent = (
+    column1: ReactNode[],
+    column2: ReactNode[]
+  ): ReactNode =>
+    <>
+      <div className='single-image-tablet-columns'>
+        <Spacer
+          l={3}
+          r={3}
+          t={0}
+        >
+          { column1 }
+        </Spacer>
+      </div>
+      <div className='single-image-desktop-columns'>
         <Pure>
           <PureUnit pureClass='u-md-1-2'>
             <Spacer
@@ -238,28 +224,120 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
           </PureUnit>
         </Pure>
       </div>
-    )
-  }
+    </>
 
-  const renderListView = (): ReactNode => {
-    if (!projectImagePreloadMap[id]) return null
+  const renderPureColumns = (
+    column1: ReactNode[],
+    column2: ReactNode[]
+  ): ReactNode =>
+    <Pure>
+      <PureUnit pureClass='u-md-1-2'>
+        <Spacer
+          l={3}
+          r={1.5}
+          t={0}
+        >
+          { column1 }
+        </Spacer>
+      </PureUnit>
+      <PureUnit pureClass='u-md-1-2'>
+        <Spacer
+          l={1.5}
+          r={3}
+          t={0}
+        >
+          { column2 }
+        </Spacer>
+      </PureUnit>
+    </Pure>
 
-    const column = [
-      renderDescription(),
-      renderProjectImage(
-        primaryImage,
-        `${name} primary image`
-      )
+  const renderColumnView = (): ReactNode => {
+    const column1 = []
+
+    const column2 = [
+      <div
+        className='column-description'
+        key={`${name} description`}
+      >
+        { renderDescription() }
+      </div>
     ]
+
+    column1.push(renderProjectImage(
+      primaryImage,
+      `${name} primary image`
+    ))
 
     images.forEach((
       imageUrl,
       index
     ) => {
+      if (projectImagesPreloaded.includes(imageUrl)) {
+        if (index % 2 === 0) {
+          column2.push(renderProjectImage(
+            imageUrl,
+            `${name} image ${index}`
+          ))
+        } else {
+          column1.push(renderProjectImage(
+            imageUrl,
+            `${name} image ${index}`
+          ))
+        }
+      }
+    })
+
+    return (
+      <div className='columns-wrapper'>
+        <div className='block-description'>
+          <Spacer
+            b={0}
+            l={3}
+            r={3}
+            t={0}
+          >
+            { renderDescription() }
+          </Spacer>
+        </div>
+        {
+          [ ...images, primaryImage ].length < 2
+            ? renderSingleImageContent(
+              column1,
+              column2
+            )
+            : renderPureColumns(
+              column1,
+              column2
+            )
+        }
+      </div>
+    )
+  }
+
+  const renderListView = (): ReactNode => {
+    const column = [
+      <div key={`${name} description`}>
+        { renderDescription() }
+      </div>
+    ]
+
+    if (projectImagesPreloaded.includes(primaryImage)) {
       column.push(renderProjectImage(
-        imageUrl,
-        `${name} image ${index}`
+        primaryImage,
+        `${name} primary image`
       ))
+    }
+
+    images.forEach((
+      imageUrl,
+      index
+    ) => {
+      if (projectImagesPreloaded.includes(imageUrl)) {
+        column.push(renderProjectImage(
+          imageUrl,
+          `${name} image ${index}`
+        ))
+      }
     })
 
     return (

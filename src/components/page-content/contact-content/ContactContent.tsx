@@ -46,9 +46,11 @@ export const ContactContent: FunctionComponent = () => {
   const renderContact = (): ReactElement =>
     <FlexWrapper backgroundColor='#fff'>
       <Spacer
+        b={2.5}
         isFlex
         l={3}
         r={3}
+        t={2.5}
       >
         <FlexWrapper flexColumn>
           <div className='flex-grow'>
@@ -87,9 +89,11 @@ export const ContactContent: FunctionComponent = () => {
   const renderAbout = (): ReactElement =>
     <FlexWrapper backgroundColor='#fff'>
       <Spacer
+        b={2.5}
         isFlex
         l={3}
         r={3}
+        t={2.5}
       >
         <FlexWrapper flexColumn>
           <div className='flex-grow'>
