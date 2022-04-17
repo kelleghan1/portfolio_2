@@ -110,7 +110,6 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
       )
     ) {
       setIsNavigating(true)
-      scrollToTop()
 
       const projectId = getProjectPathId(to)
       const portfolioItem = portfolioMap[projectId]
@@ -125,12 +124,13 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
       return 250
     }
 
-    scrollToTop()
-
     return 0
   }
 
-  const handleNavigationComplete = (): void => { setIsNavigating(false) }
+  const handleNavigationComplete = (): void => {
+    scrollToTop()
+    setIsNavigating(false)
+  }
 
   const contextValue: PortfolioContextValueType = {
     areHomeImagesLoaded,

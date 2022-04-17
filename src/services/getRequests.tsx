@@ -115,7 +115,7 @@ const portfolioItemArray: PortfolioItemType[] = [
         url: 'https://fantasyteamadvice.com/'
       }
     ],
-    description: 'The Fantasy Team Advice platform provides a comprehensive suite of fantasy tools, content, and advice for thousands of active fantasy sports players. It offers a subscription service with multiple tiers, lineup generators, and advanced sports data analysis tools for more than eight sports leagues. The front end is built on React served by a Node/Express backend and hosted on an AWS EC2 linux instance with Postgres and SQL. Several independent Node APIs are used to aggregate live sports data stored in the application database. Lineups are generated in an independent AWS Lambda Python function and relayed back to the client in real time using websockets. Recurring subscriptions are managed by Stripe and PayPal and synchronized with the application database via webhooks.'
+    description: 'The Fantasy Team Advice platform provides a comprehensive suite of fantasy tools, content, and advice for thousands of active fantasy sports players. It offers a subscription service with multiple tiers, lineup generators, and advanced sports data analysis tools for more than eight sports leagues. The front end is built on React served by a Node/Express back end and hosted on an AWS EC2 linux instance with Postgres and SQL. Several independent Node APIs are used to aggregate live sports data stored in the application database. Lineups are generated in an independent AWS Lambda Python function and relayed back to the client in real time using websockets. Recurring subscriptions are managed by Stripe and PayPal and synchronized with the application database via webhooks.'
   },
   {
     rowColor: '#787a7b',
@@ -274,7 +274,7 @@ const portfolioItemArray: PortfolioItemType[] = [
       yodelMock3,
       yodelMock4
     ],
-    description: 'Yodel is a social geolocation hybrid app designed to promote meeting new people and face to face interaction. The app allows users to see others within a custom range and send those users messages. It was created in Ionic and Cordova and written in AngularJS. It leverages an Express backend with Knex and SQL to manage users and their location data. The logo was created using Adobe Illustrator.'
+    description: 'Yodel is a social geolocation hybrid app designed to promote meeting new people and face to face interaction. The app allows users to see others within a custom range and send those users messages. It was created in Ionic and Cordova and written in AngularJS. It leverages an Express back end with Knex and SQL to manage users and their location data. The logo was created using Adobe Illustrator.'
   },
   {
     categories: [ 'development' ],
@@ -406,7 +406,7 @@ const portfolioItemArray: PortfolioItemType[] = [
         url: 'https://crafthealth.net/'
       }
     ],
-    description: 'Craft Health is a leading home health care provider in Colorado offering Skilled Nursing, Physical Therapy, Speech Therapy, CNA services, and more. The logo was created in Adobe Illustrator.'
+    description: 'Craft Health is a leading home health and hospice provider in Colorado offering Skilled Nursing, Physical Therapy, Speech Therapy, CNA services, and more. The logo was created in Adobe Illustrator.'
   },
   {
     categories: [ 'design', 'development' ],
