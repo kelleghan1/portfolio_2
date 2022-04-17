@@ -36,7 +36,7 @@ export const Header: FunctionComponent = () => {
             l={3}
             r={3}
           >
-            <div className='header-wrapper'>
+            <div className='header-wrapper desktop-header'>
               { renderHeaderLogo() }
               <div className='nav-wrapper' >
                 <NavMenu />

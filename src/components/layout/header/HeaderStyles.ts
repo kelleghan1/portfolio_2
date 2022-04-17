@@ -33,6 +33,10 @@ export const HeaderStyles = css`
     margin-bottom: ${SPACING_Y_NUM * 3}px;
 
     .header-wrapper {
+      &.desktop-header {
+        visibility: hidden;
+      }
+
       .logo-wrapper {
         .logo-link-wrapper {
           width: 150px;

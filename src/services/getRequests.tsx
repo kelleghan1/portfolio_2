@@ -276,24 +276,24 @@ const portfolioItemArray: PortfolioItemType[] = [
     ],
     description: 'Yodel is a social geolocation hybrid app designed to promote meeting new people and face to face interaction. The app allows users to see others within a custom range and send those users messages. It was created in Ionic and Cordova and written in AngularJS. It leverages an Express back end with Knex and SQL to manage users and their location data. The logo was created using Adobe Illustrator.'
   },
-  {
-    categories: [ 'development' ],
-    rowColor: '#050608',
-    textColor: '#fff',
-    id: 'geoball',
-    name: 'Geoball',
-    products: [ 'Browser Game' ],
-    homeImage: geoball,
-    primaryImage: geoball,
-    images: [],
-    githubLinks: [
-      {
-        label: 'View on Github',
-        url: 'https://github.com/kelleghan1/mySite.github.io/'
-      }
-    ],
-    description: 'Geoball is a game created using JavaScript, jQuery, and canvas elements. It was then modified to function in AngularJS on this website. The game contacts an image API to retrieve a random background image for each game.'
-  },
+  // {
+  //   categories: [ 'development' ],
+  //   rowColor: '#050608',
+  //   textColor: '#fff',
+  //   id: 'geoball',
+  //   name: 'Geoball',
+  //   products: [ 'Browser Game' ],
+  //   homeImage: geoball,
+  //   primaryImage: geoball,
+  //   images: [],
+  //   githubLinks: [
+  //     {
+  //       label: 'View on Github',
+  //       url: 'https://github.com/kelleghan1/mySite.github.io/'
+  //     }
+  //   ],
+  //   description: 'Geoball is a game created using JavaScript, jQuery, and canvas elements. It was then modified to function in AngularJS on this website. The game contacts an image API to retrieve a random background image for each game.'
+  // },
   {
     categories: [ 'design' ],
     name: 'Jam Factory',
