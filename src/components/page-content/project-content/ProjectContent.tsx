@@ -263,16 +263,18 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
       </div>
     ]
 
-    column1.push(renderProjectImage(
-      primaryImage,
-      `${name} primary image`
-    ))
+    if (projectImagesPreloaded[primaryImage]) {
+      column1.push(renderProjectImage(
+        primaryImage,
+        `${name} primary image`
+      ))
+    }
 
     images.forEach((
       imageUrl,
       index
     ) => {
-      if (projectImagesPreloaded.includes(imageUrl)) {
+      if (projectImagesPreloaded[imageUrl]) {
         if (index % 2 === 0) {
           column2.push(renderProjectImage(
             imageUrl,
@@ -321,7 +323,7 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
       </div>
     ]
 
-    if (projectImagesPreloaded.includes(primaryImage)) {
+    if (projectImagesPreloaded[primaryImage]) {
       column.push(renderProjectImage(
         primaryImage,
         `${name} primary image`
@@ -332,7 +334,7 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
       imageUrl,
       index
     ) => {
-      if (projectImagesPreloaded.includes(imageUrl)) {
+      if (projectImagesPreloaded[imageUrl]) {
         column.push(renderProjectImage(
           imageUrl,
           `${name} image ${index}`

@@ -12,7 +12,7 @@ import {
   PortfolioMapType
 } from '../../types/contextTypes'
 import { PortfolioItemType } from '../../types/dataTypes'
-import { HandleNavigationFunctionType } from '../../types/sharedTypes'
+import { HandleNavigationFunctionType, TrueMapType } from '../../types/sharedTypes'
 import {
   preloadImages,
   scrollToTop
@@ -26,7 +26,7 @@ const intialPortfolioContextState: PortfolioContextStateType = {
   isNavigating: false,
   isMobileNavOpen: false,
   areHomeImagesLoaded: false,
-  projectImagesPreloaded: []
+  projectImagesPreloaded: {}
 }
 
 const PortfolioContext = React.createContext<PortfolioContextStateType>(intialPortfolioContextState)
@@ -71,13 +71,13 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
     if (portfolioItem) {
       void preloadImages([ portfolioItem.primaryImage, ...portfolioItem.images ])
         .then(imageUrls => {
-          setProjectImagesPreloaded(prevState => ([ ...prevState, ...imageUrls ]))
+          setProjectImagesPreloaded(prevState => ({ ...prevState, ...imageUrls }))
         })
     }
 
     void preloadImages(projectIds.map(projectId => newPortfolioMap[projectId].homeImage))
       .then(imageUrls => {
-        setProjectImagesPreloaded(prevState => [ ...prevState, ...imageUrls ])
+        setProjectImagesPreloaded(prevState => ({ ...prevState, ...imageUrls }))
         setAreHomeImagesLoaded(true)
       })
 
@@ -96,17 +96,17 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
     event,
     to
   ) => {
-    const portFolioPaths = [
-      '/',
-      '/design',
-      '/development'
-    ]
+    const portFolioPaths: TrueMapType = {
+      '/': true,
+      '/design': true,
+      '/development': true
+    }
 
     if (
       !(
         currentPathName !== undefined &&
-        portFolioPaths.includes(currentPathName) &&
-        portFolioPaths.includes(to)
+        portFolioPaths[currentPathName] &&
+        portFolioPaths[to]
       )
     ) {
       setIsNavigating(true)
@@ -117,7 +117,7 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
       if (portfolioItem) {
         void preloadImages([ portfolioItem.primaryImage, ...portfolioItem.images ])
           .then(imageUrls => {
-            setProjectImagesPreloaded(prevState => ([ ...prevState, ...imageUrls ]))
+            setProjectImagesPreloaded(prevState => ({ ...prevState, ...imageUrls }))
           })
       }
 

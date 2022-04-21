@@ -3,7 +3,11 @@ import {
   SetStateAction
 } from 'react'
 import { PortfolioItemType } from './dataTypes'
-import { HandleNavigationFunctionType } from './sharedTypes'
+import {
+  HandleNavigationFunctionType,
+  TrueMapType
+} from './sharedTypes'
+
 export interface PortfolioMapType {
   [key: string]: PortfolioItemType
 }
@@ -15,7 +19,7 @@ export interface PortfolioContextStateType {
   isNavigating: boolean
   portfolioMap: PortfolioMapType
   projectIds: string[]
-  projectImagesPreloaded: string[]
+  projectImagesPreloaded: TrueMapType
 }
 
 export type PortfolioContextValueType = PortfolioContextStateType & {

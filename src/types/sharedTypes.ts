@@ -6,3 +6,4 @@ export type HandleNavigationFunctionType = (
   to: string
 ) => number
 
+export interface TrueMapType { [key: string]: true }
