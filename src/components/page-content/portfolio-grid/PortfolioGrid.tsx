@@ -38,7 +38,7 @@ export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter })
           appearIndex * 16
         )
       },
-      150
+      120
     )
   }
 

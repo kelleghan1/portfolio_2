@@ -121,7 +121,7 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
           })
       }
 
-      return 250
+      return 200
     }
 
     return 0
