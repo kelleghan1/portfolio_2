@@ -2,14 +2,16 @@ import React,
 {
   FunctionComponent,
   ReactElement,
+  Suspense,
   useContext
 } from 'react'
 import {
   useParams,
   Redirect
 } from 'react-router'
+import { LoadingOverlay } from '../components/common/loading-overlay/LoadingOverlay'
 import { PortfolioContext } from '../components/context/PortfolioContextProvider'
-import { KnightMovesDemo } from '../components/page-content/knight-moves-demo/KnightMovesDemo'
+const KnightMovesDemo = React.lazy(async () => await import('../components/page-content/knight-moves-demo/KnightMovesDemo'))
 
 interface ParamsType {
   projectId: string
@@ -19,7 +21,7 @@ const projectDemoMap: {[key: string]: ReactElement} = {
   knightmoves: <KnightMovesDemo />
 }
 
-const ProjectDemo: FunctionComponent = () => {
+export const ProjectDemo: FunctionComponent = () => {
   const { projectId } = useParams<ParamsType>()
 
   const {
@@ -41,7 +43,9 @@ const ProjectDemo: FunctionComponent = () => {
     return <Redirect to={`/project/${projectId}`} />
   }
 
-  return projectDemoMap[projectId]
+  return (
+    <Suspense fallback={<LoadingOverlay />}>
+      { projectDemoMap[projectId] }
+    </Suspense>
+  )
 }
-
-export default ProjectDemo

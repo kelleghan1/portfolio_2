@@ -1,8 +1,12 @@
 import React,
 {
   FunctionComponent,
+  MutableRefObject,
   ReactNode,
-  useContext
+  useContext,
+  useEffect,
+  useRef,
+  useState
 } from 'react'
 import { Flipper, Flipped } from 'react-flip-toolkit'
 import styled from 'styled-components'
@@ -19,13 +23,21 @@ interface PortfolioGridProps {
   filter?: string
 }
 
-export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter }) => {
+const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter }) => {
+  const [ isInitialLoad, setIsInitialLoad ] = useState(true)
   const {
     portfolioMap,
     projectIds,
     isNavigating,
     areHomeImagesLoaded
   } = useContext(PortfolioContext)
+
+  const loadElement: MutableRefObject<null> = useRef(null)
+
+  useEffect(
+    () => { setIsInitialLoad(false) },
+    [ loadElement ]
+  )
 
   const handleAppear = (
     appearElement: HTMLElement,
@@ -57,8 +69,6 @@ export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter })
 
   const renderPortfolioGrid = (): ReactNode[] => {
     const portfolioGridItems: ReactNode[] = []
-
-    if (!areHomeImagesLoaded || isNavigating) return portfolioGridItems
 
     for (let i = 0; i < projectIds.length; i++) {
       const projectId = projectIds[i]
@@ -98,7 +108,12 @@ export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter })
 
   // flipKey will will trigger reevaluation of items in the grid, triggering animation if they have changed.
   // Key is changed for prejectId length, filter, isInitialLoad, and isNavigating
-  const flipKey = `${projectIds.length}${areHomeImagesLoaded ? '0' : '1'}${filter ?? '1'}${isNavigating ? '1' : '0'}`
+  const flipKey = `
+    ${loadElement.current === null ? '0' : '1'}
+    ${projectIds.length}${areHomeImagesLoaded ? '0' : '1'}
+    ${filter ?? '1'}
+    ${isNavigating ? '1' : '0'}
+  `
 
   return (
     <PageRow>
@@ -127,9 +142,19 @@ export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter })
             }
             spring={{ stiffness: 1190, damping: 120 }}
           >
-            <PortfolioGridStyled>
-              { renderPortfolioGrid() }
-            </PortfolioGridStyled>
+            <div ref={loadElement}>
+              <PortfolioGridStyled>
+                {
+                  (
+                    isInitialLoad ||
+                    isNavigating ||
+                    !areHomeImagesLoaded
+                  )
+                    ? null
+                    : renderPortfolioGrid()
+                }
+              </PortfolioGridStyled>
+            </div>
           </Flipper>
         </Spacer>
       </Container>
@@ -137,3 +162,4 @@ export const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter })
   )
 }
 
+export default PortfolioGrid

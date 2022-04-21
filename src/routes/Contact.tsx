@@ -1,6 +1,9 @@
-import React, { FunctionComponent } from 'react'
-import { ContactContent } from '../components/page-content/contact-content/ContactContent'
+import React, { FunctionComponent, Suspense } from 'react'
+import { LoadingOverlay } from '../components/common/loading-overlay/LoadingOverlay'
+const ContactContent = React.lazy(async () => await import('../components/page-content/contact-content/ContactContent'))
 
-const Contact: FunctionComponent = () => <ContactContent />
+export const Contact: FunctionComponent = () =>
+  <Suspense fallback={<LoadingOverlay />}>
+    <ContactContent />
+  </Suspense>
 
-export default Contact

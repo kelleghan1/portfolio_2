@@ -25,7 +25,7 @@ interface ProjectContentProps {
   projectId: string
 }
 
-export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ projectId }) => {
+const ProjectContent: FunctionComponent<ProjectContentProps> = ({ projectId }) => {
   const {
     portfolioMap,
     isNavigating,
@@ -367,3 +367,4 @@ export const ProjectContent: FunctionComponent<ProjectContentProps> = ({ project
   )
 }
 
+export default ProjectContent

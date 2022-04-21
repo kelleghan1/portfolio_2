@@ -1,20 +1,22 @@
 import React,
 {
   FunctionComponent,
+  Suspense,
   useContext
 } from 'react'
 import {
   useParams,
   Redirect
 } from 'react-router'
+import { LoadingOverlay } from '../components/common/loading-overlay/LoadingOverlay'
 import { PortfolioContext } from '../components/context/PortfolioContextProvider'
-import { ProjectContent } from '../components/page-content/project-content/ProjectContent'
+const ProjectContent = React.lazy(async () => await import('../components/page-content/project-content/ProjectContent'))
 
 interface ParamsType {
   projectId: string
 }
 
-const Project: FunctionComponent = () => {
+export const Project: FunctionComponent = () => {
   const { projectId } = useParams<ParamsType>()
 
   const {
@@ -23,14 +25,16 @@ const Project: FunctionComponent = () => {
     isLoading
   } = useContext(PortfolioContext)
 
-  if (isLoading) return null
+  if (isLoading) return <LoadingOverlay />
 
   if (
     !portfolioMap[projectId] ||
     !projectIds.includes(projectId)
   ) return <Redirect to='/' />
 
-  return <ProjectContent projectId={projectId} />
+  return (
+    <Suspense fallback={<LoadingOverlay />}>
+      <ProjectContent projectId={projectId} />
+    </Suspense>
+  )
 }
-
-export default Project

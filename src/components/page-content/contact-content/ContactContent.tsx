@@ -20,7 +20,7 @@ import { ContactContentStyles } from './ContactContentStyles'
 
 const ContactContentStyled = styled.div`${ContactContentStyles}`
 
-export const ContactContent: FunctionComponent = () => {
+const ContactContent: FunctionComponent = () => {
   const { isNavigating } = useContext(PortfolioContext)
 
   const renderGithubLink = (): ReactNode =>
@@ -176,3 +176,5 @@ export const ContactContent: FunctionComponent = () => {
     </PageRow>
   )
 }
+
+export default ContactContent

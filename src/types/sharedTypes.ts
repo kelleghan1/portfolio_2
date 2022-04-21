@@ -1,7 +1,7 @@
 import { SyntheticEvent } from 'react'
 
 export type HandleNavigationFunctionType = (
-  currentPathName: string | undefined,
+  currentPathName: string,
   event: SyntheticEvent,
   to: string
 ) => number

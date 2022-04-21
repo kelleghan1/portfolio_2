@@ -103,11 +103,8 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
     }
 
     if (
-      !(
-        currentPathName !== undefined &&
-        portFolioPaths[currentPathName] &&
-        portFolioPaths[to]
-      )
+      !portFolioPaths[currentPathName] ||
+      !portFolioPaths[to]
     ) {
       setIsNavigating(true)
 
@@ -147,7 +144,7 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
 
   return (
     <PortfolioContext.Provider value={contextValue}>
-      { (!areHomeImagesLoaded || isLoading) && <LoadingOverlay /> }
+      { isLoading && <LoadingOverlay /> }
       { children }
     </PortfolioContext.Provider>
   )

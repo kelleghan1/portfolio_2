@@ -9,7 +9,7 @@ import { KnightMovesDemoStyles } from './KnightMovesDemoStyles'
 
 const KnightMovesDemoStyled = styled.div`${KnightMovesDemoStyles}`
 
-export const KnightMovesDemo: FunctionComponent = () => {
+const KnightMovesDemo: FunctionComponent = () => {
   const { isNavigating } = useContext(PortfolioContext)
 
   return (
@@ -29,3 +29,4 @@ export const KnightMovesDemo: FunctionComponent = () => {
   )
 }
 
+export default KnightMovesDemo

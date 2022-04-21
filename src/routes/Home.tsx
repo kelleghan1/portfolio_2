@@ -1,7 +1,8 @@
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, Suspense } from 'react'
 import { useParams } from 'react-router'
-import { PortfolioGrid } from '../components/page-content/portfolio-grid/PortfolioGrid'
+import { LoadingOverlay } from '../components/common/loading-overlay/LoadingOverlay'
 // import { PortfolioList } from '../components/common/portfolio-list/PortfolioList'
+const PortfolioGrid = React.lazy(async () => await import('../components/page-content/portfolio-grid/PortfolioGrid'))
 
 interface ParamsType {
   filter?: string
@@ -12,6 +13,10 @@ export const Home: FunctionComponent = () => {
   const filterToLowerCase = filter?.toLowerCase()
 
   // return <PortfolioList filter={filterToLowerCase} />
-  return <PortfolioGrid filter={filterToLowerCase} />
+  return (
+    <Suspense fallback={<LoadingOverlay />}>
+      <PortfolioGrid filter={filterToLowerCase} />
+    </Suspense>
+  )
 }
 
