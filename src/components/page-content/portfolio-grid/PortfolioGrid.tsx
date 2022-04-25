@@ -10,6 +10,7 @@ import React,
 } from 'react'
 import { Flipper, Flipped } from 'react-flip-toolkit'
 import styled from 'styled-components'
+import { LoadingOverlay } from '../../common/loading-overlay/LoadingOverlay'
 import { PortfolioGridItem } from '../../common/portfolio-grid-item/PortfolioGridItem'
 import { PortfolioContext } from '../../context/PortfolioContextProvider'
 import { Container } from '../../layout/container/Container'
@@ -116,49 +117,52 @@ const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter }) => {
   `
 
   return (
-    <PageRow>
-      <Container>
-        <Spacer
-          l={3}
-          r={3}
-          t={0}
-        >
-          <Flipper
-            flipKey={flipKey}
-            handleEnterUpdateDelete={
-              ({
-                hideEnteringElements,
-                animateEnteringElements,
-                animateExitingElements,
-                animateFlippedElements
-              }) => {
-                hideEnteringElements()
-
-                void animateExitingElements()
-                  .then(animateFlippedElements)
-
-                void animateEnteringElements()
-              }
-            }
-            spring={{ stiffness: 1190, damping: 120 }}
+    <>
+      { !areHomeImagesLoaded && <LoadingOverlay fadeIn={false} /> }
+      <PageRow>
+        <Container>
+          <Spacer
+            l={3}
+            r={3}
+            t={0}
           >
-            <div ref={loadElement}>
-              <PortfolioGridStyled>
-                {
-                  (
-                    isInitialLoad ||
-                    isNavigating ||
-                    !areHomeImagesLoaded
-                  )
-                    ? null
-                    : renderPortfolioGrid()
+            <Flipper
+              flipKey={flipKey}
+              handleEnterUpdateDelete={
+                ({
+                  hideEnteringElements,
+                  animateEnteringElements,
+                  animateExitingElements,
+                  animateFlippedElements
+                }) => {
+                  hideEnteringElements()
+
+                  void animateExitingElements()
+                    .then(animateFlippedElements)
+
+                  void animateEnteringElements()
                 }
-              </PortfolioGridStyled>
-            </div>
-          </Flipper>
-        </Spacer>
-      </Container>
-    </PageRow>
+              }
+              spring={{ stiffness: 1190, damping: 120 }}
+            >
+              <div ref={loadElement}>
+                <PortfolioGridStyled>
+                  {
+                    (
+                      isInitialLoad ||
+                      isNavigating ||
+                      !areHomeImagesLoaded
+                    )
+                      ? null
+                      : renderPortfolioGrid()
+                  }
+                </PortfolioGridStyled>
+              </div>
+            </Flipper>
+          </Spacer>
+        </Container>
+      </PageRow>
+    </>
   )
 }
 

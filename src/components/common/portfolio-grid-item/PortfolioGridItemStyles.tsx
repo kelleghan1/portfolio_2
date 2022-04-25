@@ -18,12 +18,12 @@ export const PortfolioGridItemStyles = css`
 
   &.fade-in {
     animation: ${fadeIn} .25s forwards;
-    animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+    animation-timing-function: linear;
   }
 
   &.fade-out {
     animation: ${fadeOut} .2s forwards;
-    animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+    animation-timing-function: linear;
   }
 
   .image-wrapper {
