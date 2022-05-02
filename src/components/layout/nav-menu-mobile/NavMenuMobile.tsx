@@ -50,42 +50,42 @@ export const NavMenuMobile: FunctionComponent = () => {
     return (
       <>
         <div className='nav-bar-item-wrapper'>
-          <Spacer {...spacerProps} >
+          <Spacer {...spacerProps}>
             <NavMenuItem
               handleClick={handleLinkClick}
               tabIndex={isNavOpen ? 0 : -1}
-              text="Development"
-              toUrl="/development"
+              text='Development'
+              toUrl='/development'
             />
           </Spacer>
         </div>
         <div className='nav-bar-item-wrapper'>
-          <Spacer {...spacerProps} >
+          <Spacer {...spacerProps}>
             <NavMenuItem
               handleClick={handleLinkClick}
               tabIndex={isNavOpen ? 0 : -1}
-              text="Design"
-              toUrl="/design"
+              text='Design'
+              toUrl='/design'
             />
           </Spacer>
         </div>
         <div className='nav-bar-item-wrapper'>
-          <Spacer {...spacerProps} >
+          <Spacer {...spacerProps}>
             <NavMenuItem
               handleClick={handleLinkClick}
               tabIndex={isNavOpen ? 0 : -1}
-              text="All"
-              toUrl="/"
+              text='All'
+              toUrl='/'
             />
           </Spacer>
         </div>
         <div className='nav-bar-item-wrapper'>
-          <Spacer {...spacerProps} >
+          <Spacer {...spacerProps}>
             <NavMenuItem
               handleClick={handleLinkClick}
               tabIndex={isNavOpen ? 0 : -1}
-              text="Contact"
-              toUrl="/contact"
+              text='Contact'
+              toUrl='/contact'
             />
           </Spacer>
         </div>

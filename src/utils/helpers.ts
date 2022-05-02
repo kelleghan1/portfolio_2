@@ -21,6 +21,7 @@ export const preloadImages = async (imageUrls: string[]): Promise<TrueMapType> =
   await Promise.all(imageUrls.map(async imageUrl => {
     imagesLoadedMap[imageUrl] = await new Promise(resolve => {
       const imageObject = new Image()
+
       imageObject.onload = () => { resolve(true) }
       imageObject.onerror = () => { resolve(true) }
       imageObject.src = imageUrl

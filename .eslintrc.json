@@ -63,7 +63,8 @@
       {
          "beforeSelfClosing": "always",
          "afterOpening": "never",
-         "closingSlash": "never"
+         "closingSlash": "never",
+         "beforeClosing": "never"
       }
     ],
     "react/jsx-curly-brace-presence": [
@@ -129,6 +130,7 @@
       "error",
       "single"
     ],
+    "jsx-quotes": ["error", "prefer-single"],
     "semi": [
       "error",
       "never"

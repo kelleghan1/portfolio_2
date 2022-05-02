@@ -17,7 +17,7 @@ export const Header: FunctionComponent = () => {
       <div className='logo-link-wrapper'>
         <LinkDelayed
           isBlock
-          to="/"
+          to='/'
         >
           <Image
             altText='Kelleghan Design homepage'
@@ -38,7 +38,7 @@ export const Header: FunctionComponent = () => {
           >
             <div className='header-wrapper desktop-header'>
               { renderHeaderLogo() }
-              <div className='nav-wrapper' >
+              <div className='nav-wrapper'>
                 <NavMenu />
               </div>
             </div>

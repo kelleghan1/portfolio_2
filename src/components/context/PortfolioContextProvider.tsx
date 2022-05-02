@@ -12,7 +12,8 @@ import {
   PortfolioMapType
 } from '../../types/contextTypes'
 import { PortfolioItemType } from '../../types/dataTypes'
-import { HandleNavigationFunctionType, TrueMapType } from '../../types/sharedTypes'
+import { HandleNavigationFunctionType } from '../../types/sharedTypes'
+import { portFolioPaths } from '../../utils/constants'
 import {
   preloadImages,
   scrollToTop
@@ -20,24 +21,24 @@ import {
 import { LoadingOverlay } from '../common/loading-overlay/LoadingOverlay'
 
 const intialPortfolioContextState: PortfolioContextStateType = {
+  areHomeImagesLoaded: false,
+  isLoading: true,
+  isMobileNavOpen: false,
+  isNavigating: false,
   portfolioMap: {},
   projectIds: [],
-  isLoading: true,
-  isNavigating: false,
-  isMobileNavOpen: false,
-  areHomeImagesLoaded: false,
   projectImagesPreloaded: {}
 }
 
 const PortfolioContext = React.createContext<PortfolioContextStateType>(intialPortfolioContextState)
 
 const PortfolioContextProvider: FunctionComponent = ({ children }) => {
+  const [ areHomeImagesLoaded, setAreHomeImagesLoaded ] = useState(intialPortfolioContextState.areHomeImagesLoaded)
+  const [ isLoading, setIsLoading ] = useState(intialPortfolioContextState.isLoading)
+  const [ isMobileNavOpen, setIsMobileNavOpen ] = useState(intialPortfolioContextState.isMobileNavOpen)
+  const [ isNavigating, setIsNavigating ] = useState(intialPortfolioContextState.isNavigating)
   const [ portfolioMap, setPortfolioMap ] = useState(intialPortfolioContextState.portfolioMap)
   const [ projectIds, setProjectIds ] = useState(intialPortfolioContextState.projectIds)
-  const [ isLoading, setIsLoading ] = useState(intialPortfolioContextState.isLoading)
-  const [ isNavigating, setIsNavigating ] = useState(intialPortfolioContextState.isNavigating)
-  const [ isMobileNavOpen, setIsMobileNavOpen ] = useState(intialPortfolioContextState.isMobileNavOpen)
-  const [ areHomeImagesLoaded, setAreHomeImagesLoaded ] = useState(intialPortfolioContextState.areHomeImagesLoaded)
   const [ projectImagesPreloaded, setProjectImagesPreloaded ] = useState(intialPortfolioContextState.projectImagesPreloaded)
   const location = useLocation()
 
@@ -96,12 +97,6 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
     event,
     to
   ) => {
-    const portFolioPaths: TrueMapType = {
-      '/': true,
-      '/design': true,
-      '/development': true
-    }
-
     if (
       !portFolioPaths[currentPathName] ||
       !portFolioPaths[to]

@@ -86,7 +86,7 @@ const ProjectContent: FunctionComponent<ProjectContentProps> = ({ projectId }) =
       <LinkCustom
         hasLinkStyling={true}
         isExternal={true}
-        target={!isInternal ? '_blank' : undefined}
+        target='_blank'
         to={url}
       >
         { label }
@@ -125,7 +125,7 @@ const ProjectContent: FunctionComponent<ProjectContentProps> = ({ projectId }) =
               r={0}
               t={0}
             >
-              <div className='link-item-wrapper' >
+              <div className='link-item-wrapper'>
                 {
                   renderLink(
                     url,

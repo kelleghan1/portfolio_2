@@ -21,34 +21,34 @@ export const NavMenu: FunctionComponent = () => {
     <NavMenuStyled>
       <nav className='large'>
         <div className='nav-bar-item-wrapper'>
-          <Spacer {...spacerProps} >
+          <Spacer {...spacerProps}>
             <NavMenuItem
-              text="Development"
-              toUrl="/development"
+              text='Development'
+              toUrl='/development'
             />
           </Spacer>
         </div>
         <div className='nav-bar-item-wrapper'>
-          <Spacer {...spacerProps} >
+          <Spacer {...spacerProps}>
             <NavMenuItem
-              text="Design"
-              toUrl="/design"
+              text='Design'
+              toUrl='/design'
             />
           </Spacer>
         </div>
         <div className='nav-bar-item-wrapper'>
-          <Spacer {...spacerProps} >
+          <Spacer {...spacerProps}>
             <NavMenuItem
-              text="All"
-              toUrl="/"
+              text='All'
+              toUrl='/'
             />
           </Spacer>
         </div>
         <div className='nav-bar-item-wrapper'>
-          <Spacer {...spacerProps} >
+          <Spacer {...spacerProps}>
             <NavMenuItem
-              text="Contact"
-              toUrl="/contact"
+              text='Contact'
+              toUrl='/contact'
             />
           </Spacer>
         </div>

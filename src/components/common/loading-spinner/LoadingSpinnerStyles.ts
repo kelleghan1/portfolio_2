@@ -10,7 +10,7 @@ const spinner = keyframes`
 `
 
 export const LoadingSpinnerStyles = css`
-  animation: 1.5s linear infinite ${spinner};
+  animation: 0.65s linear infinite ${spinner};
   border: solid 5px #cfd0d1;
   border-bottom-color: #000;
   border-radius: 50%;

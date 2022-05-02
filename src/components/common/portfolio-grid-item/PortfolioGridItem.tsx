@@ -21,7 +21,7 @@ export const PortfolioGridItem: FunctionComponent<PortfolioGridItemPropsType> = 
   ...rest
 }) => useMemo(
   () => (
-    <PortfolioGridItemStyled {...rest} >
+    <PortfolioGridItemStyled {...rest}>
       <div className='image-wrapper'>
         <LinkDelayed
           isBlock
@@ -29,7 +29,7 @@ export const PortfolioGridItem: FunctionComponent<PortfolioGridItemPropsType> = 
         >
           <Image
             altText={`View project page for ${name}`}
-            aspectRatio="1 / 1"
+            aspectRatio='1 / 1'
             src={homeImage}
           />
         </LinkDelayed>
