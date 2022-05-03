@@ -5,3 +5,8 @@ export const portFolioPaths: TrueMapType = {
   '/design': true,
   '/development': true
 }
+
+export const flipperSpringProp = {
+  stiffness: 1190,
+  damping: 120
+}

@@ -18,4 +18,3 @@ export const LoadingOverlay: FunctionComponent<LoadingOverlayPropsType> = ({ fad
     </LoadingOverlayStyled>
   )
 }
-

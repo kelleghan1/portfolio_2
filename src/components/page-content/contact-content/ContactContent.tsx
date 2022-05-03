@@ -2,7 +2,6 @@ import React,
 {
   FunctionComponent,
   ReactElement,
-  ReactNode,
   useContext
 } from 'react'
 import styled from 'styled-components'
@@ -23,7 +22,7 @@ const ContactContentStyled = styled.div`${ContactContentStyles}`
 const ContactContent: FunctionComponent = () => {
   const { isNavigating } = useContext(PortfolioContext)
 
-  const renderGithubLink = (): ReactNode =>
+  const renderGithubLink = (): ReactElement =>
     <LinkCustom
       hasLinkStyling
       isExternal
@@ -33,7 +32,7 @@ const ContactContent: FunctionComponent = () => {
       here
     </LinkCustom>
 
-  const renderImageKitLink = (): ReactNode =>
+  const renderImageKitLink = (): ReactElement =>
     <LinkCustom
       hasLinkStyling
       isExternal

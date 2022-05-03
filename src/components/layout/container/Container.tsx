@@ -8,4 +8,3 @@ export const Container: FunctionComponent = ({ children }) =>
   <ContainerStyled>
     { children }
   </ContainerStyled>
-

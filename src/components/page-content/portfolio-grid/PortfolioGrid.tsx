@@ -3,13 +3,16 @@ import React,
   FunctionComponent,
   MutableRefObject,
   ReactNode,
+  useCallback,
   useContext,
   useEffect,
   useRef,
   useState
 } from 'react'
+import { HandleEnterUpdateDelete } from 'flip-toolkit/lib/types'
 import { Flipper, Flipped } from 'react-flip-toolkit'
 import styled from 'styled-components'
+import { flipperSpringProp } from '../../../utils/constants'
 import { LoadingOverlay } from '../../common/loading-overlay/LoadingOverlay'
 import { PortfolioGridItem } from '../../common/portfolio-grid-item/PortfolioGridItem'
 import { PortfolioContext } from '../../context/PortfolioContextProvider'
@@ -67,6 +70,23 @@ const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter }) => {
       200
     )
   }
+
+  const handleEnterUpdateDeleteProp: HandleEnterUpdateDelete = useCallback(
+    ({
+      hideEnteringElements,
+      animateEnteringElements,
+      animateExitingElements,
+      animateFlippedElements
+    }) => {
+      hideEnteringElements()
+
+      void animateExitingElements()
+        .then(animateFlippedElements)
+
+      void animateEnteringElements()
+    },
+    []
+  )
 
   const renderPortfolioGrid = (): ReactNode[] => {
     const portfolioGridItems: ReactNode[] = []
@@ -128,22 +148,8 @@ const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter }) => {
           >
             <Flipper
               flipKey={flipKey}
-              handleEnterUpdateDelete={
-                ({
-                  hideEnteringElements,
-                  animateEnteringElements,
-                  animateExitingElements,
-                  animateFlippedElements
-                }) => {
-                  hideEnteringElements()
-
-                  void animateExitingElements()
-                    .then(animateFlippedElements)
-
-                  void animateEnteringElements()
-                }
-              }
-              spring={{ stiffness: 1190, damping: 120 }}
+              handleEnterUpdateDelete={handleEnterUpdateDeleteProp}
+              spring={flipperSpringProp}
             >
               <div ref={loadElement}>
                 <PortfolioGridStyled>

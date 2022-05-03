@@ -16,4 +16,3 @@ export const PageRow: FunctionComponent<PageRowProps> = ({
     { children }
   </PageRowStyled>
 )
-

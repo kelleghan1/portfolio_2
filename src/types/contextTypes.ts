@@ -27,4 +27,3 @@ export type PortfolioContextValueType = PortfolioContextStateType & {
   setIsMobileNavOpen: Dispatch<SetStateAction<boolean>>
   handleNavigationComplete: () => void
 }
-

@@ -463,4 +463,3 @@ export const getPortfolioData = async (): Promise<PortfolioItemsResponseType> =>
       10
     )
   })
-

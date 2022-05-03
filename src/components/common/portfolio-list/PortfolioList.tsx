@@ -57,4 +57,3 @@ export const PortfolioList: FunctionComponent<PortfolioListProps> = ({ filter })
     </PortfolioListStyled>
   )
 }
-

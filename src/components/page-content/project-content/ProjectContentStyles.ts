@@ -29,6 +29,12 @@ export const ProjectContentStyles = css`
     margin-bottom: ${SPACING_Y};
   }
 
+  .loading-wrapper {
+    position: relative;
+    height: 100px;
+    background-color: #fff;
+  }
+
   .columns-wrapper {
     display: none;
 
@@ -54,7 +60,7 @@ export const ProjectContentStyles = css`
   }
 
   .fade-in {
-    animation: ${fadeIn} .25s forwards;
+    animation: ${fadeIn} .3s forwards;
     animation-timing-function: linear;
 
     &.fade-out {

@@ -120,4 +120,3 @@ export const NavMenuMobile: FunctionComponent = () => {
     </NavMenuMobileStyled>
   )
 }
-

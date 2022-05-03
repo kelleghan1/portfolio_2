@@ -3,12 +3,17 @@ import React,
   FunctionComponent,
   ReactElement,
   ReactNode,
+  useCallback,
   useContext
 } from 'react'
+import { HandleEnterUpdateDelete } from 'flip-toolkit/lib/types'
+import { Flipped, Flipper } from 'react-flip-toolkit'
 import styled from 'styled-components'
+import { flipperSpringProp } from '../../../utils/constants'
 import { Image } from '../../common/image/Image'
 import { LinkCustom } from '../../common/link-custom/LinkCustom'
 import { LinkDelayed } from '../../common/link-delayed/LinkDelayed'
+import { LoadingContent } from '../../common/loading-content/LoadingContent'
 import { TagH } from '../../common/tag-h/TagH'
 import { TagP } from '../../common/tag-p/TagP'
 import { PortfolioContext } from '../../context/PortfolioContextProvider'
@@ -32,6 +37,7 @@ const ProjectContent: FunctionComponent<ProjectContentProps> = ({ projectId }) =
     projectImagesPreloaded
   } = useContext(PortfolioContext)
 
+  const flipKey = `${Object.keys(projectImagesPreloaded).join()}`
   const portfolioItem = portfolioMap[projectId]
 
   const {
@@ -45,26 +51,67 @@ const ProjectContent: FunctionComponent<ProjectContentProps> = ({ projectId }) =
     id
   } = portfolioItem
 
+  const handleEnterUpdateDeleteProp: HandleEnterUpdateDelete = useCallback(
+    ({
+      hideEnteringElements,
+      animateEnteringElements,
+      animateExitingElements,
+      animateFlippedElements
+    }) => {
+      void animateExitingElements()
+        .then(animateFlippedElements)
+        .then(animateEnteringElements)
+    },
+    []
+  )
+
   const renderProjectImage = (
-    src: string,
+    imageUrl: string,
     altText: string
-  ): ReactElement =>
-    <div
-      className={`fade-in ${isNavigating ? 'fade-out' : ''}`}
-      key={src}
-    >
-      <Spacer
-        b={3}
-        l={0}
-        r={0}
-        t={0}
+  ): ReactElement => {
+    if (!projectImagesPreloaded[imageUrl]) {
+      return (
+        <Flipped
+          flipId={`${imageUrl}-loading`}
+          key={`${imageUrl}-loading`}
+        >
+          <div className={`fade-in ${isNavigating ? 'fade-out' : ''}`}>
+            <Spacer
+              b={3}
+              l={0}
+              r={0}
+              t={0}
+            >
+              <div className='loading-wrapper'>
+                <LoadingContent />
+              </div>
+            </Spacer>
+          </div>
+        </Flipped>
+      )
+    }
+
+    return (
+      <Flipped
+        flipId={imageUrl}
+        key={imageUrl}
       >
-        <Image
-          altText={altText}
-          src={src}
-        />
-      </Spacer>
-    </div>
+        <div className={`fade-in ${isNavigating ? 'fade-out' : ''}`}>
+          <Spacer
+            b={3}
+            l={0}
+            r={0}
+            t={0}
+          >
+            <Image
+              altText={altText}
+              src={imageUrl}
+            />
+          </Spacer>
+        </div>
+      </Flipped>
+    )
+  }
 
   const renderLink = (
     url: string,
@@ -237,7 +284,13 @@ const ProjectContent: FunctionComponent<ProjectContentProps> = ({ projectId }) =
           r={1.5}
           t={0}
         >
-          { column1 }
+          <Flipper
+            flipKey={flipKey}
+            handleEnterUpdateDelete={handleEnterUpdateDeleteProp}
+            spring={flipperSpringProp}
+          >
+            { column1 }
+          </Flipper>
         </Spacer>
       </PureUnit>
       <PureUnit pureClass='u-md-1-2'>
@@ -246,13 +299,24 @@ const ProjectContent: FunctionComponent<ProjectContentProps> = ({ projectId }) =
           r={3}
           t={0}
         >
-          { column2 }
+          <Flipper
+            flipKey={flipKey}
+            handleEnterUpdateDelete={handleEnterUpdateDeleteProp}
+            spring={flipperSpringProp}
+          >
+            { column2 }
+          </Flipper>
         </Spacer>
       </PureUnit>
     </Pure>
 
   const renderColumnView = (): ReactNode => {
-    const column1 = []
+    const column1 = [
+      renderProjectImage(
+        primaryImage,
+        `${name} primary image`
+      )
+    ]
 
     const column2 = [
       <div
@@ -263,29 +327,20 @@ const ProjectContent: FunctionComponent<ProjectContentProps> = ({ projectId }) =
       </div>
     ]
 
-    if (projectImagesPreloaded[primaryImage]) {
-      column1.push(renderProjectImage(
-        primaryImage,
-        `${name} primary image`
-      ))
-    }
-
     images.forEach((
       imageUrl,
       index
     ) => {
-      if (projectImagesPreloaded[imageUrl]) {
-        if (index % 2 === 0) {
-          column2.push(renderProjectImage(
-            imageUrl,
-            `${name} image ${index}`
-          ))
-        } else {
-          column1.push(renderProjectImage(
-            imageUrl,
-            `${name} image ${index}`
-          ))
-        }
+      if (index % 2 === 0) {
+        column2.push(renderProjectImage(
+          imageUrl,
+          `${name} image ${index}`
+        ))
+      } else {
+        column1.push(renderProjectImage(
+          imageUrl,
+          `${name} image ${index}`
+        ))
       }
     })
 
@@ -323,23 +378,19 @@ const ProjectContent: FunctionComponent<ProjectContentProps> = ({ projectId }) =
       </div>
     ]
 
-    if (projectImagesPreloaded[primaryImage]) {
-      column.push(renderProjectImage(
-        primaryImage,
-        `${name} primary image`
-      ))
-    }
+    column.push(renderProjectImage(
+      primaryImage,
+      `${name} primary image`
+    ))
 
     images.forEach((
       imageUrl,
       index
     ) => {
-      if (projectImagesPreloaded[imageUrl]) {
-        column.push(renderProjectImage(
-          imageUrl,
-          `${name} image ${index}`
-        ))
-      }
+      column.push(renderProjectImage(
+        imageUrl,
+        `${name} image ${index}`
+      ))
     })
 
     return (
@@ -349,7 +400,13 @@ const ProjectContent: FunctionComponent<ProjectContentProps> = ({ projectId }) =
           r={3}
           t={0}
         >
-          { column }
+          <Flipper
+            flipKey={flipKey}
+            handleEnterUpdateDelete={handleEnterUpdateDeleteProp}
+            spring={flipperSpringProp}
+          >
+            { column }
+          </Flipper>
         </Spacer>
       </div>
     )

@@ -6,4 +6,3 @@ export const Contact: FunctionComponent = () =>
   <Suspense fallback={<LoadingOverlay />}>
     <ContactContent />
   </Suspense>
-

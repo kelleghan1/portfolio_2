@@ -42,4 +42,3 @@ export const PortfolioGridItem: FunctionComponent<PortfolioGridItemPropsType> = 
     name
   ]
 )
-

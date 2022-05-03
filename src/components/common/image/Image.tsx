@@ -30,4 +30,3 @@ export const Image: FunctionComponent<ImageProps> = ({
     width={width}
   />
 )
-

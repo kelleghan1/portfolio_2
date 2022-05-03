@@ -62,4 +62,3 @@ export const LinkCustom: FunctionComponent<LinkCustomPropsType> = ({
     </LinkCustomStyled>
   )
 }
-

@@ -40,8 +40,6 @@ export const LinkDelayed: FunctionComponent<LinkDelayedPropsType> = ({
 
     const currentPathName = location?.pathname
 
-    if (currentPathName === to) return
-
     const delay = handleNavigation(
       currentPathName,
       event,
@@ -80,4 +78,3 @@ export const LinkDelayed: FunctionComponent<LinkDelayedPropsType> = ({
     </LinkCustom>
   )
 }
-

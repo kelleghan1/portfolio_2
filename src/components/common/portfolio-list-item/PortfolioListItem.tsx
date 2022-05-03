@@ -110,4 +110,3 @@ export const PortfolioListItem: FunctionComponent<PortfolioListItemPropsType> = 
     </PageRow>
   )
 }
-

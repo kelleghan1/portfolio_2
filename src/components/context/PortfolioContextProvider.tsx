@@ -12,10 +12,11 @@ import {
   PortfolioMapType
 } from '../../types/contextTypes'
 import { PortfolioItemType } from '../../types/dataTypes'
-import { HandleNavigationFunctionType } from '../../types/sharedTypes'
+import { HandleNavigationFunctionType, ImageLoadCallbackType } from '../../types/sharedTypes'
 import { portFolioPaths } from '../../utils/constants'
 import {
-  preloadImages,
+  preloadImagesAll,
+  preloadImagesIndividual,
   scrollToTop
 } from '../../utils/helpers'
 import { LoadingOverlay } from '../common/loading-overlay/LoadingOverlay'
@@ -52,6 +53,10 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
     return ''
   }
 
+  const imageLoadCallback: ImageLoadCallbackType = imageUrl => {
+    setProjectImagesPreloaded(prevState => ({ ...prevState, [imageUrl]: true }))
+  }
+
   const getData = async (): Promise<void> => {
     const portfolioDataResponse = await getPortfolioData()
     const portfolioItems: PortfolioItemType[] = portfolioDataResponse?.data?.items
@@ -70,13 +75,13 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
     const portfolioItem = newPortfolioMap[projectId]
 
     if (portfolioItem) {
-      void preloadImages([ portfolioItem.primaryImage, ...portfolioItem.images ])
-        .then(imageUrls => {
-          setProjectImagesPreloaded(prevState => ({ ...prevState, ...imageUrls }))
-        })
+      void preloadImagesIndividual(
+        [ portfolioItem.primaryImage, ...portfolioItem.images ],
+        imageLoadCallback
+      )
     }
 
-    void preloadImages(projectIds.map(projectId => newPortfolioMap[projectId].homeImage))
+    void preloadImagesAll(projectIds.map(projectId => newPortfolioMap[projectId].homeImage))
       .then(imageUrls => {
         setProjectImagesPreloaded(prevState => ({ ...prevState, ...imageUrls }))
         setAreHomeImagesLoaded(true)
@@ -107,13 +112,19 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
       const portfolioItem = portfolioMap[projectId]
 
       if (portfolioItem) {
-        void preloadImages([ portfolioItem.primaryImage, ...portfolioItem.images ])
-          .then(imageUrls => {
-            setProjectImagesPreloaded(prevState => ({ ...prevState, ...imageUrls }))
-          })
+        void preloadImagesIndividual(
+          [
+            portfolioItem.primaryImage,
+            ...portfolioItem.images
+          ],
+          imageLoadCallback
+        )
       }
 
       return 200
+    } else if (currentPathName === to) {
+      event.preventDefault()
+      scrollToTop()
     }
 
     return 0

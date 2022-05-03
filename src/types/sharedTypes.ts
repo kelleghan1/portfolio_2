@@ -6,4 +6,6 @@ export type HandleNavigationFunctionType = (
   to: string
 ) => number
 
+export type ImageLoadCallbackType = (imageUrl: string) => void
+
 export interface TrueMapType { [key: string]: true }
