@@ -1,6 +1,9 @@
 import React, { FunctionComponent, ReactElement } from 'react'
 import styled from 'styled-components'
-import { SPACING_Y, SPACING_Y_NUM } from '../../../constants/Spacings'
+import {
+  SPACING_Y,
+  SPACING_Y_NUM
+} from '../../../utils/constants/Spacings'
 import { Container } from '../../layout/container/Container'
 import { PageRow } from '../../layout/page-row/PageRow'
 import { PureUnit } from '../../layout/pure-unit/PureUnit'

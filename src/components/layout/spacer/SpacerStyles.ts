@@ -2,7 +2,7 @@ import { css } from 'styled-components'
 import {
   SPACING_X_L,
   SPACING_Y_L
-} from '../../../constants/Spacings'
+} from '../../../utils/constants/Spacings'
 
 export interface SpacerStrings {
   b?: string

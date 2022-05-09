@@ -1,4 +1,8 @@
 import {
+  PortfolioItemsResponseType,
+  PortfolioItemType
+} from '../types/dataTypes'
+import {
   absintheHouseBlack,
   absintheHouseMenuMock,
   absintheHouseSiteSquare,
@@ -67,11 +71,7 @@ import {
   yodelMock3,
   yodelMock4,
   yodelMockSquare
-} from '../constants/ImageLinksCdn'
-import {
-  PortfolioItemsResponseType,
-  PortfolioItemType
-} from '../types/dataTypes'
+} from '../utils/constants/ImageLinksCdn'
 
 const portfolioItemArray: PortfolioItemType[] = [
   {

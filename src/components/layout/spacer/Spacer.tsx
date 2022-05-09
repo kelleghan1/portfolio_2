@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import {
   SPACING_X_NUM,
   SPACING_Y_NUM
-} from '../../../constants/Spacings'
+} from '../../../utils/constants/Spacings'
 import { validateNumber } from '../../../utils/helpers'
 import { SpacerStyles, SpacerStrings } from './SpacerStyles'
 

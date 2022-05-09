@@ -4,7 +4,7 @@ import {
   MEDIUM_MIN,
   LARGE_MIN,
   XLARGE_MIN
-} from './constants/Breakpoints'
+} from './utils/constants/Breakpoints'
 
 export const appStyles = css`
   background-color: #f2f2f2;

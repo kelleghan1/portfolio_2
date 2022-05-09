@@ -1,4 +1,7 @@
-import { ImageLoadCallbackType, TrueMapType } from '../types/sharedTypes'
+import {
+  ImageLoadCallbackType,
+  TrueMapType
+} from '../types/sharedTypes'
 
 export const validateNumber = (value: number | undefined | null): boolean => {
   return (
@@ -52,4 +55,27 @@ export const scrollToTop = (): void => {
       behavior: 'smooth'
     })
   }
+}
+
+export const deriveAspectRatioFromImageUrl = (imageUrl: string): number | null => {
+  const imageUrlSplit = imageUrl.split('/')
+  const aspectRatioPath = imageUrlSplit[imageUrlSplit.length - 2]
+
+  if (!aspectRatioPath) return null
+
+  const aspectRatioOfPath = aspectRatioPath.split(',')[1]
+
+  if (!aspectRatioOfPath) return null
+
+  const aspectRatioPathSplit = aspectRatioOfPath.split('-')
+
+  const parsedX = parseInt(aspectRatioPathSplit[1])
+  const parsedY = parseInt(aspectRatioPathSplit[2])
+
+  if (
+    !validateNumber(parsedY) ||
+    !validateNumber(parsedX)
+  ) return null
+
+  return parsedY / parsedX
 }

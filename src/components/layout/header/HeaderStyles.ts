@@ -1,7 +1,7 @@
 import { css } from 'styled-components'
-import { XSMALL_MAX } from '../../../constants/Breakpoints'
-import { GREY3 } from '../../../constants/Colors'
-import { SPACING_Y_L, SPACING_Y_NUM } from '../../../constants/Spacings'
+import { XSMALL_MAX } from '../../../utils/constants/Breakpoints'
+import { GREY3 } from '../../../utils/constants/Colors'
+import { SPACING_Y_L, SPACING_Y_NUM } from '../../../utils/constants/Spacings'
 
 export const HeaderStyles = css`
   margin-bottom: ${SPACING_Y_L};

@@ -1,5 +1,5 @@
 import { css } from 'styled-components'
-import { XSMALL_MAX } from '../../../constants/Breakpoints'
+import { XSMALL_MAX } from '../../../utils/constants/Breakpoints'
 
 export const PortfolioGridStyles = css`
   display: flex;

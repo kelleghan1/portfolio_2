@@ -1,7 +1,7 @@
 import { css, keyframes } from 'styled-components'
-import { MEDIUM_MIN, SMALL_MAX, SMALL_MIN, XSMALL_MAX } from '../../../constants/Breakpoints'
-import { GREY3 } from '../../../constants/Colors'
-import { SPACING_Y_L } from '../../../constants/Spacings'
+import { MEDIUM_MIN, SMALL_MAX, SMALL_MIN, XSMALL_MAX } from '../../../utils/constants/Breakpoints'
+import { GREY3 } from '../../../utils/constants/Colors'
+import { SPACING_Y_L } from '../../../utils/constants/Spacings'
 
 const fadeOut = keyframes`
   0% { opacity: 1 }

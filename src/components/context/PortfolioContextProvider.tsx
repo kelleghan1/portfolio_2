@@ -13,7 +13,7 @@ import {
 } from '../../types/contextTypes'
 import { PortfolioItemType } from '../../types/dataTypes'
 import { HandleNavigationFunctionType, ImageLoadCallbackType } from '../../types/sharedTypes'
-import { portFolioPaths } from '../../utils/constants'
+import { portfolioPaths } from '../../utils/constants/Shared'
 import {
   preloadImagesAll,
   preloadImagesIndividual,
@@ -103,8 +103,8 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
     to
   ) => {
     if (
-      !portFolioPaths[currentPathName] ||
-      !portFolioPaths[to]
+      !portfolioPaths[currentPathName] ||
+      !portfolioPaths[to]
     ) {
       setIsNavigating(true)
 

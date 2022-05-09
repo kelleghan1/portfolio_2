@@ -12,7 +12,7 @@ import React,
 import { HandleEnterUpdateDelete } from 'flip-toolkit/lib/types'
 import { Flipper, Flipped } from 'react-flip-toolkit'
 import styled from 'styled-components'
-import { flipperSpringProp } from '../../../utils/constants'
+import { flipperSpringProp } from '../../../utils/constants/Shared'
 import { LoadingOverlay } from '../../common/loading-overlay/LoadingOverlay'
 import { PortfolioGridItem } from '../../common/portfolio-grid-item/PortfolioGridItem'
 import { PortfolioContext } from '../../context/PortfolioContextProvider'

@@ -50,7 +50,7 @@
     ],
     "object-property-newline": [1],
     "function-call-argument-newline": ["error", "always"],
-    "function-paren-newline": ["error", { "minItems": 2 }],
+    "function-paren-newline": ["error", "multiline-arguments"],
     "react/jsx-max-props-per-line": [1],
     "react/jsx-closing-tag-location": [1],
     "react/jsx-closing-bracket-location": [1],

@@ -1,6 +1,6 @@
 import { css, keyframes } from 'styled-components'
-import { MEDIUM_MIN, SMALL_MAX } from '../../../constants/Breakpoints'
-import { SPACING_Y } from '../../../constants/Spacings'
+import { MEDIUM_MIN, SMALL_MAX } from '../../../utils/constants/Breakpoints'
+import { SPACING_Y } from '../../../utils/constants/Spacings'
 
 const fadeOut = keyframes`
   0% { opacity: 1 }
@@ -29,12 +29,6 @@ export const ProjectContentStyles = css`
     margin-bottom: ${SPACING_Y};
   }
 
-  .loading-wrapper {
-    position: relative;
-    height: 100px;
-    background-color: #fff;
-  }
-
   .columns-wrapper {
     display: none;
 
@@ -45,18 +39,10 @@ export const ProjectContentStyles = css`
     .single-image-tablet-columns {
       display: none;
     }
-
-    @media screen and (min-width: ${MEDIUM_MIN}) {
-      display: block;
-    }
   }
   
   .list-wrapper {
     display: none;
-
-    @media screen and (max-width: ${SMALL_MAX}) {
-      display: block;
-    }
   }
 
   .fade-in {
@@ -64,8 +50,20 @@ export const ProjectContentStyles = css`
     animation-timing-function: linear;
 
     &.fade-out {
-      animation: ${fadeOut} .2s forwards;
+      animation: ${fadeOut} .25s forwards;
       animation-timing-function: linear;
+    }
+  }
+
+  @media screen and (min-width: ${MEDIUM_MIN}) {
+    .columns-wrapper {
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: ${SMALL_MAX}) {
+    .list-wrapper {
+      display: block;
     }
   }
 

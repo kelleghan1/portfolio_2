@@ -1,5 +1,5 @@
 import { css } from 'styled-components'
-import { GREY2 } from '../../../constants/Colors'
+import { GREY2 } from '../../../utils/constants/Colors'
 
 export const ButtonCustomStyles = css`
   border: none;
