@@ -68,7 +68,6 @@ export const deriveAspectRatioFromImageUrl = (imageUrl: string): string | null =
   if (!aspectRatioOfPath) return null
 
   const aspectRatioPathSplit = aspectRatioOfPath.split('-')
-
   const parsedX = parseInt(aspectRatioPathSplit[1])
   const parsedY = parseInt(aspectRatioPathSplit[2])
 
