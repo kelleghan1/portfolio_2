@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNode } from 'react'
+import React, { FunctionComponent, ReactElement } from 'react'
 import styled from 'styled-components'
 import { Image } from '../../common/image/Image'
 import { LinkDelayed } from '../../common/link-delayed/LinkDelayed'
@@ -12,7 +12,7 @@ import { HeaderStyles } from './HeaderStyles'
 const HeaderStyled = styled.div`${HeaderStyles}`
 
 export const Header: FunctionComponent = () => {
-  const renderHeaderLogo = (): ReactNode =>
+  const renderHeaderLogo = (): ReactElement =>
     <div className='logo-wrapper'>
       <div className='logo-link-wrapper'>
         <LinkDelayed

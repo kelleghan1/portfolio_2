@@ -1,4 +1,4 @@
-import React, { ReactNode, FunctionComponent, ReactEventHandler } from 'react'
+import React, { FunctionComponent, ReactEventHandler, ReactElement } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { LinkCustomStyles } from './LinkCustomStyles'
@@ -29,7 +29,7 @@ export const LinkCustom: FunctionComponent<LinkCustomPropsType> = ({
 
   if (isBlock) linkCLassname += ' display-block'
 
-  const renderLink = (): ReactNode => {
+  const renderLink = (): ReactElement => {
     if (isExternal) {
       return (
         <a

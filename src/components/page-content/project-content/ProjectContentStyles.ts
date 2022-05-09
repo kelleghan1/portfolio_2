@@ -1,34 +1,7 @@
-import { css, keyframes } from 'styled-components'
-import { MEDIUM_MIN, SMALL_MAX } from '../../../utils/constants/Breakpoints'
-import { SPACING_Y } from '../../../utils/constants/Spacings'
-
-const fadeOut = keyframes`
-  0% { opacity: 1 }
-  100% { opacity: 0; }
-`
-
-const fadeIn = keyframes`
-  0% { opacity: 0 }
-  100% { opacity: 1; }
-`
+import { css } from 'styled-components'
+import { SMALL_MIN, XSMALL_MAX } from '../../../utils/constants/Breakpoints'
 
 export const ProjectContentStyles = css`
-  .description-wrapper {
-    background-color: #fff;
-
-    .link-item-wrapper {
-      display: inline-block;
-    }
-  }
-
-  .name-wrapper {
-    margin-bottom: ${SPACING_Y};
-  }
-
-  .products-wrapper {
-    margin-bottom: ${SPACING_Y};
-  }
-
   .columns-wrapper {
     display: none;
 
@@ -45,23 +18,13 @@ export const ProjectContentStyles = css`
     display: none;
   }
 
-  .fade-in {
-    animation: ${fadeIn} .3s forwards;
-    animation-timing-function: linear;
-
-    &.fade-out {
-      animation: ${fadeOut} .25s forwards;
-      animation-timing-function: linear;
-    }
-  }
-
-  @media screen and (min-width: ${MEDIUM_MIN}) {
+  @media screen and (min-width: ${SMALL_MIN}) {
     .columns-wrapper {
       display: block;
     }
   }
 
-  @media screen and (max-width: ${SMALL_MAX}) {
+  @media screen and (max-width: ${XSMALL_MAX}) {
     .list-wrapper {
       display: block;
     }

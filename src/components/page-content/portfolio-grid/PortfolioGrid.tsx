@@ -2,7 +2,7 @@ import React,
 {
   FunctionComponent,
   MutableRefObject,
-  ReactNode,
+  ReactElement,
   useCallback,
   useContext,
   useEffect,
@@ -88,8 +88,8 @@ const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter }) => {
     []
   )
 
-  const renderPortfolioGrid = (): ReactNode[] => {
-    const portfolioGridItems: ReactNode[] = []
+  const renderPortfolioGrid = (): ReactElement[] => {
+    const portfolioGridItems: ReactElement[] = []
 
     for (let i = 0; i < projectIds.length; i++) {
       const projectId = projectIds[i]

@@ -2,15 +2,11 @@ import React,
 {
   FunctionComponent,
   ReactElement,
-  ReactNode,
   useContext
 } from 'react'
 import styled from 'styled-components'
-import { LinkCustom } from '../../common/link-custom/LinkCustom'
-import { LinkDelayed } from '../../common/link-delayed/LinkDelayed'
+import { ProjectDescription } from '../../common/project-description/ProjectDescription'
 import { ProjectImage } from '../../common/project-image/ProjectImage'
-import { TagH } from '../../common/tag-h/TagH'
-import { TagP } from '../../common/tag-p/TagP'
 import { PortfolioContext } from '../../context/PortfolioContextProvider'
 import { Container } from '../../layout/container/Container'
 import { PageRow } from '../../layout/page-row/PageRow'
@@ -44,132 +40,125 @@ const ProjectContent: FunctionComponent<ProjectContentProps> = ({ projectId }) =
     githubLinks
   } = portfolioItem
 
-  const renderLink = (
-    url: string,
-    label: string,
-    isInternal: boolean
-  ): ReactNode => {
-    if (isInternal) {
-      return (
-        <LinkDelayed
-          hasLinkStyling={true}
-          to={url}
-        >
-          { label }
-        </LinkDelayed>
+  const renderColumnView = (): ReactElement => {
+    const column1 = [
+      renderProjectImage(
+        `${name} primary image`,
+        primaryImage
       )
-    }
-
-    return (
-      <LinkCustom
-        hasLinkStyling={true}
-        isExternal={true}
-        target='_blank'
-        to={url}
-      >
-        { label }
-      </LinkCustom>
-    )
-  }
-
-  const renderLinks = (): ReactElement | null => {
-    const linkItems = [
-      ...(productLinks ?? []),
-      ...(githubLinks ?? [])
     ]
 
-    if (!linkItems.length) return null
+    const column2 = [
+      <div
+        className='column-description'
+        key={`${name} description`}
+      >
+        { renderProjectDescription() }
+      </div>
+    ]
+
+    images.forEach((
+      imageUrl,
+      index
+    ) => {
+      if (index % 2 === 0) {
+        column2.push(
+          renderProjectImage(
+            `${name} image ${index}`,
+            imageUrl
+          )
+        )
+      } else {
+        column1.push(
+          renderProjectImage(
+            `${name} image ${index}`,
+            imageUrl
+          )
+        )
+      }
+    })
 
     return (
-      <Spacer
-        b={0}
-        l={0}
-        r={0}
-        t={2}
-      >
+      <div className='columns-wrapper'>
+        <div className='block-description'>
+          <Spacer
+            b={0}
+            l={3}
+            r={3}
+            t={0}
+          >
+            { renderProjectDescription() }
+          </Spacer>
+        </div>
         {
-          linkItems.map((
-            {
-              url,
-              label,
-              isInternal = false
-            },
-            index
-          ) => (
-            <Spacer
-              b={(index === linkItems.length - 1) ? 0 : 1}
-              key={url}
-              l={0}
-              r={0}
-              t={0}
-            >
-              <div className='link-item-wrapper'>
-                {
-                  renderLink(
-                    url,
-                    label,
-                    isInternal
-                  )
-                }
-              </div>
-            </Spacer>
-          ))
+          [ ...images, primaryImage ].length < 2
+            ? renderSingleImageContent(
+              column1,
+              column2
+            )
+            : renderPureColumns(
+              column1,
+              column2
+            )
         }
-      </Spacer>
+      </div>
     )
   }
 
-  const renderDescription = (): ReactElement =>
-    <div
-      className={`fade-in ${isNavigating ? 'fade-out' : ''}`}
-      key={`${name} description`}
-    >
-      <Spacer
-        b={3}
-        l={0}
-        r={0}
-        t={0}
-      >
-        <div className='description-wrapper'>
-          <Spacer
-            b={2.5}
-            l={3}
-            r={3}
-            t={2.5}
-          >
-            <Spacer
-              b={2}
-              l={0}
-              r={0}
-              t={0}
-            >
-              <TagH size={2}>
-                { name }
-              </TagH>
-            </Spacer>
-            <Spacer
-              b={2}
-              l={0}
-              r={0}
-              t={0}
-            >
-              <TagH size={4}>
-                { products.join(' • ') }
-              </TagH>
-            </Spacer>
-            <TagP>
-              { description }
-            </TagP>
-            { renderLinks() }
-          </Spacer>
-        </div>
-      </Spacer>
-    </div>
+  const renderProjectDescription = (): ReactElement =>
+    <ProjectDescription
+      description={description}
+      githubLinks={githubLinks ?? []}
+      isNavigating={isNavigating}
+      name={name}
+      productLinks={productLinks ?? []}
+      products={products}
+    />
+
+  const renderProjectImage = (
+    altText: string,
+    imageUrl: string
+  ): ReactElement => {
+    return (
+      <ProjectImage
+        altText={altText}
+        imageUrl={imageUrl}
+        isLoaded={projectImagesPreloaded[imageUrl]}
+        isNavigating={isNavigating}
+        key={imageUrl}
+      />
+    )
+  }
+
+  const renderPureColumns = (
+    column1: ReactElement[],
+    column2: ReactElement[]
+  ): ReactElement =>
+    <Pure>
+      <PureUnit pureClass='u-sm-1-2'>
+        <Spacer
+          l={3}
+          r={1.5}
+          t={0}
+        >
+          { column1 }
+        </Spacer>
+      </PureUnit>
+      <PureUnit pureClass='u-sm-1-2'>
+        <Spacer
+          l={1.5}
+          r={3}
+          t={0}
+        >
+          { column2 }
+        </Spacer>
+      </PureUnit>
+    </Pure>
 
   const renderSingleImageContent = (
-    column1: ReactNode[],
-    column2: ReactNode[]
-  ): ReactNode =>
+    column1: ReactElement[],
+    column2: ReactElement[]
+  ): ReactElement =>
     <>
       <div className='single-image-tablet-columns'>
         <Spacer
@@ -190,141 +179,33 @@ const ProjectContent: FunctionComponent<ProjectContentProps> = ({ projectId }) =
       </div>
     </>
 
-  const renderPureColumns = (
-    column1: ReactNode[],
-    column2: ReactNode[]
-  ): ReactNode =>
-    <Pure>
-      <PureUnit pureClass='u-md-1-2'>
-        <Spacer
-          l={3}
-          r={1.5}
-          t={0}
-        >
-          { column1 }
-        </Spacer>
-      </PureUnit>
-      <PureUnit pureClass='u-md-1-2'>
-        <Spacer
-          l={1.5}
-          r={3}
-          t={0}
-        >
-          { column2 }
-        </Spacer>
-      </PureUnit>
-    </Pure>
-
-  const renderColumnView = (): ReactNode => {
-    const column1 = [
-      <ProjectImage
-        altText={`${name} primary image`}
-        imageUrl={primaryImage}
-        isLoaded={projectImagesPreloaded[primaryImage]}
-        isNavigating={isNavigating}
-        key={primaryImage}
-      />
-    ]
-
-    const column2 = [
-      <div
-        className='column-description'
-        key={`${name} description`}
+  const renderListView = (): ReactElement =>
+    <div className='list-wrapper'>
+      <Spacer
+        l={3}
+        r={3}
+        t={0}
       >
-        { renderDescription() }
-      </div>
-    ]
-
-    images.forEach((
-      imageUrl,
-      index
-    ) => {
-      if (index % 2 === 0) {
-        column2.push(
-          <ProjectImage
-            altText={`${name} image ${index}`}
-            imageUrl={imageUrl}
-            isLoaded={projectImagesPreloaded[imageUrl]}
-            isNavigating={isNavigating}
-            key={imageUrl}
-          />
-        )
-      } else {
-        column1.push(
-          <ProjectImage
-            altText={`${name} image ${index}`}
-            imageUrl={imageUrl}
-            isLoaded={projectImagesPreloaded[imageUrl]}
-            isNavigating={isNavigating}
-            key={imageUrl}
-          />
-        )
-      }
-    })
-
-    return (
-      <div className='columns-wrapper'>
-        <div className='block-description'>
-          <Spacer
-            b={0}
-            l={3}
-            r={3}
-            t={0}
-          >
-            { renderDescription() }
-          </Spacer>
-        </div>
+        { renderProjectDescription() }
         {
-          [ ...images, primaryImage ].length < 2
-            ? renderSingleImageContent(
-              column1,
-              column2
-            )
-            : renderPureColumns(
-              column1,
-              column2
-            )
+          renderProjectImage(
+            `${name} primary image`,
+            primaryImage
+          )
         }
-      </div>
-    )
-  }
-
-  const renderListView = (): ReactNode => {
-    const column = images.map((
-      imageUrl,
-      index
-    ) => (
-      <ProjectImage
-        altText={`${name} image ${index}`}
-        imageUrl={imageUrl}
-        isLoaded={projectImagesPreloaded[imageUrl]}
-        isNavigating={isNavigating}
-        key={imageUrl}
-      />
-    ))
-
-    return (
-      <div className='list-wrapper'>
-        <Spacer
-          l={3}
-          r={3}
-          t={0}
-        >
-          <div key={`${name} description`}>
-            { renderDescription() }
-          </div>
-          <ProjectImage
-            altText={`${name} primary image`}
-            imageUrl={primaryImage}
-            isLoaded={projectImagesPreloaded[primaryImage]}
-            isNavigating={isNavigating}
-            key={primaryImage}
-          />
-          { column }
-        </Spacer>
-      </div>
-    )
-  }
+        {
+          images.map((
+            imageUrl,
+            index
+          ) => (
+            renderProjectImage(
+              `${name} image ${index}`,
+              imageUrl
+            )
+          ))
+        }
+      </Spacer>
+    </div>
 
   return (
     <PageRow>
