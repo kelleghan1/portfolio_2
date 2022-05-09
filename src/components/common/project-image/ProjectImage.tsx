@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useMemo } from 'react'
+import React, { FunctionComponent } from 'react'
 import styled from 'styled-components'
 import { deriveAspectRatioFromImageUrl } from '../../../utils/helpers'
 import { Spacer } from '../../layout/spacer/Spacer'

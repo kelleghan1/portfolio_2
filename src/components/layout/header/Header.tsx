@@ -22,7 +22,7 @@ export const Header: FunctionComponent = () => {
           <Image
             altText='Kelleghan Design homepage'
             aspectRatio='720 / 288'
-            src='https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/site/kelleghanlogocompblack_fvMZ5QD2k.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649998388546'
+            src='https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/site/tr:w-720,ar-720-288/kelleghanlogocompblack_fvMZ5QD2k.png'
           />
         </LinkDelayed>
       </div>
