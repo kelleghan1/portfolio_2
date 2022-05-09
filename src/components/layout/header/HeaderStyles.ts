@@ -1,10 +1,17 @@
-import { css } from 'styled-components'
+import { css, keyframes } from 'styled-components'
 import { XSMALL_MAX } from '../../../utils/constants/Breakpoints'
 import { GREY3 } from '../../../utils/constants/Colors'
 import { SPACING_Y_L, SPACING_Y_NUM } from '../../../utils/constants/Spacings'
 
+const fadeIn = keyframes`
+  0% { opacity: 0 }
+  100% { opacity: 1; }
+`
+
 export const HeaderStyles = css`
   margin-bottom: ${SPACING_Y_L};
+  animation: ${fadeIn} .3s forwards;
+  animation-timing-function: linear;
 
   .header-wrapper {
     display: flex;
