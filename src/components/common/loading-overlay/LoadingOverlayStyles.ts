@@ -1,13 +1,9 @@
-import { css, keyframes } from 'styled-components'
-
-const fadeIn = keyframes`
-  0% { opacity: 0 }
-  100% { opacity: 1; }
-`
+import { css } from 'styled-components'
+import { keyframeFadeIn } from '../../../utils/constants/Styles'
 
 export const LoadingOverlayStyles = css`
   &.fade-in {
-    animation: ${fadeIn} .25s forwards;
+    animation: ${keyframeFadeIn} .25s forwards;
     animation-timing-function: linear;
   }
 
