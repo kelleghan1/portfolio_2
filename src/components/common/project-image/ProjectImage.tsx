@@ -20,54 +20,28 @@ export const ProjectImage: FunctionComponent<ProjectImagePropsType> = ({
   imageUrl,
   isLoaded,
   isNavigating
-}) => useMemo(
-  () => {
-    const aspectRatio = deriveAspectRatioFromImageUrl(imageUrl)
+}) => {
+  const aspectRatio = deriveAspectRatioFromImageUrl(imageUrl)
 
-    if (isLoaded) {
-      return (
-        <ProjectImageStyled
-          className={`fade-in ${isNavigating ? 'fade-out' : ''}`}
-          key={`${imageUrl}-loaded`}
-        >
-          <Spacer
-            b={3}
-            l={0}
-            r={0}
-            t={0}
-          >
+  return (
+    <ProjectImageStyled aspectRatio={aspectRatio}>
+      <Spacer
+        b={3}
+        l={0}
+        r={0}
+        t={0}
+      >
+        <div className={`fade-in relative-wrapper ${isNavigating ? 'fade-out' : ''}`}>
+          <div className={`image-wrapper ${isLoaded ? 'fade-in' : ''}`}>
             <Image
               altText={altText}
+              aspectRatio={aspectRatio ?? undefined}
               src={imageUrl}
             />
-          </Spacer>
-        </ProjectImageStyled>
-      )
-    }
-
-    return (
-      <ProjectImageStyled
-        aspectRatio={aspectRatio}
-        className={`fade-in ${isNavigating ? 'fade-out' : ''}`}
-        key={`${imageUrl}-unloaded`}
-      >
-        <Spacer
-          b={3}
-          l={0}
-          r={0}
-          t={0}
-        >
-          <div className='loading-wrapper'>
-            <LoadingContent />
           </div>
-        </Spacer>
-      </ProjectImageStyled>
-    )
-  },
-  [
-    altText,
-    imageUrl,
-    isLoaded,
-    isNavigating
-  ]
-)
+          { !isLoaded && <LoadingContent /> }
+        </div>
+      </Spacer>
+    </ProjectImageStyled>
+  )
+}

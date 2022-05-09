@@ -5,10 +5,11 @@ import { LoadingContentStyles } from './LoadingContentStyles'
 
 const LoadingContentStyled = styled.div`${LoadingContentStyles}`
 
-export const LoadingContent: FunctionComponent = () => {
-  return (
-    <LoadingContentStyled>
-      <LoadingSpinner />
-    </LoadingContentStyled>
-  )
+interface LoadingContentPropsType {
+  backgroundColor?: string
 }
+
+export const LoadingContent: FunctionComponent<LoadingContentPropsType> = ({ backgroundColor }) =>
+  <LoadingContentStyled backgroundColor={backgroundColor}>
+    <LoadingSpinner />
+  </LoadingContentStyled>

@@ -11,17 +11,26 @@ const fadeIn = keyframes`
 `
 
 interface ProjectImageStylesPropsType {
-  aspectRatio?: number | null
+  aspectRatio?: string | null
 }
 
 const renderAspectRatioPadding = ({ aspectRatio }: ProjectImageStylesPropsType): string => {
-  if (aspectRatio) return `padding-top: calc(100% * ${aspectRatio});`
+  if (aspectRatio) return `padding-top: calc(100% * (${aspectRatio}));`
 
   return ''
 }
 
 export const ProjectImageStyles = css<ProjectImageStylesPropsType>`
-  &.fade-in {
+  .relative-wrapper {
+    position: relative;
+    background-color: #fff;
+
+    .image-wrapper {
+      opacity: 0;
+    }
+  }
+
+  .fade-in {
     animation: ${fadeIn} .3s forwards;
     animation-timing-function: linear;
 

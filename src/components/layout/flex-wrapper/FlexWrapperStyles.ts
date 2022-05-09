@@ -5,7 +5,7 @@ interface FlexWrapperStylesPropsType {
 }
 
 const renderBackgroundColor = ({ backgroundColor }: FlexWrapperStylesPropsType): string =>
-  backgroundColor ? `background-color: ${backgroundColor}` : ''
+  backgroundColor ? `background-color: ${backgroundColor};` : ''
 
 export const FlexWrapperStyles = css<FlexWrapperStylesPropsType>`
   display: flex;

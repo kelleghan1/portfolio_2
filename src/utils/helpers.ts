@@ -57,7 +57,7 @@ export const scrollToTop = (): void => {
   }
 }
 
-export const deriveAspectRatioFromImageUrl = (imageUrl: string): number | null => {
+export const deriveAspectRatioFromImageUrl = (imageUrl: string): string | null => {
   const imageUrlSplit = imageUrl.split('/')
   const aspectRatioPath = imageUrlSplit[imageUrlSplit.length - 2]
 
@@ -77,5 +77,5 @@ export const deriveAspectRatioFromImageUrl = (imageUrl: string): number | null =
     !validateNumber(parsedX)
   ) return null
 
-  return parsedY / parsedX
+  return `${parsedX} / ${parsedY}`
 }
