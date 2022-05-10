@@ -6,8 +6,11 @@ import { keyframeFadeIn } from '../../../utils/constants/Styles'
 
 export const HeaderStyles = css`
   margin-bottom: ${SPACING_Y_L};
-  animation: ${keyframeFadeIn} .3s forwards;
-  animation-timing-function: linear;
+
+  .fade-in {
+    animation: ${keyframeFadeIn} .3s forwards;
+    animation-timing-function: linear;
+  }
 
   .header-wrapper {
     display: flex;
@@ -16,6 +19,7 @@ export const HeaderStyles = css`
       flex: 1;
 
       .logo-link-wrapper {
+        opacity: 0;
         width: 200px;
       }
     }

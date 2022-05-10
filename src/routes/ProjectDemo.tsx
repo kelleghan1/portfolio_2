@@ -11,6 +11,7 @@ import {
 } from 'react-router'
 import { LoadingOverlay } from '../components/common/loading-overlay/LoadingOverlay'
 import { PortfolioContext } from '../components/context/PortfolioContextProvider'
+
 const KnightMovesDemo = React.lazy(async () => await import('../components/page-content/knight-moves-demo/KnightMovesDemo'))
 
 interface ParamsType {

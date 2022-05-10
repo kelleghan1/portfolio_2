@@ -3,7 +3,7 @@ import { keyframeFadeIn } from '../../../utils/constants/Styles'
 
 export const LoadingOverlayStyles = css`
   &.fade-in {
-    animation: ${keyframeFadeIn} .25s forwards;
+    animation: ${keyframeFadeIn} .3s forwards;
     animation-timing-function: linear;
   }
 

@@ -51,7 +51,7 @@
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
     "lint": "eslint src",
-    "start-prod": "npm run build && serve -s build"
+    "start-prod": "npm run build && serve -p 3001 -s build"
   },
   "browserslist": {
     "production": [

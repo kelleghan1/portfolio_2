@@ -13,9 +13,10 @@ import {
 } from '../../types/contextTypes'
 import { PortfolioItemType } from '../../types/dataTypes'
 import { HandleNavigationFunctionType, ImageLoadCallbackType } from '../../types/sharedTypes'
+import { kelleghanDesignLogo } from '../../utils/constants/ImageLinksCdn'
 import { portfolioPaths } from '../../utils/constants/Shared'
 import {
-  preloadImagesAll,
+  preloadImagesSet,
   preloadImagesIndividual,
   scrollToTop
 } from '../../utils/helpers'
@@ -63,11 +64,14 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
     const projectIds: string[] = []
     const newPortfolioMap: PortfolioMapType = {}
     const currentPathName = location?.pathname
+    const homeImagesToPreload = []
+    let individualImagesToPreload = [ kelleghanDesignLogo ]
 
-    for (const item of portfolioItems) {
-      if (item?.id) {
-        projectIds.push(item.id)
-        newPortfolioMap[item.id] = item
+    for (const { id, homeImage, ...rest } of portfolioItems) {
+      if (id && homeImage) {
+        projectIds.push(id)
+        homeImagesToPreload.push(homeImage)
+        newPortfolioMap[id] = { id, homeImage, ...rest }
       }
     }
 
@@ -75,13 +79,19 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
     const portfolioItem = newPortfolioMap[projectId]
 
     if (portfolioItem) {
-      void preloadImagesIndividual(
-        [ portfolioItem.primaryImage, ...portfolioItem.images ],
-        imageLoadCallback
-      )
+      individualImagesToPreload = [
+        portfolioItem.primaryImage,
+        ...individualImagesToPreload,
+        ...portfolioItem.images
+      ]
     }
 
-    void preloadImagesAll(projectIds.map(projectId => newPortfolioMap[projectId].homeImage))
+    void preloadImagesIndividual(
+      individualImagesToPreload,
+      imageLoadCallback
+    )
+
+    void preloadImagesSet(homeImagesToPreload)
       .then(imageUrls => {
         setProjectImagesPreloaded(prevState => ({ ...prevState, ...imageUrls }))
         setAreHomeImagesLoaded(true)

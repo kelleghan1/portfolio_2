@@ -1,7 +1,10 @@
-import React, { FunctionComponent, ReactElement } from 'react'
+import React, { FunctionComponent, ReactElement, useContext } from 'react'
 import styled from 'styled-components'
+import { kelleghanDesignLogo } from '../../../utils/constants/ImageLinksCdn'
+import { deriveAspectRatioFromImageUrl } from '../../../utils/helpers'
 import { Image } from '../../common/image/Image'
 import { LinkDelayed } from '../../common/link-delayed/LinkDelayed'
+import { PortfolioContext } from '../../context/PortfolioContextProvider'
 import { Container } from '../container/Container'
 import { NavMenuMobile } from '../nav-menu-mobile/NavMenuMobile'
 import { NavMenu } from '../nav-menu/NavMenu'
@@ -12,17 +15,20 @@ import { HeaderStyles } from './HeaderStyles'
 const HeaderStyled = styled.div`${HeaderStyles}`
 
 export const Header: FunctionComponent = () => {
+  const aspectRatio = deriveAspectRatioFromImageUrl(kelleghanDesignLogo)
+  const { projectImagesPreloaded } = useContext(PortfolioContext)
+
   const renderHeaderLogo = (): ReactElement =>
     <div className='logo-wrapper'>
-      <div className='logo-link-wrapper'>
+      <div className={`${projectImagesPreloaded[kelleghanDesignLogo] ? 'fade-in' : ''} logo-link-wrapper`}>
         <LinkDelayed
           isBlock
           to='/'
         >
           <Image
             altText='Kelleghan Design homepage'
-            aspectRatio='720 / 288'
-            src='https://ik.imagekit.io/l1kppwkihn2/Kelleghan_Design/site/tr:w-720,ar-720-288/kelleghanlogocompblack_fvMZ5QD2k.png'
+            aspectRatio={aspectRatio ?? undefined}
+            src={kelleghanDesignLogo}
           />
         </LinkDelayed>
       </div>
@@ -38,7 +44,7 @@ export const Header: FunctionComponent = () => {
           >
             <div className='header-wrapper desktop-header'>
               { renderHeaderLogo() }
-              <div className='nav-wrapper'>
+              <div className='fade-in nav-wrapper'>
                 <NavMenu />
               </div>
             </div>
@@ -51,7 +57,7 @@ export const Header: FunctionComponent = () => {
           >
             <div className='header-wrapper'>
               { renderHeaderLogo() }
-              <div className='nav-wrapper'>
+              <div className='fade-in nav-wrapper'>
                 <NavMenuMobile />
               </div>
             </div>

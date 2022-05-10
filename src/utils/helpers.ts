@@ -32,7 +32,7 @@ export const preloadImagesIndividual = (
   }
 }
 
-export const preloadImagesAll = async (imageUrls: string[]): Promise<TrueMapType> => {
+export const preloadImagesSet = async (imageUrls: string[]): Promise<TrueMapType> => {
   const imagesLoadedMap: TrueMapType = {}
 
   await Promise.all(imageUrls.map(async imageUrl => {
