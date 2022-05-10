@@ -1,4 +1,7 @@
-import { keyframes } from 'styled-components'
+import {
+  keyframes,
+  css
+} from 'styled-components'
 
 export const keyframeFadeIn = keyframes`
   0% { opacity: 0 }
@@ -8,4 +11,14 @@ export const keyframeFadeIn = keyframes`
 export const keyframeFadeOut = keyframes`
   0% { opacity: 1 }
   100% { opacity: 0; }
+`
+
+export const animationFadeIn = css`
+  animation: ${keyframeFadeIn} .3s forwards;
+  animation-timing-function: linear;
+`
+
+export const animationFadeOut = css`
+  animation: ${keyframeFadeOut} .25s forwards;
+  animation-timing-function: linear;
 `

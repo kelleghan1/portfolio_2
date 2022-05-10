@@ -2,19 +2,20 @@ import { css } from 'styled-components'
 import { MEDIUM_MIN, SMALL_MAX, SMALL_MIN, XSMALL_MAX } from '../../../utils/constants/breakpoints'
 import { GREY3 } from '../../../utils/constants/colors'
 import { SPACING_Y_L } from '../../../utils/constants/spacings'
-import { keyframeFadeIn, keyframeFadeOut } from '../../../utils/constants/styles'
+import {
+  animationFadeIn,
+  animationFadeOut
+} from '../../../utils/constants/styles'
 
 export const PortfolioGridItemStyles = css`
   box-sizing: border-box;
 
   &.fade-in {
-    animation: ${keyframeFadeIn} .25s forwards;
-    animation-timing-function: linear;
+    ${animationFadeIn}
   }
 
   &.fade-out {
-    animation: ${keyframeFadeOut} .2s forwards;
-    animation-timing-function: linear;
+    ${animationFadeOut}
   }
 
   .image-wrapper {

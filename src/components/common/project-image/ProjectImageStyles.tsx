@@ -1,5 +1,8 @@
 import { css } from 'styled-components'
-import { keyframeFadeIn, keyframeFadeOut } from '../../../utils/constants/styles'
+import {
+  animationFadeIn,
+  animationFadeOut
+} from '../../../utils/constants/styles'
 
 interface ProjectImageStylesPropsType {
   aspectRatio?: string | null
@@ -22,12 +25,10 @@ export const ProjectImageStyles = css<ProjectImageStylesPropsType>`
   }
 
   .fade-in {
-    animation: ${keyframeFadeIn} .3s forwards;
-    animation-timing-function: linear;
+    ${animationFadeIn}
 
     &.fade-out {
-      animation: ${keyframeFadeOut} .25s forwards;
-      animation-timing-function: linear;
+      ${animationFadeOut}
     }
   }
 

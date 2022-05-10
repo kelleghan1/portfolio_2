@@ -2,14 +2,13 @@ import { css } from 'styled-components'
 import { XSMALL_MAX } from '../../../utils/constants/breakpoints'
 import { GREY3 } from '../../../utils/constants/colors'
 import { SPACING_Y_L, SPACING_Y_NUM } from '../../../utils/constants/spacings'
-import { keyframeFadeIn } from '../../../utils/constants/styles'
+import { animationFadeIn } from '../../../utils/constants/styles'
 
 export const HeaderStyles = css`
   margin-bottom: ${SPACING_Y_L};
 
   .fade-in {
-    animation: ${keyframeFadeIn} .3s forwards;
-    animation-timing-function: linear;
+    ${animationFadeIn}
   }
 
   .header-wrapper {

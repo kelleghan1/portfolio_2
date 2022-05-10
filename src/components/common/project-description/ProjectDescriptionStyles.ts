@@ -1,5 +1,8 @@
 import { css } from 'styled-components'
-import { keyframeFadeIn, keyframeFadeOut } from '../../../utils/constants/styles'
+import {
+  animationFadeIn,
+  animationFadeOut
+} from '../../../utils/constants/styles'
 
 export const ProjectDescriptionStyles = css`
   .description-wrapper {
@@ -11,12 +14,10 @@ export const ProjectDescriptionStyles = css`
   }
 
   &.fade-in {
-    animation: ${keyframeFadeIn} .3s forwards;
-    animation-timing-function: linear;
+    ${animationFadeIn}
     
     &.fade-out {
-      animation: ${keyframeFadeOut} .25s forwards;
-      animation-timing-function: linear;
+      ${animationFadeOut}
     }
   }
 `
