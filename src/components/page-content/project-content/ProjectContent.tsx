@@ -118,17 +118,14 @@ const ProjectContent: FunctionComponent<ProjectContentProps> = ({ projectId }) =
   const renderProjectImage = (
     altText: string,
     imageUrl: string
-  ): ReactElement => {
-    return (
-      <ProjectImage
-        altText={altText}
-        imageUrl={imageUrl}
-        isLoaded={projectImagesPreloaded[imageUrl]}
-        isNavigating={isNavigating}
-        key={imageUrl}
-      />
-    )
-  }
+  ): ReactElement =>
+    <ProjectImage
+      altText={altText}
+      imageUrl={imageUrl}
+      isLoaded={projectImagesPreloaded[imageUrl]}
+      isNavigating={isNavigating}
+      key={imageUrl}
+    />
 
   const renderPureColumns = (
     column1: ReactElement[],
@@ -138,7 +135,7 @@ const ProjectContent: FunctionComponent<ProjectContentProps> = ({ projectId }) =
       <PureUnit pureClass='u-sm-1-2'>
         <Spacer
           l={3}
-          r={1.5}
+          r={1.25}
           t={0}
         >
           { column1 }
@@ -146,7 +143,7 @@ const ProjectContent: FunctionComponent<ProjectContentProps> = ({ projectId }) =
       </PureUnit>
       <PureUnit pureClass='u-sm-1-2'>
         <Spacer
-          l={1.5}
+          l={1.25}
           r={3}
           t={0}
         >

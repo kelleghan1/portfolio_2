@@ -26,7 +26,7 @@ export const ProjectImage: FunctionComponent<ProjectImagePropsType> = ({
   return (
     <ProjectImageStyled aspectRatio={aspectRatio}>
       <Spacer
-        b={3}
+        b={2.5}
         l={0}
         r={0}
         t={0}

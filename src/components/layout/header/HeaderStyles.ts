@@ -1,11 +1,14 @@
 import { css } from 'styled-components'
 import { XSMALL_MAX } from '../../../utils/constants/breakpoints'
 import { GREY3 } from '../../../utils/constants/colors'
-import { SPACING_Y_L, SPACING_Y_NUM } from '../../../utils/constants/spacings'
+import {
+  SPACING_Y,
+  SPACING_Y_NUM
+} from '../../../utils/constants/spacings'
 import { animationFadeIn } from '../../../utils/constants/styles'
 
 export const HeaderStyles = css`
-  margin-bottom: ${SPACING_Y_L};
+  margin-bottom: ${SPACING_Y};
 
   .fade-in {
     ${animationFadeIn}

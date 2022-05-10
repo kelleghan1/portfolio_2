@@ -105,7 +105,7 @@ export const ProjectDescription: FunctionComponent<ProjectDescriptionProps> = ({
   return (
     <ProjectDescriptionStyled className={`fade-in ${isNavigating ? 'fade-out' : ''}`}>
       <Spacer
-        b={3}
+        b={2.5}
         l={0}
         r={0}
         t={0}
