@@ -17,6 +17,7 @@ export const App: FunctionComponent = () => {
       <BrowserRouter>
         <PortfolioContextProvider>
           <Header />
+          <div className='scroll-spacer' />
           <Switch>
             <Route
               component={Home}

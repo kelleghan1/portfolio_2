@@ -46,7 +46,11 @@ export const LinkDelayed: FunctionComponent<LinkDelayedPropsType> = ({
       to
     )
 
-    if (event.defaultPrevented) return
+    if (event.defaultPrevented) {
+      handleNavigationComplete()
+
+      return
+    }
 
     if (delay === 0) {
       history.push(to)

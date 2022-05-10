@@ -69,7 +69,7 @@ const ContactContent: FunctionComponent = () => {
               t={0}
             >
               <TagP>
-                Like my work? I create websites, online stores, mobile apps, logos, print material, advertisements and more.
+                Like my work? I create websites, online storefronts, mobile apps, logos, print material, advertisements and more.
                 Connect with me on Github <span>{ renderGithubLink() }</span> or tell me about your project at:
               </TagP>
             </Spacer>

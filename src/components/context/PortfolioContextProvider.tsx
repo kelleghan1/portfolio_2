@@ -27,7 +27,7 @@ import { LoadingOverlay } from '../common/loading-overlay/LoadingOverlay'
 
 const intialPortfolioContextState: PortfolioContextStateType = {
   areHomeImagesLoaded: false,
-  isLoading: true,
+  isLoading: false,
   isMobileNavOpen: false,
   isNavigating: false,
   portfolioMap: {},
@@ -108,7 +108,6 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
 
     setPortfolioMap(newPortfolioMap)
     setProjectIds(projectIds)
-    setIsLoading(false)
   }
 
   useEffect(
@@ -143,7 +142,6 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
       return 200
     } else if (currentPathName === to) {
       event.preventDefault()
-      scrollToTop()
     }
 
     return 0
