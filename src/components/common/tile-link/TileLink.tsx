@@ -40,7 +40,7 @@ export const TileLink: FunctionComponent<TileLinkProps> = ({
 
   return (
     <Spacer
-      b={hasBottomSpacing ? 0 : 1}
+      b={hasBottomSpacing ? 1 : 0}
       key={url}
       l={0}
       r={0}
