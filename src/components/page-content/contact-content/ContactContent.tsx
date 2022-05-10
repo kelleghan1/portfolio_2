@@ -131,8 +131,8 @@ const ContactContent: FunctionComponent = () => {
 
   const renderColumns = (): ReactElement =>
     <Spacer
-      l={1.5}
-      r={1.5}
+      l={1.75}
+      r={1.75}
       t={0}
     >
       <Pure>
@@ -141,9 +141,10 @@ const ContactContent: FunctionComponent = () => {
           pureClass='u-1 u-md-1-2'
         >
           <Spacer
+            b={2.5}
             isFlex
-            l={1.5}
-            r={1.5}
+            l={1.25}
+            r={1.25}
             t={0}
           >
             { renderContact() }
@@ -154,9 +155,10 @@ const ContactContent: FunctionComponent = () => {
           pureClass='u-1 u-md-1-2'
         >
           <Spacer
+            b={2.5}
             isFlex
-            l={1.5}
-            r={1.5}
+            l={1.25}
+            r={1.25}
             t={0}
           >
             { renderAbout() }
