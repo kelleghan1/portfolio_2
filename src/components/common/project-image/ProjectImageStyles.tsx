@@ -1,5 +1,5 @@
 import { css } from 'styled-components'
-import { keyframeFadeIn, keyframeFadeOut } from '../../../utils/constants/Styles'
+import { keyframeFadeIn, keyframeFadeOut } from '../../../utils/constants/styles'
 
 interface ProjectImageStylesPropsType {
   aspectRatio?: string | null

@@ -1,6 +1,6 @@
 import React, { FunctionComponent, ReactElement, useContext } from 'react'
 import styled from 'styled-components'
-import { kelleghanDesignLogo } from '../../../utils/constants/ImageLinksCdn'
+import { kelleghanDesignLogo } from '../../../utils/constants/imageLinksCdn'
 import { deriveAspectRatioFromImageUrl } from '../../../utils/helpers'
 import { Image } from '../../common/image/Image'
 import { LinkDelayed } from '../../common/link-delayed/LinkDelayed'

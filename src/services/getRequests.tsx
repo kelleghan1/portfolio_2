@@ -71,7 +71,7 @@ import {
   yodelMock3,
   yodelMock4,
   yodelMockSquare
-} from '../utils/constants/ImageLinksCdn'
+} from '../utils/constants/imageLinksCdn'
 
 const portfolioItemArray: PortfolioItemType[] = [
   {

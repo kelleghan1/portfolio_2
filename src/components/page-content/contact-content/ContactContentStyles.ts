@@ -1,5 +1,8 @@
 import { css } from 'styled-components'
-import { keyframeFadeIn, keyframeFadeOut } from '../../../utils/constants/Styles'
+import {
+  keyframeFadeIn,
+  keyframeFadeOut
+} from '../../../utils/constants/styles'
 
 export const ContactContentStyles = css`
   animation: ${keyframeFadeIn} .25s forwards;

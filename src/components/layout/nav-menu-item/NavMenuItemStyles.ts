@@ -1,5 +1,5 @@
 import { css } from 'styled-components'
-import { TEXT1 } from '../../../utils/constants/Colors'
+import { TEXT1 } from '../../../utils/constants/colors'
 
 export const NavMenuItemStyles = css`
   display: inline-block;

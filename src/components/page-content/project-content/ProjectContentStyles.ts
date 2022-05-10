@@ -1,5 +1,8 @@
 import { css } from 'styled-components'
-import { SMALL_MIN, XSMALL_MAX } from '../../../utils/constants/Breakpoints'
+import {
+  SMALL_MIN,
+  XSMALL_MAX
+} from '../../../utils/constants/breakpoints'
 
 export const ProjectContentStyles = css`
   .columns-wrapper {

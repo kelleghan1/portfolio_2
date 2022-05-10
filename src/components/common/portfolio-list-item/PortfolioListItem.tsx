@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import {
   SPACING_Y,
   SPACING_Y_NUM
-} from '../../../utils/constants/Spacings'
+} from '../../../utils/constants/spacings'
 import { Container } from '../../layout/container/Container'
 import { PageRow } from '../../layout/page-row/PageRow'
 import { PureUnit } from '../../layout/pure-unit/PureUnit'

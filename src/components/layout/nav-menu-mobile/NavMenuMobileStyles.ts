@@ -1,6 +1,6 @@
 import { css } from 'styled-components'
-import { GREY3, TEXT1 } from '../../../utils/constants/Colors'
-import { SPACING_Y } from '../../../utils/constants/Spacings'
+import { GREY3, TEXT1 } from '../../../utils/constants/colors'
+import { SPACING_Y } from '../../../utils/constants/spacings'
 
 export const NavMenuMobileStyles = css`
   nav {

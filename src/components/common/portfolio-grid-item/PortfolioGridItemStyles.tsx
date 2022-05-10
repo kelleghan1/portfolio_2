@@ -1,8 +1,8 @@
 import { css } from 'styled-components'
-import { MEDIUM_MIN, SMALL_MAX, SMALL_MIN, XSMALL_MAX } from '../../../utils/constants/Breakpoints'
-import { GREY3 } from '../../../utils/constants/Colors'
-import { SPACING_Y_L } from '../../../utils/constants/Spacings'
-import { keyframeFadeIn, keyframeFadeOut } from '../../../utils/constants/Styles'
+import { MEDIUM_MIN, SMALL_MAX, SMALL_MIN, XSMALL_MAX } from '../../../utils/constants/breakpoints'
+import { GREY3 } from '../../../utils/constants/colors'
+import { SPACING_Y_L } from '../../../utils/constants/spacings'
+import { keyframeFadeIn, keyframeFadeOut } from '../../../utils/constants/styles'
 
 export const PortfolioGridItemStyles = css`
   box-sizing: border-box;

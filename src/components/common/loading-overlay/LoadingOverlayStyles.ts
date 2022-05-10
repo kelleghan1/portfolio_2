@@ -1,5 +1,5 @@
 import { css } from 'styled-components'
-import { keyframeFadeIn } from '../../../utils/constants/Styles'
+import { keyframeFadeIn } from '../../../utils/constants/styles'
 
 export const LoadingOverlayStyles = css`
   &.fade-in {

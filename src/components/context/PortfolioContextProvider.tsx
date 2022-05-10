@@ -13,8 +13,8 @@ import {
 } from '../../types/contextTypes'
 import { PortfolioItemType } from '../../types/dataTypes'
 import { HandleNavigationFunctionType, ImageLoadCallbackType } from '../../types/sharedTypes'
-import { kelleghanDesignLogo } from '../../utils/constants/ImageLinksCdn'
-import { portfolioPaths } from '../../utils/constants/Shared'
+import { kelleghanDesignLogo } from '../../utils/constants/imageLinksCdn'
+import { portfolioPaths } from '../../utils/constants/shared'
 import {
   preloadImagesSet,
   preloadImagesIndividual,
