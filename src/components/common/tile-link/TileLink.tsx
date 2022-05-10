@@ -1,0 +1,52 @@
+import React, { FunctionComponent, ReactElement } from 'react'
+import { PortfolioItemLinkType } from '../../../types/dataTypes'
+import { Spacer } from '../../layout/spacer/Spacer'
+import { LinkCustom } from '../link-custom/LinkCustom'
+import { LinkDelayed } from '../link-delayed/LinkDelayed'
+
+interface TileLinkProps extends PortfolioItemLinkType {
+  hasBottomSpacing: boolean
+}
+
+export const TileLink: FunctionComponent<TileLinkProps> = ({
+  url,
+  label,
+  isInternal = false,
+  hasBottomSpacing
+}) => {
+  const renderLink = (): ReactElement => {
+    if (isInternal) {
+      return (
+        <LinkDelayed
+          hasLinkStyling={true}
+          to={url}
+        >
+          { label }
+        </LinkDelayed>
+      )
+    }
+
+    return (
+      <LinkCustom
+        hasLinkStyling
+        isExternal
+        target='_blank'
+        to={url}
+      >
+        { label }
+      </LinkCustom>
+    )
+  }
+
+  return (
+    <Spacer
+      b={hasBottomSpacing ? 0 : 1}
+      key={url}
+      l={0}
+      r={0}
+      t={0}
+    >
+      { renderLink() }
+    </Spacer>
+  )
+}

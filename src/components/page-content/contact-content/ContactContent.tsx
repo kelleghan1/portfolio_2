@@ -47,8 +47,8 @@ const ContactContent: FunctionComponent = () => {
       <Spacer
         b={2.5}
         isFlex
-        l={3}
-        r={3}
+        l={2.5}
+        r={2.5}
         t={2.5}
       >
         <FlexWrapper flexColumn>
@@ -90,8 +90,8 @@ const ContactContent: FunctionComponent = () => {
       <Spacer
         b={2.5}
         isFlex
-        l={3}
-        r={3}
+        l={2.5}
+        r={2.5}
         t={2.5}
       >
         <FlexWrapper flexColumn>

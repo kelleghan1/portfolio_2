@@ -2,10 +2,9 @@ import React, { FunctionComponent, ReactElement } from 'react'
 import styled from 'styled-components'
 import { PortfolioItemLinkType } from '../../../types/dataTypes'
 import { Spacer } from '../../layout/spacer/Spacer'
-import { LinkCustom } from '../link-custom/LinkCustom'
-import { LinkDelayed } from '../link-delayed/LinkDelayed'
 import { TagH } from '../tag-h/TagH'
 import { TagP } from '../tag-p/TagP'
+import { TileLink } from '../tile-link/TileLink'
 import { ProjectDescriptionStyles } from './ProjectDescriptionStyles'
 
 const ProjectDescriptionStyled = styled.div`${ProjectDescriptionStyles}`
@@ -27,34 +26,6 @@ export const ProjectDescription: FunctionComponent<ProjectDescriptionProps> = ({
   productLinks,
   githubLinks
 }) => {
-  const renderLink = (
-    url: string,
-    label: string,
-    isInternal: boolean
-  ): ReactElement => {
-    if (isInternal) {
-      return (
-        <LinkDelayed
-          hasLinkStyling={true}
-          to={url}
-        >
-          { label }
-        </LinkDelayed>
-      )
-    }
-
-    return (
-      <LinkCustom
-        hasLinkStyling={true}
-        isExternal={true}
-        target='_blank'
-        to={url}
-      >
-        { label }
-      </LinkCustom>
-    )
-  }
-
   const renderLinks = (): ReactElement | null => {
     const linkItems = [
       ...(productLinks ?? []),
@@ -79,23 +50,13 @@ export const ProjectDescription: FunctionComponent<ProjectDescriptionProps> = ({
             },
             index
           ) => (
-            <Spacer
-              b={(index === linkItems.length - 1) ? 0 : 1}
+            <TileLink
+              hasBottomSpacing={!(index === linkItems.length - 1)}
+              isInternal={isInternal}
               key={url}
-              l={0}
-              r={0}
-              t={0}
-            >
-              <div className='link-item-wrapper'>
-                {
-                  renderLink(
-                    url,
-                    label,
-                    isInternal
-                  )
-                }
-              </div>
-            </Spacer>
+              label={label}
+              url={url}
+            />
           ))
         }
       </Spacer>
@@ -113,8 +74,8 @@ export const ProjectDescription: FunctionComponent<ProjectDescriptionProps> = ({
         <div className='description-wrapper'>
           <Spacer
             b={2.5}
-            l={3}
-            r={3}
+            l={2.5}
+            r={2.5}
             t={2.5}
           >
             <Spacer

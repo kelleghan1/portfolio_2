@@ -7,10 +7,6 @@ import {
 export const ProjectDescriptionStyles = css`
   .description-wrapper {
     background-color: #fff;
-    
-    .link-item-wrapper {
-      display: inline-block;
-    }
   }
 
   &.fade-in {
