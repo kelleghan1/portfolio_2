@@ -14,11 +14,11 @@ export const keyframeFadeOut = keyframes`
 `
 
 export const animationFadeIn = css`
-  animation: ${keyframeFadeIn} .3s forwards;
+  animation: ${keyframeFadeIn} .25s forwards;
   animation-timing-function: linear;
 `
 
 export const animationFadeOut = css`
-  animation: ${keyframeFadeOut} .25s forwards;
+  animation: ${keyframeFadeOut} .2s forwards;
   animation-timing-function: linear;
 `
