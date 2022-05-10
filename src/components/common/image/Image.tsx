@@ -7,7 +7,6 @@ const ImageStyled = styled.img`${ImageStyles}`
 interface ImageProps {
   src: string
   width?: string
-  height?: string
   onLoad?: ReactEventHandler
   altText: string
   aspectRatio?: string
@@ -16,7 +15,6 @@ interface ImageProps {
 export const Image: FunctionComponent<ImageProps> = ({
   src,
   width = '100%',
-  height,
   onLoad,
   altText,
   aspectRatio
@@ -24,9 +22,8 @@ export const Image: FunctionComponent<ImageProps> = ({
   <ImageStyled
     alt={altText}
     aspectRatio={aspectRatio}
-    height={height}
+    cssWidth={width}
     onLoad={onLoad}
     src={src}
-    width={width}
   />
 )

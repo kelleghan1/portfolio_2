@@ -108,6 +108,7 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
 
     setPortfolioMap(newPortfolioMap)
     setProjectIds(projectIds)
+    setIsLoading(false)
   }
 
   useEffect(

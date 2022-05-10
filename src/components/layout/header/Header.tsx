@@ -15,8 +15,8 @@ import { HeaderStyles } from './HeaderStyles'
 const HeaderStyled = styled.div`${HeaderStyles}`
 
 export const Header: FunctionComponent = () => {
-  const aspectRatio = deriveAspectRatioFromImageUrl(kelleghanDesignLogo)
   const { projectImagesPreloaded } = useContext(PortfolioContext)
+  const aspectRatio = deriveAspectRatioFromImageUrl(kelleghanDesignLogo)
 
   const renderHeaderLogo = (): ReactElement =>
     <div className='logo-wrapper'>
