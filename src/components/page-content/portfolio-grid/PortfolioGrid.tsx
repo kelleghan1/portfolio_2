@@ -12,7 +12,6 @@ import React,
 import { HandleEnterUpdateDelete } from 'flip-toolkit/lib/types'
 import { Flipper, Flipped } from 'react-flip-toolkit'
 import styled from 'styled-components'
-import { flipperSpringProp } from '../../../utils/constants/shared'
 import { LoadingOverlay } from '../../common/loading-overlay/LoadingOverlay'
 import { PortfolioGridItem } from '../../common/portfolio-grid-item/PortfolioGridItem'
 import { PortfolioContext } from '../../context/PortfolioContextProvider'
@@ -149,7 +148,10 @@ const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter }) => {
             <Flipper
               flipKey={flipKey}
               handleEnterUpdateDelete={handleEnterUpdateDeleteProp}
-              spring={flipperSpringProp}
+              spring={{
+                stiffness: 1190,
+                damping: 120
+              }}
             >
               <div ref={loadElement}>
                 <PortfolioGridStyled>

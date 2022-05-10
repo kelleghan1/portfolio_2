@@ -12,9 +12,12 @@ import {
   PortfolioMapType
 } from '../../types/contextTypes'
 import { PortfolioItemType } from '../../types/dataTypes'
-import { HandleNavigationFunctionType, ImageLoadCallbackType } from '../../types/sharedTypes'
+import {
+  HandleNavigationFunctionType,
+  ImageLoadCallbackType,
+  TrueMapType
+} from '../../types/sharedTypes'
 import { kelleghanDesignLogo } from '../../utils/constants/imageLinksCdn'
-import { portfolioPaths } from '../../utils/constants/shared'
 import {
   preloadImagesSet,
   preloadImagesIndividual,
@@ -43,6 +46,12 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
   const [ projectIds, setProjectIds ] = useState(intialPortfolioContextState.projectIds)
   const [ projectImagesPreloaded, setProjectImagesPreloaded ] = useState(intialPortfolioContextState.projectImagesPreloaded)
   const location = useLocation()
+
+  const portfolioPaths: TrueMapType = {
+    '/': true,
+    '/design': true,
+    '/development': true
+  }
 
   const getProjectPathId = (path: string): string => {
     const pathSplit = path.split('/')
