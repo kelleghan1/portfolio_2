@@ -25,7 +25,7 @@ export const Project: FunctionComponent = () => {
     isLoading
   } = useContext(PortfolioContext)
 
-  if (isLoading) return <LoadingOverlay />
+  if (isLoading) return null
 
   if (
     !portfolioMap[projectId] ||

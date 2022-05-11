@@ -35,13 +35,13 @@ export const ProjectDemo: FunctionComponent = () => {
 
   if (projectDemoMap[projectId] === undefined) {
     if (
-      !portfolioMap[projectId] ||
-      !projectIds.includes(projectId)
+      portfolioMap[projectId] &&
+      projectIds.includes(projectId)
     ) {
-      return <Redirect to='/' />
+      return <Redirect to={`/project/${projectId}`} />
     }
 
-    return <Redirect to={`/project/${projectId}`} />
+    return <Redirect to='/' />
   }
 
   return (

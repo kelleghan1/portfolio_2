@@ -27,7 +27,7 @@ import { LoadingOverlay } from '../common/loading-overlay/LoadingOverlay'
 
 const intialPortfolioContextState: PortfolioContextStateType = {
   areHomeImagesLoaded: false,
-  isLoading: false,
+  isLoading: true,
   isMobileNavOpen: false,
   isNavigating: false,
   portfolioMap: {},
