@@ -84,7 +84,7 @@ export const ProjectDescription: FunctionComponent<ProjectDescriptionProps> = ({
               r={0}
               t={0}
             >
-              <TagH size={2}>
+              <TagH size={1}>
                 { name }
               </TagH>
             </Spacer>
@@ -94,7 +94,10 @@ export const ProjectDescription: FunctionComponent<ProjectDescriptionProps> = ({
               r={0}
               t={0}
             >
-              <TagH size={4}>
+              <TagH
+                fontSize='16px'
+                size={2}
+              >
                 { products.join(' • ') }
               </TagH>
             </Spacer>

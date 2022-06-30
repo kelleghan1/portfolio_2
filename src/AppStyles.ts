@@ -7,8 +7,6 @@ import {
 } from './utils/constants/breakpoints'
 
 export const appStyles = css`
-  background-color: #f2f2f2;
-
   .scroll-spacer {
     float: left;
     min-height: 100vh;

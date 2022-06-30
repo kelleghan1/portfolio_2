@@ -18,48 +18,44 @@ interface TagHProps {
   size: SizeOptionsType
   margin?: string
   color?: string
+  fontSize?: string
 }
 
 export const TagH: FunctionComponent<TagHProps> = ({
-  size,
-  margin = '0',
   children,
-  color
+  color,
+  fontSize,
+  margin = '0',
+  size
 }) => {
+  const props = {
+    color,
+    margin,
+    fontSize
+  }
+
   switch (size) {
     case 4:
       return (
-        <H4TagStyled
-          color={color}
-          margin={margin}
-        >
+        <H4TagStyled {...props}>
           { children }
         </H4TagStyled>
       )
     case 3:
       return (
-        <H3TagStyled
-          color={color}
-          margin={margin}
-        >
+        <H3TagStyled {...props}>
           { children }
         </H3TagStyled>
       )
     case 2:
       return (
-        <H2TagStyled
-          color={color}
-          margin={margin}
-        >
+        <H2TagStyled {...props}>
           { children }
         </H2TagStyled>
       )
     case 1:
       return (
-        <H1TagStyled
-          color={color}
-          margin={margin}
-        >
+        <H1TagStyled {...props}>
           { children }
         </H1TagStyled>
       )

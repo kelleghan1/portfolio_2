@@ -29,7 +29,7 @@ const ContactContent: FunctionComponent = () => {
       target='_blank'
       to='https://github.com/kelleghan1/'
     >
-      here
+      Github
     </LinkCustom>
 
   const renderImageKitLink = (): ReactElement =>
@@ -43,7 +43,10 @@ const ContactContent: FunctionComponent = () => {
     </LinkCustom>
 
   const renderContact = (): ReactElement =>
-    <FlexWrapper backgroundColor='#fff'>
+    <FlexWrapper
+      backgroundColor='#fff'
+      hasShadow
+    >
       <Spacer
         b={2.5}
         isFlex
@@ -59,7 +62,7 @@ const ContactContent: FunctionComponent = () => {
               r={0}
               t={0}
             >
-              <TagH size={4}>
+              <TagH size={2}>
                 Contact
               </TagH>
             </Spacer>
@@ -70,7 +73,7 @@ const ContactContent: FunctionComponent = () => {
             >
               <TagP>
                 Like my work? I create websites, online storefronts, mobile apps, logos, print material, advertisements and more.
-                Connect with me on Github <span>{ renderGithubLink() }</span> or tell me about your project at:
+                Connect with me on <span>{ renderGithubLink() }</span> or tell me about your project at:
               </TagP>
             </Spacer>
           </div>
@@ -86,7 +89,10 @@ const ContactContent: FunctionComponent = () => {
     </FlexWrapper>
 
   const renderAbout = (): ReactElement =>
-    <FlexWrapper backgroundColor='#fff'>
+    <FlexWrapper
+      backgroundColor='#fff'
+      hasShadow
+    >
       <Spacer
         b={2.5}
         isFlex
@@ -102,7 +108,7 @@ const ContactContent: FunctionComponent = () => {
               r={0}
               t={0}
             >
-              <TagH size={4}>
+              <TagH size={2}>
                 About this website
               </TagH>
             </Spacer>

@@ -1,19 +1,19 @@
 import { css } from 'styled-components'
-import { GREY3, TEXT1 } from '../../../utils/constants/colors'
+import { TEXT1 } from '../../../utils/constants/colors'
 import { SPACING_Y } from '../../../utils/constants/spacings'
+import { boxShadowDark } from '../../../utils/constants/styles'
 
 export const NavMenuMobileStyles = css`
   nav {
+    ${boxShadowDark};
     position: absolute;
     right: -100px;
     opacity: 0;
     background-color: #fff;
     z-index: 1;
-    box-shadow: 0px 0px 10px ${GREY3};
     padding: ${SPACING_Y} 0px;
 
     &.open {
-      left: unset;
       right: 0px;
       opacity: 1;
     }

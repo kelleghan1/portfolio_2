@@ -31,7 +31,7 @@ export const ProjectImage: FunctionComponent<ProjectImagePropsType> = ({
         r={0}
         t={0}
       >
-        <div className={`fade-in relative-wrapper ${isNavigating ? 'fade-out' : ''}`}>
+        <div className={`shadow fade-in relative-wrapper ${isNavigating ? 'fade-out' : ''}`}>
           <div className={`image-wrapper ${isLoaded ? 'fade-in' : ''}`}>
             <Image
               altText={altText}

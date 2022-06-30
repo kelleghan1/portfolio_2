@@ -1,4 +1,5 @@
 import { css } from 'styled-components'
+import { boxShadow } from '../../../utils/constants/styles'
 
 interface FlexWrapperStylesPropsType {
   backgroundColor?: string
@@ -12,6 +13,10 @@ export const FlexWrapperStyles = css<FlexWrapperStylesPropsType>`
 
   &.flex-column {
     flex-direction: column;
+  }
+
+  &.shadow {
+    ${boxShadow}
   }
 
   ${renderBackgroundColor}

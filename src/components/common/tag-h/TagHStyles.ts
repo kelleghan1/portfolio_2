@@ -3,22 +3,21 @@ import { css } from 'styled-components'
 export interface TagHStylePropsType {
   margin?: string
   color?: string
+  fontSize?: string
 }
 
-const renderMargin = ({ margin }: TagHStylePropsType): string => {
-  if (margin) return `margin: ${margin};`
+const renderMargin = ({ margin }: TagHStylePropsType): string =>
+  margin ? `margin: ${margin};` : ''
 
-  return ''
-}
+const renderColor = ({ color }: TagHStylePropsType): string =>
+  color ? `color: ${color};` : ''
 
-const renderColor = ({ color }: TagHStylePropsType): string => {
-  if (color) return `color: ${color};`
-
-  return ''
-}
+const renderFontSize = ({ fontSize }: TagHStylePropsType): string =>
+  fontSize ? `font-size: ${fontSize};` : ''
 
 export const TagHStyles = css<TagHStylePropsType>`
   line-height: 1em;
+  ${renderFontSize}
   ${renderMargin}
   ${renderColor}
 `

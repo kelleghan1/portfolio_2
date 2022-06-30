@@ -1,10 +1,11 @@
 import { css } from 'styled-components'
 import { MEDIUM_MIN, SMALL_MAX, SMALL_MIN, XSMALL_MAX } from '../../../utils/constants/breakpoints'
 import { GREY3 } from '../../../utils/constants/colors'
-import { SPACING_Y_L } from '../../../utils/constants/spacings'
+import { SPACING_Y_NUM } from '../../../utils/constants/spacings'
 import {
   animationFadeIn,
-  animationFadeOut
+  animationFadeOut,
+  boxShadow
 } from '../../../utils/constants/styles'
 
 export const PortfolioGridItemStyles = css`
@@ -19,6 +20,7 @@ export const PortfolioGridItemStyles = css`
   }
 
   .image-wrapper {
+    ${boxShadow}
     cursor: pointer;
   }
 
@@ -43,7 +45,7 @@ export const PortfolioGridItemStyles = css`
   }
 
   @media screen and (max-width: ${XSMALL_MAX}) {
-    padding: 0px 0px ${SPACING_Y_L} 0px;
+    padding: 0px 0px ${2.5 * SPACING_Y_NUM}px 0px;
     flex: 0 0 100%;
   }
 `

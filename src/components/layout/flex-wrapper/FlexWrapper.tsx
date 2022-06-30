@@ -4,6 +4,7 @@ import { FlexWrapperStyles } from './FlexWrapperStyles'
 
 interface FlexWrapperPropsType {
   flexColumn?: boolean
+  hasShadow?: boolean
   backgroundColor?: string
 }
 
@@ -12,9 +13,12 @@ const FlexWrapperStyled = styled.div`${FlexWrapperStyles}`
 export const FlexWrapper: FunctionComponent<FlexWrapperPropsType> = ({
   backgroundColor,
   children,
-  flexColumn
+  flexColumn,
+  hasShadow
 }) => {
-  const className = flexColumn ? 'flex-column' : ''
+  let className = flexColumn ? 'flex-column' : ''
+
+  if (hasShadow) className += ' shadow'
 
   return (
     <FlexWrapperStyled

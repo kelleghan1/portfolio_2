@@ -4,11 +4,8 @@ export interface ColorType {
   color?: string
 }
 
-const renderColor = ({ color }: ColorType): string => {
-  if (color) return `color: ${color};`
-
-  return ''
-}
+const renderColor = ({ color }: ColorType): string =>
+  color ? `color: ${color};` : ''
 
 export const TagPStyles = css`
   line-height: 1.4em;

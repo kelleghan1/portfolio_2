@@ -5,11 +5,8 @@ interface ImageStylesPropsType {
   cssWidth: string
 }
 
-const renderAspectRatio = ({ aspectRatio }: ImageStylesPropsType): string => {
-  if (aspectRatio) return `aspect-ratio: ${aspectRatio};`
-
-  return ''
-}
+const renderAspectRatio = ({ aspectRatio }: ImageStylesPropsType): string =>
+  aspectRatio ? `aspect-ratio: ${aspectRatio};` : ''
 
 const renderCssWidth = ({ cssWidth }: ImageStylesPropsType): string => `width: ${cssWidth};`
 
