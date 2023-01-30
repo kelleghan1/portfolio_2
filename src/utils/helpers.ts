@@ -1,3 +1,4 @@
+import { Link } from '../types/generatedGQLTypes'
 import {
   ImageLoadCallbackType,
   TrueMapType
@@ -19,11 +20,11 @@ export const trueVal = (value: string | number | undefined | null): boolean => {
 }
 
 export const preloadImagesIndividual = (
-  imageUrls: string[],
+  images: Array<Pick<Link, 'url'>>,
   imageLoadCallback: ImageLoadCallbackType
 ): void => {
-  for (let i = 0; i < imageUrls.length; i++) {
-    const imageUrl = imageUrls[i]
+  for (let i = 0; i < images.length; i++) {
+    const imageUrl = images[i].url
     const imageObject = new Image()
 
     imageObject.onload = () => { imageLoadCallback(imageUrl) }
@@ -32,16 +33,16 @@ export const preloadImagesIndividual = (
   }
 }
 
-export const preloadImagesSet = async (imageUrls: string[]): Promise<TrueMapType> => {
+export const preloadImagesSet = async (images: Array<Pick<Link, 'url'>>): Promise<TrueMapType> => {
   const imagesLoadedMap: TrueMapType = {}
 
-  await Promise.all(imageUrls.map(async imageUrl => {
-    imagesLoadedMap[imageUrl] = await new Promise(resolve => {
+  await Promise.all(images.map(async ({ url }) => {
+    imagesLoadedMap[url] = await new Promise(resolve => {
       const imageObject = new Image()
 
       imageObject.onload = () => { resolve(true) }
       imageObject.onerror = () => { resolve(true) }
-      imageObject.src = imageUrl
+      imageObject.src = url
     })
   }))
 

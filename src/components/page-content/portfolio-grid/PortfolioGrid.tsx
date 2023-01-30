@@ -98,7 +98,7 @@ const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter }) => {
         !portfolioItem ||
         (
           filter &&
-          !portfolioItem?.categories?.includes(filter)
+          !portfolioItem?.categories?.find(category => category.name === filter)
         )
       ) continue
 
@@ -115,7 +115,7 @@ const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter }) => {
           onExit={handleExit}
         >
           <PortfolioGridItem
-            homeImage={homeImage}
+            homeImage={homeImage.url}
             name={name}
             projectId={projectId}
           />

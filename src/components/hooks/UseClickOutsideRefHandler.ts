@@ -8,8 +8,7 @@ export const UseClickOutsideRefHandler = (
     () => {
       const handleClickOutside = (event: MouseEvent): void => {
         if (
-          ref?.current &&
-          event?.target instanceof HTMLElement &&
+          !(event?.target instanceof HTMLElement) ||
           !ref.current?.contains(event.target)
         ) {
           outsideRefCallback()

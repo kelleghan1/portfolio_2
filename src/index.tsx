@@ -1,12 +1,20 @@
 import React from 'react'
+import { ApolloClient, InMemoryCache, ApolloProvider, NormalizedCacheObject } from '@apollo/client'
 import ReactDOM from 'react-dom'
 import './index.scss'
 import { App } from './App'
 import reportWebVitals from './reportWebVitals'
 
+const apolloCLient = new ApolloClient<NormalizedCacheObject>({
+  uri: 'http://localhost:4000/',
+  cache: new InMemoryCache()
+})
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ApolloProvider client={apolloCLient}>
+      <App />
+    </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')
 )

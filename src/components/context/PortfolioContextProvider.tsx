@@ -4,14 +4,15 @@ import React,
   useEffect,
   useState
 } from 'react'
+import { useApolloClient } from '@apollo/client'
 import { useLocation } from 'react-router-dom'
-import { getPortfolioData } from '../../services/getRequests'
+import { getPortfolioItems } from '../../services/graphQL'
 import {
   PortfolioContextStateType,
   PortfolioContextValueType,
   PortfolioMapType
 } from '../../types/contextTypes'
-import { PortfolioItemType } from '../../types/dataTypes'
+import { PortfolioItem } from '../../types/generatedGQLTypes'
 import {
   HandleNavigationFunctionType,
   ImageLoadCallbackType,
@@ -38,6 +39,7 @@ const intialPortfolioContextState: PortfolioContextStateType = {
 const PortfolioContext = React.createContext<PortfolioContextStateType>(intialPortfolioContextState)
 
 const PortfolioContextProvider: FunctionComponent = ({ children }) => {
+  const apolloClient = useApolloClient()
   const [ areHomeImagesLoaded, setAreHomeImagesLoaded ] = useState(intialPortfolioContextState.areHomeImagesLoaded)
   const [ isLoading, setIsLoading ] = useState(intialPortfolioContextState.isLoading)
   const [ isMobileNavOpen, setIsMobileNavOpen ] = useState(intialPortfolioContextState.isMobileNavOpen)
@@ -56,11 +58,7 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
   const getProjectPathId = (path: string): string => {
     const pathSplit = path.split('/')
 
-    if (pathSplit[1] === 'project') {
-      return pathSplit[2] || ''
-    }
-
-    return ''
+    return pathSplit[1] === 'project' ? pathSplit[2] || '' : ''
   }
 
   const imageLoadCallback: ImageLoadCallbackType = imageUrl => {
@@ -68,24 +66,25 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
   }
 
   const getData = async (): Promise<void> => {
-    const portfolioDataResponse = await getPortfolioData()
-    const portfolioItems: PortfolioItemType[] = portfolioDataResponse?.data?.items
+    const portfolioDataResponse = await getPortfolioItems(apolloClient)()
+
+    const portfolioItems: PortfolioItem[] = portfolioDataResponse?.data?.portfolioItems ?? []
     const projectIds: string[] = []
     const newPortfolioMap: PortfolioMapType = {}
     const currentPathName = location?.pathname
     const homeImagesToPreload = []
-    let individualImagesToPreload = [ kelleghanDesignLogo ]
+    let individualImagesToPreload = [{ url: kelleghanDesignLogo }]
 
-    for (const { id, homeImage, ...rest } of portfolioItems) {
-      if (id && homeImage) {
-        projectIds.push(id)
+    for (const { projectId, homeImage, ...rest } of portfolioItems) {
+      if (projectId && homeImage) {
+        projectIds.push(projectId)
         homeImagesToPreload.push(homeImage)
-        newPortfolioMap[id] = { id, homeImage, ...rest }
+        newPortfolioMap[projectId] = { projectId, homeImage, ...rest }
       }
     }
 
     const projectId = getProjectPathId(currentPathName)
-    const portfolioItem = newPortfolioMap[projectId]
+    const portfolioItem = projectId && newPortfolioMap[projectId]
 
     if (portfolioItem) {
       individualImagesToPreload = [

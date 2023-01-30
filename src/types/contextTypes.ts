@@ -2,14 +2,14 @@ import {
   Dispatch,
   SetStateAction
 } from 'react'
-import { PortfolioItemType } from './dataTypes'
+import { PortfolioItem } from './generatedGQLTypes'
 import {
   HandleNavigationFunctionType,
   TrueMapType
 } from './sharedTypes'
 
 export interface PortfolioMapType {
-  [key: string]: PortfolioItemType
+  [key: string]: PortfolioItem
 }
 
 export interface PortfolioContextStateType {

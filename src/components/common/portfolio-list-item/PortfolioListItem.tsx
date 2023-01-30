@@ -19,7 +19,7 @@ const PortfolioListItemStyled = styled.div`${PortfolioListItemStyles}`
 interface PortfolioListItemPropsType {
   description: string
   homeImage: string
-  id: string
+  projectId: string
   name: string
   rowColor: string
   textColor?: string
@@ -79,13 +79,13 @@ export const PortfolioListItem: FunctionComponent<PortfolioListItemPropsType> = 
   name,
   description,
   homeImage,
-  id,
+  projectId,
   rowColor,
   products,
   textColor
 }) => {
   return (
-    <PageRow key={id}>
+    <PageRow key={projectId}>
       <Container>
         <Spacer
           l={3}

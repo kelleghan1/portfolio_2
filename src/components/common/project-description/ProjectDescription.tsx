@@ -1,6 +1,6 @@
 import React, { FunctionComponent, ReactElement } from 'react'
 import styled from 'styled-components'
-import { PortfolioItemLinkType } from '../../../types/dataTypes'
+import { Link } from '../../../types/generatedGQLTypes'
 import { Spacer } from '../../layout/spacer/Spacer'
 import { TagH } from '../tag-h/TagH'
 import { TagP } from '../tag-p/TagP'
@@ -14,8 +14,8 @@ interface ProjectDescriptionProps {
   name: string
   products: string[]
   description: string
-  productLinks: PortfolioItemLinkType[]
-  githubLinks: PortfolioItemLinkType[]
+  productLinks: Link[]
+  githubLinks: Link[]
 }
 
 export const ProjectDescription: FunctionComponent<ProjectDescriptionProps> = ({

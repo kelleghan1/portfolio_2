@@ -1,10 +1,10 @@
 import React, { FunctionComponent, ReactElement } from 'react'
-import { PortfolioItemLinkType } from '../../../types/dataTypes'
+import { Link } from '../../../types/generatedGQLTypes'
 import { Spacer } from '../../layout/spacer/Spacer'
 import { LinkCustom } from '../link-custom/LinkCustom'
 import { LinkDelayed } from '../link-delayed/LinkDelayed'
 
-interface TileLinkProps extends PortfolioItemLinkType {
+interface TileLinkProps extends Omit<Link, 'id' | 'type'> {
   hasBottomSpacing: boolean
 }
 
