@@ -7,6 +7,10 @@ export const NavMenuItemStyles = css`
   color: ${TEXT1};
   border-bottom: 3px solid transparent;
 
+  &:hover {
+    border-bottom: 2px solid ${TEXT1};
+  }
+
   &.selected {
     border-bottom: 3px solid ${TEXT1};
   }
