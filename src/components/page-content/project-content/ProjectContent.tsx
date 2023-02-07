@@ -32,7 +32,7 @@ const ProjectContent: FunctionComponent<ProjectContentProps> = ({ projectId }) =
 
   const {
     description,
-    images,
+    projectImages,
     name,
     primaryImage,
     products,
@@ -44,7 +44,7 @@ const ProjectContent: FunctionComponent<ProjectContentProps> = ({ projectId }) =
     const column1 = [
       renderProjectImage(
         `${name} primary image`,
-        primaryImage.url
+        primaryImage.imageUrl
       )
     ]
 
@@ -57,22 +57,22 @@ const ProjectContent: FunctionComponent<ProjectContentProps> = ({ projectId }) =
       </div>
     ]
 
-    images.forEach((
-      { url },
+    projectImages.forEach((
+      { imageUrl },
       index
     ) => {
       if (index % 2 === 0) {
         column2.push(
           renderProjectImage(
             `${name} image ${index}`,
-            url
+            imageUrl
           )
         )
       } else {
         column1.push(
           renderProjectImage(
             `${name} image ${index}`,
-            url
+            imageUrl
           )
         )
       }
@@ -91,7 +91,7 @@ const ProjectContent: FunctionComponent<ProjectContentProps> = ({ projectId }) =
           </Spacer>
         </div>
         {
-          [ ...images, primaryImage ].length < 2
+          [ ...projectImages, primaryImage ].length < 2
             ? renderSingleImageContent(
               column1,
               column2
@@ -187,17 +187,17 @@ const ProjectContent: FunctionComponent<ProjectContentProps> = ({ projectId }) =
         {
           renderProjectImage(
             `${name} primary image`,
-            primaryImage.url
+            primaryImage.imageUrl
           )
         }
         {
-          images.map((
-            { url },
+          projectImages.map((
+            { imageUrl },
             index
           ) => (
             renderProjectImage(
               `${name} image ${index}`,
-              url
+              imageUrl
             )
           ))
         }

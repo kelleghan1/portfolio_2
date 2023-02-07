@@ -115,7 +115,7 @@ const PortfolioGrid: FunctionComponent<PortfolioGridProps> = ({ filter }) => {
           onExit={handleExit}
         >
           <PortfolioGridItem
-            homeImage={homeImage.url}
+            homeImage={homeImage.imageUrl}
             name={name}
             projectId={projectId}
           />

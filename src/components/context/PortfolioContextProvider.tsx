@@ -73,7 +73,7 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
     const newPortfolioMap: PortfolioMapType = {}
     const currentPathName = location?.pathname
     const homeImagesToPreload = []
-    let individualImagesToPreload = [{ url: kelleghanDesignLogo }]
+    let individualImagesToPreload = [{ imageUrl: kelleghanDesignLogo }]
 
     for (const { projectId, homeImage, ...rest } of portfolioItems) {
       if (projectId && homeImage) {
@@ -90,7 +90,7 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
       individualImagesToPreload = [
         portfolioItem.primaryImage,
         ...individualImagesToPreload,
-        ...portfolioItem.images
+        ...portfolioItem.projectImages
       ]
     }
 
@@ -133,7 +133,7 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
         void preloadImagesIndividual(
           [
             portfolioItem.primaryImage,
-            ...portfolioItem.images
+            ...portfolioItem.projectImages
           ],
           imageLoadCallback
         )

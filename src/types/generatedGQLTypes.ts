@@ -18,12 +18,6 @@ export interface Category {
   name: Scalars['String']
 }
 
-export interface Image {
-  __typename?: 'Image'
-  id: Scalars['Int']
-  url: Scalars['String']
-}
-
 export interface Link {
   __typename?: 'Link'
   id: Scalars['Int']
@@ -44,15 +38,15 @@ export interface PortfolioItem {
   categories: Category[]
   description: Scalars['String']
   githubLinks?: Maybe<Link[]>
-  homeImage: Image
+  homeImage: ProjectImage
   id: Scalars['Int']
-  images: Image[]
   links: Link[]
   name: Scalars['String']
-  primaryImage: Image
+  primaryImage: ProjectImage
   productLinks?: Maybe<Link[]>
   products: Product[]
   projectId: Scalars['String']
+  projectImages: ProjectImage[]
 }
 
 export interface Product {
@@ -61,12 +55,18 @@ export interface Product {
   name: Scalars['String']
 }
 
+export interface ProjectImage {
+  __typename?: 'ProjectImage'
+  id: Scalars['Int']
+  imageUrl: Scalars['String']
+}
+
 export interface Query {
   __typename?: 'Query'
   categories: Category[]
-  images: Image[]
   linkTypes: LinkType[]
   links: Link[]
   portfolioItems: PortfolioItem[]
   products: Product[]
+  projectImages: ProjectImage[]
 }

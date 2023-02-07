@@ -24,15 +24,15 @@ export const getPortfolioItems = (graphQLClient: ApolloClient<unknown>) =>
               name
             }
             primaryImage {
-              url
+              imageUrl
             }
             name
-            images {
-              url
+            projectImages {
+              imageUrl
             }
             projectId
             homeImage {
-              url
+              imageUrl
             }
             description
           }
