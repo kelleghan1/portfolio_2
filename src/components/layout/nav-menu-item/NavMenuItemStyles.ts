@@ -1,5 +1,5 @@
 import { css } from 'styled-components'
-import { TEXT1 } from '../../../utils/constants/colors'
+import { GREY5, TEXT1 } from '../../../utils/constants/colors'
 
 export const NavMenuItemStyles = css`
   display: inline-block;
@@ -8,7 +8,7 @@ export const NavMenuItemStyles = css`
   border-bottom: 3px solid transparent;
 
   &:hover {
-    border-bottom: 2px solid ${TEXT1};
+    border-bottom: 3px solid ${GREY5};
   }
 
   &.selected {

@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  portfolio-site:
+    container_name: portfolio-site-c
+    image: portfolio-site-i
+    build:
+      context: .
+    ports:
+      - 3000:80

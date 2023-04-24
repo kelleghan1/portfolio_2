@@ -58,7 +58,7 @@ export const HeaderStyles = css`
 
     &.mobile-header-content {
       ${boxShadowDark};
-      overflow-x: clip;
+      overflow: visible;
       background-color: #fff;
       display: block;
       left: 0px;
