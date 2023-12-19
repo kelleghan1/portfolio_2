@@ -67,7 +67,6 @@ const PortfolioContextProvider: FunctionComponent = ({ children }) => {
 
   const getData = async (): Promise<void> => {
     const portfolioDataResponse = await getPortfolioItems(apolloClient)()
-
     const portfolioItems: PortfolioItem[] = portfolioDataResponse?.data?.portfolioItems ?? []
     const projectIds: string[] = []
     const newPortfolioMap: PortfolioMapType = {}

@@ -1,6 +1,6 @@
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
 
-module.exports = function override(config, env) {
+module.exports = function override(config) {
   if (!config.plugins) {
     config.plugins = [];
   }
@@ -9,7 +9,7 @@ module.exports = function override(config, env) {
     config.module.rules = [];
   }
 
-  config.module.rules.push(  {
+  config.module.rules.push({
     test: /\.(jpe?g|png|webp|avif|tiff)$/i,
     type: 'asset',
     generator: {
