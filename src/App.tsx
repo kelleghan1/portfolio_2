@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 import { appStyles } from './AppStyles'
+import { ModalOverlay } from './components/common/modal-overlay/ModalOverlay'
 import { PortfolioContextProvider } from './components/context/PortfolioContextProvider'
 import { Header } from './components/layout/header/Header'
 import { Contact } from './routes/Contact'
@@ -14,6 +15,7 @@ const AppStyled = styled.div`${appStyles}`
 export const App: FunctionComponent = () => {
   return (
     <AppStyled>
+      <ModalOverlay />
       <BrowserRouter>
         <PortfolioContextProvider>
           <Header />
