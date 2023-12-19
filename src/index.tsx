@@ -6,7 +6,7 @@ import { App } from './App'
 import reportWebVitals from './reportWebVitals'
 
 const apolloCLient = new ApolloClient<NormalizedCacheObject>({
-  uri: 'http://localhost:4000/',
+  uri: 'https://api.kelldev.design/',
   cache: new InMemoryCache()
 })
 

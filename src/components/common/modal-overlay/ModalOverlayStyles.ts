@@ -7,7 +7,7 @@ export const ModalOverlayStyles = css`
     ${animationFadeIn}
   }
 
-  z-index: 1;
+  z-index: 2;
   position: fixed;
   left: 0;
   right: 0;
